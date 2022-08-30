@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "a88c6e17-ba46-4922-9ee3-cef1c0ff3dd9",
+		"name": "XX_WEB_KLINIK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nama_lengkap\" : \"Kurniawan Ronaldi Purnama\",\r\n    \"no_telp\":\"085333260558\",\r\n    \"username\":\"kurniawan\",\r\n    \"email\":\"kurniawanronaldi@gmail.com\",\r\n    \"password\":\"kurniawan123\",\r\n    \"password_confirmation\":\"kurniawan123\",\r\n    \"roles_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3300/api/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"kurniawan\",\r\n    \"password\":\"kurniawan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3300/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
