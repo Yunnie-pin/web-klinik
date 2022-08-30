@@ -43,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"kurniawan\",\r\n    \"password\":\"kurniawan123\"\r\n}",
+					"raw": "{\r\n    \"email\":\"kurniawanronaldi@gmail.com\",\r\n    \"password\":\"kurniawan123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
