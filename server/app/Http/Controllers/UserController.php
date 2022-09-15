@@ -54,8 +54,12 @@ class UserController extends Controller
             'no_telp' => $request->no_telp,
             'roles_id' => $request->roles_id,
         ];
-        $user = User::create($data);
-        return new PostResource(true, "User berhasil teregistrasi", $user);
+        try {
+            $user = User::create($data);
+            return new PostResource(true, "User berhasil teregistrasi", $user);
+        } catch (\Throwable $th) {
+            return new PostResource(false, $th->getMessage());
+        }
     }
 
     public function login(Request $request)

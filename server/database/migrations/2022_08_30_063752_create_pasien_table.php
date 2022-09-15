@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('pasien', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('nama',128);
-        //     $table->date('tanggal_lahir');
-        //     $table->string('no_identitas',24)->unique();
-        //     $table->string('bpjs',24)->unique();
-        //     $table->string('no_telp',13);
-        //     $table->text('alamat');
-        //     $table->timestamps();
-        // });
+        Schema::create('pasien', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama', 128);
+            $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->string('no_identitas', 24)->unique();
+            $table->string('bpjs', 24)->unique();
+            $table->string('no_telp', 13);
+            $table->text('alamat');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('pasien');
+        Schema::dropIfExists('pasien');
     }
 };

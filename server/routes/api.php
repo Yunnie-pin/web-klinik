@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PasienController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,14 @@ Route::controller(UserController::class)->group(function () {
     Route::prefix('/user')->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
         });
+    });
+});
+
+Route::controller(PasienController::class)->group(function () {
+    Route::prefix('/pasien')->group(function () {
+        Route::get('/', 'getPasien');
+        Route::get('/{id}', 'getPasien');
+        Route::post('/', 'addPasien');
+        Route::delete('/', 'deletePasien');
     });
 });
