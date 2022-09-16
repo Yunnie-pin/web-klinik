@@ -4,6 +4,7 @@ use App\Http\Controllers\BidangPemeriksaanController;
 use App\Http\Controllers\MetodePemeriksaanController;
 use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,16 @@ Route::controller(UserController::class)->group(function () {
     Route::prefix('/user')->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
         });
+    });
+});
+
+Route::controller(RolesController::class)->group(function () {
+    Route::prefix('/roles')->group(function () {
+        Route::get('/', 'getRoles');
+        Route::get('/{id}', 'getRoles');
+        Route::post('/', 'addRoles');
+        Route::put('/', 'updateRoles');
+        Route::delete('/', 'deleteRoles');
     });
 });
 

@@ -53,9 +53,9 @@ class MetodePemeriksaanController extends Controller
             ];
             $metode = MetodePemeriksaan::where('id', $request->id_metode)->first();
             $metode->update($data);
-            return new PostResource(true, "Bidang berhasil diubah", $metode);
+            return new PostResource(true, "metode berhasil diubah", $metode);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Bidang gagal diubah", $th->getMessage());
+            return new PostResource(false, "metode gagal diubah", $th->getMessage());
         }
     }
     public function deleteMetodePemeriksaan(Request $request)
