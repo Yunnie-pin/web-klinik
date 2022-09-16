@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('status', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('status');
-        //     $table->timestamps();
-        // });
+        Schema::create('status', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('status');
+        Schema::dropIfExists('status');
     }
 };

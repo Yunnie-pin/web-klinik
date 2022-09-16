@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RolesSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +16,10 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['Super Admin', 'Administrasi', 'Laborat', 'Poli'];
-        foreach ($data as $data) {
-            DB::table('roles')->insert([
-                'name' => $data,
+        $status = ['belum dilakukan', 'proses', 'selesai'];
+        foreach ($status as $d) {
+            DB::table('status')->insert([
+                'name' => $d,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);

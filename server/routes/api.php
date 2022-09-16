@@ -5,6 +5,7 @@ use App\Http\Controllers\MetodePemeriksaanController;
 use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ValidatorPemeriksaanController;
 use Illuminate\Http\Request;
@@ -93,5 +94,15 @@ Route::controller(ValidatorPemeriksaanController::class)->group(function () {
         Route::post('/', 'addValidatorPemeriksaan');
         Route::put('/', 'updateValidatorPemeriksaan');
         Route::delete('/', 'deleteValidatorPemeriksaan');
+    });
+});
+
+Route::controller(StatusController::class)->group(function () {
+    Route::prefix('/status')->group(function () {
+        Route::get('/', 'getStatus');
+        Route::get('/{id}', 'getStatus');
+        Route::post('/', 'addStatus');
+        Route::put('/', 'updateStatus');
+        Route::delete('/', 'deleteStatus');
     });
 });
