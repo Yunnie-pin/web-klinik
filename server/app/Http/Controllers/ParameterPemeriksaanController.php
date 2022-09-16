@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
+use App\Models\BidangPemeriksaan;
+use App\Models\MetodePemeriksaan;
 use App\Models\ParameterPemeriksaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,6 +36,14 @@ class ParameterPemeriksaanController extends Controller
                 $validation = Validator::make($request->all(), $rules);
                 if ($validation->fails()) {
                     return new PostResource(false, "parameter gagal ditambahkan", $validation->errors()->all());
+                }
+                $bidang = BidangPemeriksaan::where('id', $request->bidang_id)->first();
+                if (!$bidang) {
+                    return new PostResource(false, "Bidang Pemeriksaan tidak ditemukan");
+                }
+                $metode = MetodePemeriksaan::where('id', $request->metode_id)->first();
+                if (!$metode) {
+                    return new PostResource(false, "Metode Pemeriksaan tidak ditemukan");
                 }
                 $data = [
                     'bidang_id' => $request->bidang_id,

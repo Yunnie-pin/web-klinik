@@ -4,6 +4,7 @@ use App\Http\Controllers\BidangPemeriksaanController;
 use App\Http\Controllers\MetodePemeriksaanController;
 use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
@@ -104,5 +105,15 @@ Route::controller(StatusController::class)->group(function () {
         Route::post('/', 'addStatus');
         Route::put('/', 'updateStatus');
         Route::delete('/', 'deleteStatus');
+    });
+});
+
+Route::controller(PemeriksaanController::class)->group(function () {
+    Route::prefix('/pemeriksaan')->group(function () {
+        Route::get('/', 'getPemeriksaan');
+        Route::get('/{id}', 'getPemeriksaan');
+        Route::post('/', 'addPemeriksaan');
+        Route::put('/', 'updatePemeriksaan');
+        Route::delete('/', 'deletePemeriksaan');
     });
 });
