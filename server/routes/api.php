@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BidangPemeriksaanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/user/reg', function () {
-    return '';
-});
+// Route::get('/user/reg', function () {
+//     return '';
+// });
 
 Route::controller(UserController::class)->group(function () {
     Route::post('/register', 'register');
@@ -33,7 +34,17 @@ Route::controller(PasienController::class)->group(function () {
     Route::prefix('/pasien')->group(function () {
         Route::get('/', 'getPasien');
         Route::get('/{id}', 'getPasien');
-        Route::post('/', 'addPasien');
+        Route::post('/', 'addPasien'); // bila ada request id_pasien maka row akan diupdate
         Route::delete('/', 'deletePasien');
+    });
+});
+
+
+Route::controller(BidangPemeriksaanController::class)->group(function () {
+    Route::prefix('/bidang-pemeriksaan')->group(function () {
+        Route::get('/', 'getBidangPemeriksaan');
+        Route::get('/{id}', 'getBidangPemeriksaan');
+        Route::post('/', 'addBidangPemeriksaan');
+        Route::delete('/', 'deleteBidangPemeriksaan');
     });
 });

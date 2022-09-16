@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('bidang_pemeriksaan', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('bidang');
-        //     $table->timestamps();
-        // });
+        Schema::create('bidang_pemeriksaan', function (Blueprint $table) {
+            $table->id();
+            $table->string('bidang');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('bidang_pemeriksaan');
+        Schema::dropIfExists('bidang_pemeriksaan');
     }
 };

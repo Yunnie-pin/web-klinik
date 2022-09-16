@@ -5,37 +5,49 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PostResource;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PasienController extends Controller
 {
     public function getPasien($id = null)
     {
         try {
-
             if (isset($id)) {
                 $pasien = Pasien::where('id', $id)->first();
-                return new PostResource(true, "Pasien Berhasil Ditambahkan", $pasien);
+                return new PostResource(true, "data Pasien Berhasil ditemukan", $pasien);
             } else {
-                return new PostResource(true, "Pasien Berhasil Ditambahkan", Pasien::all());
+                return new PostResource(true, "data Pasien Berhasil ditemukan", Pasien::all());
             }
         } catch (\Throwable $th) {
-            return new PostResource(false, "Pasien Gagal Ditambahkan", $th->getMessage());
+            return new PostResource(false, "data pasien tidak ada", $th->getMessage());
         }
     }
     public function addPasien(Request $request)
     {
         try {
-            $rules = [
-                'nama' => 'required|min:2',
-                'tanggal_lahir' => 'required|date',
-                'no_identitas' => 'required',
-                // 'bpjs' => '',
-                'alamat' => 'required',
-                'no_telp' => 'required|max:13'
-            ];
             if (isset($request->id_pasien)) {
                 return $this->updatePasien($request);
             } else {
+                $rules = [
+                    'nama' => 'required|min:2',
+                    'tanggal_lahir' => 'required|date',
+                    'no_identitas' => 'required',
+                    // 'bpjs' => '',
+                    'alamat' => 'required',
+                    'no_telp' => 'required|max:13'
+                ];
+                $messages = [
+                    'nama.required' => 'nama tidak boleh kosong',
+                    'tanggal_lahir.required' => 'tanggal lahir tidak boleh kosong',
+                    'nama.min' => 'nama terlalu pendek',
+                    'no_identitas.required' => 'no identitas tidak boleh kosong',
+                    'alamat.required' => 'alamat tidak boleh kosong',
+                    'no_telp.required' => 'no_telepon tidak boleh kosong'
+                ];
+                $validator = Validator::make($request->all(), $rules, $messages);
+                if ($validator->fails()) {
+                    return new PostResource(false, $validator->errors()->all());
+                }
                 $data = [
                     'nama' => $request->nama,
                     'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
