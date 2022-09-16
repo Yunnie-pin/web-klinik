@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('metode', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('nama');
-        //     $table->timestamps();
-        // });
+        Schema::create('metode_pemeriksaan', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('metode');
+        Schema::dropIfExists('metode_pemeriksaan');
     }
 };

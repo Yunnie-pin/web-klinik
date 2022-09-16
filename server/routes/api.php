@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BidangPemeriksaanController;
+use App\Http\Controllers\MetodePemeriksaanController;
+use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -34,7 +36,8 @@ Route::controller(PasienController::class)->group(function () {
     Route::prefix('/pasien')->group(function () {
         Route::get('/', 'getPasien');
         Route::get('/{id}', 'getPasien');
-        Route::post('/', 'addPasien'); // bila ada request id_pasien maka row akan diupdate
+        Route::post('/', 'addPasien');
+        Route::put('/', 'updatePasien');
         Route::delete('/', 'deletePasien');
     });
 });
@@ -45,6 +48,28 @@ Route::controller(BidangPemeriksaanController::class)->group(function () {
         Route::get('/', 'getBidangPemeriksaan');
         Route::get('/{id}', 'getBidangPemeriksaan');
         Route::post('/', 'addBidangPemeriksaan');
+        Route::put('/', 'updateBidangPemeriksaan');
         Route::delete('/', 'deleteBidangPemeriksaan');
+    });
+});
+
+
+Route::controller(MetodePemeriksaanController::class)->group(function () {
+    Route::prefix('/metode-pemeriksaan')->group(function () {
+        Route::get('/', 'getMetodePemeriksaan');
+        Route::get('/{id}', 'getMetodePemeriksaan');
+        Route::post('/', 'addMetodePemeriksaan');
+        Route::put('/', 'updateMetodePemeriksaan');
+        Route::delete('/', 'deleteMetodePemeriksaan');
+    });
+});
+
+Route::controller(ParameterPemeriksaanController::class)->group(function () {
+    Route::prefix('/parameter-pemeriksaan')->group(function () {
+        Route::get('/', 'getParameterPemeriksaan');
+        Route::get('/{id}', 'getParameterPemeriksaan');
+        Route::post('/', 'addParameterPemeriksaan');
+        Route::put('/', 'updateParameterPemeriksaan');
+        Route::delete('/', 'deleteParameterPemeriksaan');
     });
 });

@@ -13,16 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::create('parameter', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreign('bidang_id')->references('id')->on('bidang_parameter');
-        //     $table->string('parameter');
-        //     $table->string('nilai_rujukan');
-        //     $table->foreign('metode_id')->references('id')->on('metode');
-        //     $table->string('satuan');
-        //     $table->double('harga');
-        //     $table->timestamps();
-        // });
+        Schema::create('parameter_pemeriksaan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('bidang_id');
+            $table->string('parameter');
+            $table->string('nilai_rujukan');
+            $table->unsignedBigInteger('metode_id');
+            $table->string('satuan');
+            $table->double('harga');
+            $table->timestamps();
+
+
+            $table->foreign('bidang_id')->references('id')->on('bidang_pemeriksaan');
+            $table->foreign('metode_id')->references('id')->on('metode_pemeriksaan');
+        });
     }
 
     /**
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('parameter');
+        Schema::dropIfExists('parameter_pemeriksaan');
     }
 };
