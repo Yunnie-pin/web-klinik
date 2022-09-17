@@ -17,7 +17,7 @@
       <a
         class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
         href="javascript:void(0)"
-      >Laborat Klinik
+        >Laborat Klinik
       </a>
       <!-- User -->
       <ul class="md:hidden items-center flex flex-wrap list-none">
@@ -63,7 +63,7 @@
             <input
               type="text"
               placeholder="Search"
-              class="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
+              class="border-0 px-3 py-2 h-12 border-solid border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
             />
           </div>
         </form>
@@ -72,12 +72,9 @@
           <li class="items-center">
             <a
               class="text-primary hover:text-pink-600 text-xs uppercase py-3 font-bold block"
-              href="#/dashboard"
-              ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i>
-              Dashboard</a
+              ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i> <router-link :to="{ name: 'dashboard' }">Dashboard</router-link></a
             >
           </li>
-
         </ul>
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
@@ -88,16 +85,15 @@
           Administrasi pages
         </h6>
         <!-- Navigation -->
-        <ul
-          class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"
-        >
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
             <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
                 class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
-              ></i>Data Pasien</a
+              ></i
+              >Data Pasien</a
             >
           </li>
           <li class="inline-flex">
@@ -127,17 +123,17 @@ import UserDropdownComponent from "./UserDropdown.vue";
 export default {
   data() {
     return {
-      collapseShow: "hidden"
+      collapseShow: "hidden",
     };
   },
   methods: {
-    toggleCollapseShow: function(classes) {
+    toggleCollapseShow: function (classes) {
       this.collapseShow = classes;
-    }
+    },
   },
   components: {
     NotificationDropdownComponent,
-    UserDropdownComponent
-  }
+    UserDropdownComponent,
+  },
 };
 </script>

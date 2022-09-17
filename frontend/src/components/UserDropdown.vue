@@ -29,10 +29,10 @@
     >
     
       <a
-        href="#pablo"
+      
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >      <router-link :to="{ name: 'profile' }">Profile</router-link>
-        Profile
+       
       </a>
 
 

@@ -6,6 +6,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Dashboard from './views/Dashboard.vue'
 import Login from './views/Login.vue'
 import Profile from './views/Profile.vue'
+import EditProfile from './views/EditProfile.vue'
 // styles
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -31,6 +32,13 @@ const routes = [
     name: 'profile',
     component: Profile,
   },
+  {
+    path: "/profile/editprofile",
+    name: 'editprofile',
+    component: EditProfile,
+  },
+
+
   { path: "/:pathMatch(.*)*", redirect: "/login" },
 ];
 
