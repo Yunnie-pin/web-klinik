@@ -87,7 +87,7 @@
                             <div
                               class="relative w-full pr-4 max-w-full flex-grow flex-1"
                             >
-                              <form id="login" class="p-6 sm:px-12 px-2 md:px-20 lg:px-56">
+                              <form id="editprofile" class="p-6 sm:px-12 px-2 md:px-20 lg:px-56">
 
 
                                 <!-- form email -->

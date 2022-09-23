@@ -12,7 +12,9 @@
     "@popperjs/core": "2.9.1",
     "chart.js": "2.9.4",
     "core-js": "3.9.1",
-    "vue": "3.0.7"
+    "tw-elements": "^1.0.0-alpha12",
+    "vue": "^3.0.7",
+    "vue3-easy-data-table": "^1.4.19"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "5.0.0-alpha.7",

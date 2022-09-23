@@ -28,9 +28,10 @@
       </div>
 
       <div style="text-align:center!important">
-        <button type="submit"
+        <router-link :to="{ name: 'dashboard' }">        <button type="submit"
           class="w-44 py-3 mt-4 self-center font-sans font-bold bg-[#374151] rounded-lg text-xs text-white text-center border-2 border-white">
-          <router-link :to="{ name: 'dashboard' }">Login</router-link></button>
+          Login</button></router-link>
+
       </div>
 
       
