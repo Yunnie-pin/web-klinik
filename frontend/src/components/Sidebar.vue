@@ -118,6 +118,132 @@
             ></router-link>
           </li>
         </ul>
+
+        <h6
+          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+        >
+          Poli pages
+        </h6>
+        <!-- Navigation -->
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Data Pasien' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Pemesanan Lab</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Registrasi Pasien' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Laporan Pemeriksaan</a
+            ></router-link>
+          </li>
+        </ul>
+        <h6
+          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+        >
+          Laborat pages
+        </h6>
+        <!-- Navigation -->
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Data Pasien' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Antrean Pemeriksaan</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Registrasi Pasien' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Riwayat Pemeriksaan</a
+            ></router-link>
+          </li>
+        </ul>
+        <h6
+          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+        >
+          Super Admin pages
+        </h6>
+        <!-- Navigation -->
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Tambah Petugas' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Tambah Petugas</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Tambah Bidang' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Tambah Bidang</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Tambah Parameter' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Tambah Parameter</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Data Petugas' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Data Petugas</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Data Bidang' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Data Bidang</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ name: 'Data Parameter' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Data Parameter</a
+            ></router-link>
+          </li>
+        </ul>
+        
       </div>
     </div>
   </nav>

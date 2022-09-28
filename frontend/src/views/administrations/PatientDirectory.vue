@@ -92,9 +92,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -126,9 +128,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -161,9 +165,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -196,9 +202,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -231,9 +239,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -267,9 +277,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -302,9 +314,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -337,9 +351,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
@@ -373,9 +389,11 @@
                         
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
+                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
+                          <button>
                           <i class="fas fa-edit text-orange-500 mr-4"></i>
                         </button>
+                      </router-link>
                         <button>
                           <i class="fas fa-trash text-red-500 mr-4"></i>
                         </button>
