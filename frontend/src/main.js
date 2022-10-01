@@ -22,6 +22,9 @@ import SectorDirectory from './views/superadmin/SectorDirectory.vue'
 import UpdateSector from './views/superadmin/UpdateSector.vue'
 import ParameterDirectory from './views/superadmin/ParameterDirectory.vue'
 import UpdateParameter from './views/superadmin/UpdateParameter.vue'
+import OrderingLab from './views/poli/OrderingLab.vue'
+import ReportCheckUp from './views/poli/ReportCheckUp.vue'
+import QueueLab from './views/laborat/QueueLab.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -121,6 +124,21 @@ const routes = [
     path: "/superadmin/update-parameter",
     name: 'Update Parameter',
     component: UpdateParameter,
+  },  
+  {
+    path: "/poli/ordering-lab",
+    name: 'Pemesanan Lab',
+    component: OrderingLab,
+  },  
+  {
+    path: "/poli/report-checkup",
+    name: 'Laporan Pemeriksaan',
+    component: ReportCheckUp,
+  },  
+  {
+    path: "/laborat/queue-lab",
+    name: 'Antrean Laboratorium',
+    component: QueueLab,
   },  
 
 

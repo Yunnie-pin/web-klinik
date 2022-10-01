@@ -127,7 +127,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Pasien' }">            <a
+            <router-link :to="{ name: 'Pemesanan Lab' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -137,7 +137,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Registrasi Pasien' }">            <a
+            <router-link :to="{ name: 'Laporan Pemeriksaan' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -155,7 +155,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Pasien' }">            <a
+            <router-link :to="{ name: 'Antrean Laboratorium' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -165,7 +165,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Registrasi Pasien' }">            <a
+            <router-link :to="{ name: 'Riwayat Pemeriksaan' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
