@@ -95,4 +95,16 @@ class UserController extends Controller
         ];
         return new PostResource(true, "login berhasil", $data);
     }
+
+    public function logout(Request $request)
+    {
+        try {
+            $user = $request->user();
+            $user->tokens()->where('id', $user->id)->delete();
+            $request->user()->currentAccessToken()->delete();
+            return new PostResource(true, "logout berhasil", $user);
+        } catch (\Throwable $th) {
+            return new PostResource(false, "logout gagal");
+        }
+    }
 }
