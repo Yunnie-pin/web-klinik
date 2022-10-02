@@ -6,6 +6,1190 @@
 	},
 	"item": [
 		{
+			"name": "Bidang Pemeriksaan",
+			"item": [
+				{
+					"name": "Add Bidang Pemeriksaan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bidang\":\"Ngocok\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/bidang-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"bidang-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bidang Pemeriksaan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_bidang\":1,\r\n    \"bidang\":\"coba coba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/bidang-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"bidang-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bidang Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/bidang-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"bidang-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bidang Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/bidang-pemeriksaan/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"bidang-pemeriksaan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bidang Pemeriksaan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_bidang\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/bidang-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"bidang-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metode Pemeriksaan",
+			"item": [
+				{
+					"name": "Add Metode Pemeriksaan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"nama metode\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Metode Pemeriksaan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_metode\":1,\r\n    \"nama\":\"coba coba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Metode Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Metode Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Metode Pemeriksaan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_metode\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pasien",
+			"item": [
+				{
+					"name": "Get All Pasien",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pasien",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pasien"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pasien",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pasien/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pasien",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Pasien",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"Arifin Yunianta\",\r\n    \"tanggal_lahir\":\"10/10/1910\",\r\n    \"no_identitas\":\"17703188\",\r\n    \"bpjs\":\"123456780\",\r\n    \"alamat\":\"Isekai\",\r\n    \"no_telp\":\"087123132\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pasien",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pasien"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pasien",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_comment\":\"yang penting ada id_pasien buat ngeupdate data, isi data seperti di Add Pasien\",\r\n    \"id_pasien\":1,\r\n    \"nama\":\"Arifin Curut\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pasien",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pasien"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pasien",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pasien\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pasien",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pasien"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parameter Pemeriksaan",
+			"item": [
+				{
+					"name": "Add Parameter Pemeriksaan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bidang_id\":1,\r\n    \"parameter\":\"Hemoglobin\",\r\n    \"nilai_rujukan\":\"p : 12-16 g/dL, l : 14-18 g/dL\",\r\n    \"metode_id\":1,\r\n    \"satuan\":\"g/dl\",\r\n    \"harga\":10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/parameter-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"parameter-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Parameter Pemeriksaan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_parameter\":1,\r\n    \"bidang_id\":1,\r\n    \"parameter\":\"Hemogoblok\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/parameter-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"parameter-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Parameter Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/parameter-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"parameter-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parameter Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Parameter Pemeriksaan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_parameter\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/parameter-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"parameter-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pemeriksaan",
+			"item": [
+				{
+					"name": "Add Pemeriksaan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pasien_id\": 1,\r\n    \"parameter_id\": 3,\r\n    \"bidang_id\" : 1,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"hasil\":\"memuaskan\",\r\n    \"kesan\":\"mbuh\",\r\n    \"catatan\":\"ra ono\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pemeriksaan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pemeriksaan\":2,\r\n    \"pasien_id\": 1,\r\n    \"parameter_id\": 3,\r\n    \"bidang_id\" : 1,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"hasil\":\"tidak memuaskan\",\r\n    \"kesan\":\"mbuh\",\r\n    \"catatan\":\"ra ono\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pemeriksaan",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pemeriksaan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pemeriksaan\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Add Roles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"wibu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Roles",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_roles\":1,\r\n    \"name\":\"Wibu Nolep\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Roles",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_roles\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/roles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status",
+			"item": [
+				{
+					"name": "Add Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"turu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_status\":4,\r\n    \"name\":\"ngocok\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/status/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Status",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_status\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validator Pemeriksaan",
+			"item": [
+				{
+					"name": "Add Validator Pemeriksaan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"Arifin Yunianta\",\r\n    \"status\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/validator-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"validator-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Validator Pemeriksaan",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_validator\":1,\r\n    \"nama\":\"Arifin\",\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/validator-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"validator-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Validator Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/validator-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"validator-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Validator Pemeriksaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/validator-pemeriksaan/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"validator-pemeriksaan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Metode Pemeriksaan",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_metode\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Register",
 			"request": {
 				"method": "POST",
@@ -66,7 +1250,134 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Example Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"kurniawanronaldi@gmail.com\",\r\n    \"password\":\"kurniawan123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"success\": true,\r\n    \"message\": \"login berhasil\",\r\n    \"data\": {\r\n        \"access_token\": \"4|JC7WI44Sx5AQhkgCWEHH8DQERoy0yHgDIABkAEh5\",\r\n        \"token_type\": \"Bearer\",\r\n        \"user\": {\r\n            \"id\": 1,\r\n            \"username\": \"kurniawan\",\r\n            \"email\": \"kurniawanronaldi@gmail.com\",\r\n            \"nama_lengkap\": \"KURNIAWAN RONALDI PURNAMA\",\r\n            \"no_telp\": \"085333260558\",\r\n            \"roles_id\": 1,\r\n            \"email_verified_at\": null,\r\n            \"created_at\": \"2022-10-02T10:44:00.000000Z\",\r\n            \"updated_at\": \"2022-10-02T10:44:00.000000Z\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|JC7WI44Sx5AQhkgCWEHH8DQERoy0yHgDIABkAEh5",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// isi bagian authorization dengan token login yang didapatkan\r\n// contoh : 1|KLjb1BHQh96ptP7en2VhVJquTZdYntosS30c3CZv",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3300/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example Logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 4|JC7WI44Sx5AQhkgCWEHH8DQERoy0yHgDIABkAEh5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// isi bagian authorization dengan token login yang didapatkan\r\n// contoh : 1|KLjb1BHQh96ptP7en2VhVJquTZdYntosS30c3CZv",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"success\": true,\r\n    \"message\": \"logout berhasil\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"username\": \"kurniawan\",\r\n        \"email\": \"kurniawanronaldi@gmail.com\",\r\n        \"nama_lengkap\": \"KURNIAWAN RONALDI PURNAMA\",\r\n        \"no_telp\": \"085333260558\",\r\n        \"roles_id\": 1,\r\n        \"email_verified_at\": null,\r\n        \"created_at\": \"2022-10-02T10:44:00.000000Z\",\r\n        \"updated_at\": \"2022-10-02T10:44:00.000000Z\"\r\n    }\r\n}"
+				}
+			]
 		}
 	]
 }
