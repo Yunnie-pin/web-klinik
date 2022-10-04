@@ -358,7 +358,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nama\":\"Arifin Yunianta\",\r\n    \"tanggal_lahir\":\"10/10/1910\",\r\n    \"no_identitas\":\"17703188\",\r\n    \"bpjs\":\"123456780\",\r\n    \"alamat\":\"Isekai\",\r\n    \"no_telp\":\"087123132\"\r\n}",
+							"raw": "{\r\n    \"nama\":\"Arifin Yunianta\",\r\n    \"tanggal_lahir\":\"10/10/1910\",\r\n    \"jenis_identitas\":\"KTP\", \r\n    \"no_identitas\":\"17703188\",\r\n    \"bpjs\":\"123456780\",\r\n    \"alamat\":\"Isekai\",\r\n    \"no_telp\":\"087123132\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -390,7 +390,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"_comment\":\"yang penting ada id_pasien buat ngeupdate data, isi data seperti di Add Pasien\",\r\n    \"id_pasien\":1,\r\n    \"nama\":\"Arifin Curut\"\r\n}",
+							"raw": "{\r\n    \"_comment\": \"yang penting ada id_pasien buat ngeupdate data, isi data seperti di Add Pasien\",\r\n    \"id_pasien\":1,\r\n    \"nama\":\"Arifin Curut\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1182,6 +1182,173 @@
 							"path": [
 								"api",
 								"metode-pemeriksaan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Petugas",
+			"item": [
+				{
+					"name": "Get All Petugas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/petugas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"petugas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Petugas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/petugas/kurniawan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"petugas",
+								"kurniawan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Petugas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama_lengkap\" : \"Arifin Curut\",\r\n    \"no_telp\":\"08123456789\",\r\n    \"username\":\"wibustress\",\r\n    \"email\":\"wibu_stress@gmail.com\",\r\n    \"password\":\"wibu123\",\r\n    \"password_confirmation\":\"wibu123\",\r\n    \"roles_id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/petugas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"petugas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Petugas",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_comment\": \"yang digunakan untuk mencari petugas yaitu usernamenya\",\r\n    \"username\": \"wibustress\",\r\n    \"roles_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/petugas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"petugas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Petugas",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"wibustress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3300/api/petugas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3300",
+							"path": [
+								"api",
+								"petugas"
 							]
 						}
 					},

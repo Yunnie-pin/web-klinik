@@ -31,8 +31,8 @@ class PasienController extends Controller
                 $rules = [
                     'nama' => 'required|min:2',
                     'tanggal_lahir' => 'required|date',
+                    'jenis_identitas' => 'in:KTP,PASSPORT,SIM|required',
                     'no_identitas' => 'required',
-                    // 'bpjs' => '',
                     'alamat' => 'required',
                     'no_telp' => 'required|max:13'
                 ];
@@ -40,6 +40,8 @@ class PasienController extends Controller
                     'nama.required' => 'nama tidak boleh kosong',
                     'tanggal_lahir.required' => 'tanggal lahir tidak boleh kosong',
                     'nama.min' => 'nama terlalu pendek',
+                    'jenis_identitas.in' => 'jenis identitas tidak ada',
+                    'jenis_identitas.required' => 'jenis identitas diperlukan',
                     'no_identitas.required' => 'no identitas tidak boleh kosong',
                     'alamat.required' => 'alamat tidak boleh kosong',
                     'no_telp.required' => 'no_telepon tidak boleh kosong'
@@ -51,6 +53,7 @@ class PasienController extends Controller
                 $data = [
                     'nama' => $request->nama,
                     'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
+                    'jenis_identitas' => $request->jenis_identitas,
                     'no_identitas' => $request->no_identitas,
                     'bpjs' => $request->bpjs,
                     'alamat' => $request->alamat,
@@ -72,6 +75,9 @@ class PasienController extends Controller
         }
         if (isset($request->tanggal_lahir)) {
             $data['tanggal_lahir'] = date('Y-m-d', strtotime($request->tanggal_lahir));
+        }
+        if (isset($request->jenis_identitas)) {
+            $data['jenis_identitas'] = $request->jenis_identitas;
         }
         if (isset($request->no_identitas)) {
             $data['no_identitas'] = $request->no_identitas;

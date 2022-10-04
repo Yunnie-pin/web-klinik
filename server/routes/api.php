@@ -5,6 +5,7 @@ use App\Http\Controllers\MetodePemeriksaanController;
 use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PemeriksaanController;
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
@@ -116,5 +117,15 @@ Route::controller(PemeriksaanController::class)->group(function () {
         Route::post('/', 'addPemeriksaan');
         Route::put('/', 'updatePemeriksaan');
         Route::delete('/', 'deletePemeriksaan');
+    });
+});
+
+Route::controller(PetugasController::class)->group(function () {
+    Route::prefix('/petugas')->group(function () {
+        Route::get('/', 'getPetugas');
+        Route::get('/{username}', 'getPetugas');
+        Route::post('/', 'addPetugas');
+        Route::put('/', 'updatePetugas');
+        Route::delete('/', 'deletePetugas');
     });
 });
