@@ -54,20 +54,20 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr v-for="bidang of bidang.data" :key="bidang.id">
                         <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          PM001
+                          {{ bidang.id }}
                         </th>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          Siti32
+                          {{ bidang.bidang }}
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <router-link :to="{ name: 'Update Bidang' }">                        
+                          <router-link :to="{ path: '/superadmin/update-sector', params: { username : 'ccccccccccc' } }">                        
                             <button>
                             <i class="fas fa-edit text-orange-500 mr-4"></i>
                           </button>
                         </router-link>
-                          <button>
+                          <button @click="deleteSector(bidang.id)">
                             <i class="fas fa-trash text-red-500 mr-4"></i>
                           </button>
                         </td>
@@ -109,6 +109,7 @@
   <script>
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
+  import axios from "axios";
   
   
   export default {
@@ -120,8 +121,34 @@
     data() {
       return {
         date: new Date().getFullYear(),
+        bidang: [],
+        cek: "13"
       };
     },
+    created() {
+    axios
+      .get('http://127.0.0.1:3300/api/bidang-pemeriksaan')
+      .then((response) => {
+        console.log(response.data);
+        this.bidang = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  methods: {
+    deleteSector(sectorId) {
+      axios
+      .delete('http://127.0.0.1:3300/api/bidang-pemeriksaan', {data:{id_bidang:sectorId}} )
+      .then((response) => {
+        console.log(response.data);
+        this.$router.push({ path: '/dashboard' });
+      })
+      .catch(e => {
+          console.log(e);
+        });
+    }
+  }
   };
   </script>
   

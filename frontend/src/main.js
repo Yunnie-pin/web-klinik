@@ -69,7 +69,7 @@ const routes = [
     component: PatientRegistration,
   },  
   {
-    path: "/administrations/patient-registration",
+    path: "/administrations/history-checkup",
     name: 'Riwayat Pemeriksaan',
     component: HistoryCheckUp,
   },  

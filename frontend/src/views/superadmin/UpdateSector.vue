@@ -42,7 +42,7 @@
                             <h5
                               class="text-black-700 uppercase font-bold text-sm"
                             >
-                              Data Bidang Baru
+                              Data Bidang Baru {{route.params.username}}
                             </h5>
 
                             <div class="py-3">
@@ -135,6 +135,7 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
+      username: "",
     };
   },
 };

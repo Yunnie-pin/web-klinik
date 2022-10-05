@@ -70,7 +70,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
-            <router-link :to="{ name: 'dashboard' }"> <a
+            <router-link :to="{ path: '/dashboard' }"> <a
               class="text-primary hover:text-pink-600 text-xs uppercase py-3 font-bold block"
               ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i> Dashboard</a
             ></router-link>
@@ -88,7 +88,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Pasien' }">            <a
+            <router-link :to="{ path: '/administrations/patient-directory' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -98,7 +98,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Registrasi Pasien' }">            <a
+            <router-link :to="{ path: '/administrations/patient-registration' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -108,7 +108,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Riwayat Pemeriksaan' }">            <a
+            <router-link :to="{ path: '/administrations/history-checkup' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -127,7 +127,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Pemesanan Lab' }">            <a
+            <router-link :to="{ path: '/poli/ordering-lab' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -137,7 +137,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Laporan Pemeriksaan' }">            <a
+            <router-link :to="{ path: '/poli/report-checkup' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -155,7 +155,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Antrean Laboratorium' }">            <a
+            <router-link :to="{ path: '/laborat/queue-lab' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -165,7 +165,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Riwayat Pemeriksaan' }">            <a
+            <router-link :to="{ path: '/administrations/history-checkup' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -183,7 +183,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="inline-flex">
-            <router-link :to="{ name: 'Tambah Petugas' }">            <a
+            <router-link :to="{ path: '/superadmin/create-user' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -193,7 +193,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Tambah Bidang' }">            <a
+            <router-link :to="{ path: '/superadmin/create-sector' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -203,7 +203,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Tambah Parameter' }">            <a
+            <router-link :to="{ path: '/superadmin/create-parameter' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -213,7 +213,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Petugas' }">            <a
+            <router-link :to="{ path: '/superadmin/employee-directory' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -223,7 +223,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Bidang' }">            <a
+            <router-link :to="{ path: '/superadmin/sector-directory' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
@@ -233,7 +233,7 @@
             ></router-link>
           </li>
           <li class="inline-flex">
-            <router-link :to="{ name: 'Data Parameter' }">            <a
+            <router-link :to="{ path: '/superadmin/parameter-directory' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
               ><i
