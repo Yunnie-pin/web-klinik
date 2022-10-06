@@ -33,7 +33,7 @@
                   <!-- content -->
                   <div>
   
-                    <form action="Post" id="tambahpasien">
+                    <form action="Post" id="orderlab">
                       <div class="flex flex-wrap">
                         <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
                           <div
@@ -43,7 +43,7 @@
                               <h5
                                 class="text-black-700 uppercase font-bold text-sm"
                               >
-                                Data Petugas Baru
+                                Data Pasien
                               </h5>
   
                               <div class="py-3">
@@ -51,7 +51,7 @@
                                   <div
                                     class="text-black-700 font-bold text-xs py-1"
                                   >
-                                    Username
+                                    Id Pasien
                                   </div>
                                   <input
                                     type="text"
@@ -76,19 +76,64 @@
                                     id="nama"
                                   />
                                 </div>
+  
+                                <div class="py-0.5">
+                                  <div
+                                    class="text-black-700 font-bold text-xs py-1"
+                                  >
+                                    Jenis Kelamin
+                                  </div>
+                                  <input
+                                    type="text"
+                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                    placeholder="Jenis Kelamin"
+                                    aria-label="jeniskelamin"
+                                    id="jeniskelamin"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
+                          <div
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+  
+                              <h5
+                                class="text-black-700 uppercase font-bold text-sm"
+                              >
+                                Data Pengirim
+                              </h5>
 
+                              <div class="py-3">
                                 <div class="py-0.5">
                                   <div
                                     class="text-black-700 font-bold text-xs py-1"
                                   >
-                                    Email
+                                    Nama
                                   </div>
                                   <input
                                     type="text"
                                     class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="Email"
-                                    aria-label="email"
-                                    id="email"
+                                    placeholder="Nama"
+                                    aria-label="namaPengirim"
+                                    id="namaPengirim"
+                                  />
+                                </div>
+                                <div class="py-0.5">
+                                  <div
+                                    class="text-black-700 font-bold text-xs py-1"
+                                  >
+                                    Nomer Telepon
+                                  </div>
+                                  <input
+                                    type="text"
+                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                    placeholder="8xxxxxxxx"
+                                    aria-label="nomertelepon"
+                                    id="nomertelepon"
                                   />
                                 </div>
   
@@ -96,18 +141,37 @@
                                   <div
                                     class="text-black-700 font-bold text-xs py-1"
                                   >
-                                    Tanggal Lahir
+                                    Diagnosa
                                   </div>
                                   <input
                                     type="text"
                                     class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="dd/mm/yyyy"
-                                    aria-label="birthday"
-                                    id="birthday"
+                                    placeholder="Diagnosa"
+                                    aria-label="diagnosa"
+                                    id="diagnosa"
                                   />
                                 </div>
-  
-                                <div class="py-0.5">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <h5
+                                class="text-black-700 uppercase font-bold text-sm px-8"
+                              >
+                                Data Pemeriksaan
+                              </h5>
+
+
+                      <div class="flex flex-wrap px-4">
+                        <div class="w-full lg:w-3/12 xl:w-3/12">
+                          <div
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+                              <div class="py-0.5">
                                 <div
                                   class="text-black-700 font-bold text-xs py-1"
                                 >
@@ -124,70 +188,115 @@
                                   <option value="female">Perempuan</option>
                                 </select>
                               </div>
-                              </div>
+
                             </div>
                           </div>
                         </div>
-                        <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
+
+                        <div class="w-full lg:w-3/12 xl:w-3/12 ">
                           <div
                             class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
                           >
                             <div class="flex-auto p-4">
-  
-                              <div class="py-7">
-                                <div class="py-0.5">
-                                  <div
-                                    class="text-black-700 font-bold text-xs py-1"
-                                  >
-                                    Roles
-                                  </div>
-                                  <select
-                                    class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    aria-label="Default select example"
-                                  >
-                                    <option selected>
-                                      Pilih Roles
-                                    </option>
-                                    <option value="Administrasi">Administrasi</option>
-                                    <option value="Poli">Poli</option>
-                                    <option value="Laborat">Laborat</option>
-                                  </select>
+                              <div class="py-0.5">
+                                <div
+                                  class="text-black-700 font-bold text-xs py-1"
+                                >
+                                  Jenis Kelamin
                                 </div>
-                                <div class="py-0.5">
-                                  <div
-                                    class="text-black-700 font-bold text-xs py-1"
-                                  >
-                                    Nomer Telepon
-                                  </div>
-                                  <input
-                                    type="text"
-                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="08xxxxxxxxx"
-                                    aria-label="nomertelepon"
-                                    id="nomertelepon"
-                                  />
-                                </div>
-  
-                                <div class="py-0.5">
-                                  <div
-                                    class="text-black-700 font-bold text-xs py-1"
-                                  >
-                                    Password User Baru
-                                  </div>
-                                  <input
-                                    type="password"
-                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="Password"
-                                    aria-label="password"
-                                    id="password"
-                                  />
-                                </div>
+                                <select
+                                  class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>
+                                    Pilih Jenis Kelamin
+                                  </option>
+                                  <option value="male">Laki-Laki</option>
+                                  <option value="female">Perempuan</option>
+                                </select>
                               </div>
+
                             </div>
                           </div>
                         </div>
+
+                        <div class="w-full lg:w-3/12 xl:w-3/12">
+                          <div
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+                              <div class="py-0.5">
+                                <div
+                                  class="text-black-700 font-bold text-xs py-1"
+                                >
+                                  Jenis Kelamin
+                                </div>
+                                <select
+                                  class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  aria-label="Default select example"
+                                >
+                                  <option selected>
+                                    Pilih Jenis Kelamin
+                                  </option>
+                                  <option value="male">Laki-Laki</option>
+                                  <option value="female">Perempuan</option>
+                                </select>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="w-full lg:w-2/12 xl:w-2/12 ">
+                          <div
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+                              <div class="py-0.5">
+                                  <div
+                                    class="text-black-700 font-bold text-xs py-1"
+                                  >
+                                    Diagnosa
+                                  </div>
+                                  <input 
+                                    type="text"
+                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                    placeholder="Diagnosa"
+                                    aria-label="diagnosa"
+                                    id="diagnosa"
+                                  />
+                                </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/12 xl:w-1/12 ">
+                          <div 
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+                              <div class="py-0.5">
+                                  <div
+                                    class="text-white font-bold text-xs py-1"
+                                  >
+                                    button
+                                  </div>
+                                    <button
+                                      type="submit"
+                                      class=" py-2 w-full self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
+                                    >
++
+                                    </button>
+                                </div>
+
+                            </div>
+                          </div>
+                        </div>
+
                       </div>
-  
+
                       <div class="p-6">
                                     <button
                                       type="submit"
