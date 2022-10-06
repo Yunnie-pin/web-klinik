@@ -7,6 +7,7 @@ use App\Models\BidangPemeriksaan;
 use App\Models\ParameterPemeriksaan;
 use App\Models\Pasien;
 use App\Models\Pemeriksaan;
+use App\Models\Status;
 use App\Models\ValidatorPemeriksaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,6 +19,21 @@ class PemeriksaanController extends Controller
         try {
             if (isset($id)) {
                 $periksa = Pemeriksaan::where('id', $id)->first();
+                $pasien = Pasien::where('id', $periksa->pasien_id)->first();
+                unset($periksa->pasien_id);
+                $periksa->pasien = $pasien;
+                $parameter = ParameterPemeriksaan::where('id', $periksa->parameter_id)->first();
+                unset($periksa->parameter_id);
+                $periksa->parameterPemeriksaan = $parameter;
+                $bidang = BidangPemeriksaan::where('id', $periksa->bidang_id)->first();
+                unset($periksa->bidang_id);
+                $periksa->bidangPemeriksaan = $bidang;
+                $status = Status::where('id', $periksa->status_id)->first();
+                unset($periksa->status_id);
+                $periksa->statusPemeriksaan = $status;
+                $validator = ValidatorPemeriksaan::where('id', $periksa->validator_id)->first();
+                unset($periksa->validator_id);
+                $periksa->validatorPemeriksaan = $validator;
             } else {
                 $periksa = Pemeriksaan::all();
             }
