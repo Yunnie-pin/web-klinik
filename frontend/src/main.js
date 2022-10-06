@@ -151,4 +151,12 @@ const router = createRouter({
   routes,
 });
 
+
+router.beforeEach((to,from, next) => {
+  const isAuthenticated = JSON.parse(localStorage.getItem('authenticated'));
+  if(to.name !== 'Login' && !isAuthenticated ) next({ name: "Login"});
+  if(to.name === 'Login' && isAuthenticated ) next({ name: "dashboard"});
+  else next();
+});
+
 createApp(App).use(router).mount("#app");

@@ -38,6 +38,7 @@
 
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
+      @click="logout"
         href="#pablo"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
@@ -48,13 +49,26 @@
 </template>
 <script>
 import { createPopper } from "@popperjs/core";
+import { useRouter } from 'vue-router';
 
 export default {
   data() {
     return {
       dropdownPopoverShow: false
     };
+    
   },
+  setup(){
+      const router = useRouter();
+
+      const logout = () => {
+        localStorage.setItem("authenticated",false);
+        router.push({name : "login"});
+      };
+
+      return {logout}
+
+    },
   methods: {
     toggleDropdown: function(event) {
       event.preventDefault();

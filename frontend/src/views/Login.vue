@@ -28,9 +28,9 @@
       </div>
 
       <div style="text-align:center!important">
-        <router-link :to="{ name: 'dashboard' }">        <button type="submit"
+        <button @click="login" type="submit"
           class="w-44 py-3 mt-4 self-center font-sans font-bold bg-[#374151] rounded-lg text-xs text-white text-center border-2 border-white">
-          Login</button></router-link>
+          Login</button>
 
       </div>
 
@@ -45,8 +45,22 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
     name: "login-page",
+    setup(){
+      const router = useRouter();
+
+      const login = () => {
+        localStorage.setItem("authenticated",true);
+        router.push({name : "dashboard"});
+      };
+
+      return {login}
+
+    },
+
     data(){
       return {
         password: "",

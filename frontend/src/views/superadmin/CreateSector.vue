@@ -33,9 +33,9 @@
                 <!-- content -->
                 <div>
                   <form
-                    
-                    id="tambahpasien"
-                    v-on:submit="submitForm()"
+                  v-on:submit="submitForm()"
+                    id="tambahbidang"
+                  
                   >
                     <div class="flex flex-wrap">
                       <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
@@ -57,12 +57,12 @@
                                   Nama Bidang Baru
                                 </div>
                                 <input
+                                  v-model="form.bidang"
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                   placeholder="Nama Bidang"
                                   aria-label="bidang"
-                                  id="bidang"
-                                  v-model="form.bidang"
+                                  
                                 />
                               </div>
                             </div>
@@ -73,11 +73,12 @@
 
                     <div class="p-6">
                       <button
+ 
                         type="submit"
                         class="w-44 py-2 mt-4 self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
                       >
                         Simpan
-                      </button>
+                    </button>
                     </div>
                   </form>
                 </div>
@@ -130,18 +131,19 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      axios
-        .post("http://127.0.0.1:3300/api/bidang-pemeriksaan",{data:{bidang:this.form.bidang}})
-        .then((res) => {
-          console.log(res);
-          this.form = res.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-        .finally(() => {});
-    },
+    submitForm(){
+      console.log(this.form)
+            axios.post('http://127.0.0.1:3300/api/bidang-pemeriksaan', this.form)
+                 .then((res) => {
+                    console.log(res);
+                    this.form = res.data;
+                        if (res.status == true) {
+                            console.log('mantap')
+                        }
+                        this.$router.push({ path: '/superadmin/sector-directory' });
+                 })
+
+        }
 
   },
 };
