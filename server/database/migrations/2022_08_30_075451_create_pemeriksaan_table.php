@@ -15,22 +15,20 @@ return new class extends Migration
     {
         Schema::create('pemeriksaan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pasien_id');
-            $table->unsignedBigInteger('parameter_id');
-            $table->unsignedBigInteger('bidang_id');
-            $table->unsignedBigInteger('status_id');
-            $table->unsignedBigInteger('validator_id');
+            $table->foreignId('pasien_id')
+                ->constrained('pasien');
+            $table->foreignId('bidang_pemeriksaan_id')
+                ->constrained('bidang_pemeriksaan');
+            $table->foreignId('parameter_pemeriksaan_id')
+                ->constrained('parameter_pemeriksaan');
+            $table->foreignId('status_id')
+                ->constrained('status');
+            $table->foreignId('validator_pemeriksaan_id')
+                ->constrained('validator_pemeriksaan');
             $table->text('hasil');
             $table->text('kesan');
             $table->text('catatan');
             $table->timestamps();
-
-
-            $table->foreign('pasien_id')->references('id')->on('pasien');
-            $table->foreign('parameter_id')->references('id')->on('parameter_pemeriksaan');
-            $table->foreign('bidang_id')->references('id')->on('bidang_pemeriksaan');
-            $table->foreign('validator_id')->references('id')->on('validator_pemeriksaan');
-            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

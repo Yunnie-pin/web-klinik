@@ -545,7 +545,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan/1",
+							"raw": "http://127.0.0.1:3300/api/parameter-pemeriksaan/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -556,7 +556,7 @@
 							"port": "3300",
 							"path": [
 								"api",
-								"metode-pemeriksaan",
+								"parameter-pemeriksaan",
 								"1"
 							]
 						}
@@ -607,7 +607,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pasien_id\": 1,\r\n    \"parameter_id\": 3,\r\n    \"bidang_id\" : 1,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"hasil\":\"memuaskan\",\r\n    \"kesan\":\"mbuh\",\r\n    \"catatan\":\"ra ono\"\r\n}",
+							"raw": "{\r\n    \"pasien_id\": 1,\r\n    \"parameter_id\": 1,\r\n    \"bidang_id\" : 1,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"hasil\":\"memuaskan\",\r\n    \"kesan\":\"mbuh\",\r\n    \"catatan\":\"ra ono\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -693,7 +693,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3300/api/pemeriksaan/2",
+							"raw": "http://127.0.0.1:3300/api/pemeriksaan/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -705,7 +705,7 @@
 							"path": [
 								"api",
 								"pemeriksaan",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -1545,6 +1545,30 @@
 					"body": "{\r\n    \"success\": true,\r\n    \"message\": \"logout berhasil\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"username\": \"kurniawan\",\r\n        \"email\": \"kurniawanronaldi@gmail.com\",\r\n        \"nama_lengkap\": \"KURNIAWAN RONALDI PURNAMA\",\r\n        \"no_telp\": \"085333260558\",\r\n        \"roles_id\": 1,\r\n        \"email_verified_at\": null,\r\n        \"created_at\": \"2022-10-02T10:44:00.000000Z\",\r\n        \"updated_at\": \"2022-10-02T10:44:00.000000Z\"\r\n    }\r\n}"
 				}
 			]
+		},
+		{
+			"name": "Get Dashboard Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3300/api/info/dashboard",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"info",
+						"dashboard"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

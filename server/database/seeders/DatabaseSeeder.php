@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
+use Mockery\Generator\Parameter;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +18,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesSeeder::class,
-            StatusSeeder::class
+            UserSeeder::class,
+            StatusSeeder::class,
+            BidangPemeriksaanSeeder::class,
+            PasienSeeder::class,
+            MetodePemeriksaanSeeder::class,
+            ParameterPemeriksaanSeeder::class,
+            ValidatorPemeriksaanSeeder::class,
+            PemeriksaanSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

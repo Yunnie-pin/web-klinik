@@ -16,8 +16,22 @@ class ParameterPemeriksaanController extends Controller
         try {
             if (isset($id)) {
                 $parameterPemeriksaan = ParameterPemeriksaan::where('id', $id)->first();
+                $bidang = BidangPemeriksaan::where('id', $parameterPemeriksaan->bidang_id)->first();
+                unset($parameterPemeriksaan->bidang_id);
+                $parameterPemeriksaan->bidang = $bidang;
+                $metode = MetodePemeriksaan::where('id', $parameterPemeriksaan->metode_id)->first();
+                unset($parameterPemeriksaan->metode_id);
+                $parameterPemeriksaan->metode = $metode;
             } else {
                 $parameterPemeriksaan = ParameterPemeriksaan::all();
+                foreach ($parameterPemeriksaan as $data) {
+                    $bidang = BidangPemeriksaan::where('id', $data->bidang_id)->first();
+                    unset($data->bidang_id);
+                    $data->bidang = $bidang;
+                    $metode = MetodePemeriksaan::where('id', $data->metode_id)->first();
+                    unset($data->metode_id);
+                    $data->metode = $metode;
+                }
             }
             return new PostResource(true, "data parameter ditemukan", $parameterPemeriksaan);
         } catch (\Throwable $th) {

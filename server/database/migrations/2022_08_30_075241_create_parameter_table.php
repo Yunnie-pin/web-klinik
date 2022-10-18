@@ -15,17 +15,13 @@ return new class extends Migration
     {
         Schema::create('parameter_pemeriksaan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bidang_id');
+            $table->foreignId('bidang_id')->constrained('bidang_pemeriksaan');
             $table->string('parameter');
             $table->string('nilai_rujukan');
-            $table->unsignedBigInteger('metode_id');
+            $table->foreignId('metode_id')->constrained('metode_pemeriksaan');
             $table->string('satuan');
             $table->double('harga');
             $table->timestamps();
-
-
-            $table->foreign('bidang_id')->references('id')->on('bidang_pemeriksaan');
-            $table->foreign('metode_id')->references('id')->on('metode_pemeriksaan');
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BidangPemeriksaanController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\MetodePemeriksaanController;
 use App\Http\Controllers\ParameterPemeriksaanController;
 use App\Http\Controllers\PasienController;
@@ -127,5 +128,11 @@ Route::controller(PetugasController::class)->group(function () {
         Route::post('/', 'addPetugas');
         Route::put('/', 'updatePetugas');
         Route::delete('/', 'deletePetugas');
+    });
+});
+
+Route::controller(InfoController::class)->group(function () {
+    Route::prefix('/info')->group(function () {
+        Route::get('/dashboard', 'getDashboardInfo');
     });
 });
