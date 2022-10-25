@@ -31,7 +31,7 @@
                           Total Pasien
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          155
+                          {{dataDashboard.data.pasien}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -78,7 +78,7 @@
                         Total Pemeriksaan Harian
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          3
+                          {{dataDashboard.data.pemeriksaan.harian}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -108,7 +108,7 @@
                         Total Pemeriksaan Bulanan
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          924
+                          {{dataDashboard.data.pemeriksaan.bulanan}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -145,7 +145,7 @@
                         Total Pemeriksaan Tahunan
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          1909
+                          {{dataDashboard.data.pemeriksaan.tahunan}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -186,7 +186,7 @@
                         Bagian Administrasi
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          155
+                          {{dataDashboard.data.user['Administrasi']}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -198,12 +198,6 @@
                       </div>
                     </div>
                     <p class="text-sm text-blueGray-400 mt-4">
-                      <!-- <span class="text-emerald-500 mr-2">
-                        <i class="fas fa-arrow-up"></i> 3.48%
-                      </span>
-                      <span class="whitespace-nowrap">
-                        Since last month
-                      </span> -->
                     </p>
                   </div>
                 </div>
@@ -223,7 +217,7 @@
                         Bagian Poli
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          2,356
+                          {{dataDashboard.data.user['Poli']}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -253,7 +247,7 @@
                         Bagian Laborat
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          924
+                          {{dataDashboard.data.user['Laborat']}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -265,12 +259,6 @@
                       </div>
                     </div>
                     <p class="text-sm text-blueGray-400 mt-4">
-                      <!-- <span class="text-orange-500 mr-2">
-                        <i class="fas fa-arrow-down"></i> 1.10%
-                      </span>
-                      <span class="whitespace-nowrap">
-                        Since yesterday
-                      </span> -->
                     </p>
                   </div>
                 </div>
@@ -581,6 +569,7 @@
 <script>
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
+import axios from "axios";
 
 export default {
   name: "dashboard-page",
@@ -591,7 +580,19 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
+      dataDashboard: [],
     };
+  },
+  created() {
+    axios
+      .get('http://127.0.0.1:3300/api/info/dashboard')
+      .then((response) => {
+        console.log(response.data);
+        this.dataDashboard = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 };
 </script>

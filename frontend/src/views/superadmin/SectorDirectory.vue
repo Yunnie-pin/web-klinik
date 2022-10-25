@@ -122,7 +122,6 @@
       return {
         date: new Date().getFullYear(),
         bidang: [],
-        cek: "13"
       };
     },
     created() {

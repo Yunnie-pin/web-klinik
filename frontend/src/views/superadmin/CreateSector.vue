@@ -136,15 +136,12 @@ export default {
             axios.post('http://127.0.0.1:3300/api/bidang-pemeriksaan', this.form)
                  .then((res) => {
                     console.log(res);
-                    this.form = res.data;
                         if (res.status == true) {
                             console.log('mantap')
                         }
                         this.$router.push({ path: '/superadmin/sector-directory' });
                  })
-
         }
-
   },
 };
 </script>

@@ -70,7 +70,7 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
-            <router-link :to="{ path: '/dashboard' }"> <a
+            <router-link :to="{ path: '/Dashboard' }"> <a
               class="text-primary hover:text-pink-600 text-xs uppercase py-3 font-bold block"
               ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i> Dashboard</a
             ></router-link>

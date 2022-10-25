@@ -69,15 +69,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr v-for="parameter of parameter.data" :key="parameter.id">
                         <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          S001
+                          {{parameter.id}}
                         </th>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          Darah Rutin
+                          {{parameter.parameter}}
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          Hematodologi
+                          {{parameter.bidang.bidang}}
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           -
@@ -141,7 +141,7 @@
   <script>
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
-  
+  import axios from "axios";
   
   export default {
     name: "parameter-directory",
@@ -152,8 +152,23 @@
     data() {
       return {
         date: new Date().getFullYear(),
+        parameter: [],
       };
     },
+
+    created() {
+    axios
+      .get('http://127.0.0.1:3300/api/parameter-pemeriksaan')
+      .then((response) => {
+        console.log(response.data);
+        this.parameter = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  
+
   };
   </script>
   
