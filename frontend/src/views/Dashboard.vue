@@ -31,7 +31,7 @@
                           Total Pasien
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.pasien}}
+                          {{totalPasien}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -43,12 +43,7 @@
                       </div>
                     </div>
                     <p class="text-sm text-blueGray-400 mt-4">
-                      <!-- <span class="text-emerald-500 mr-2">
-                        <i class="fas fa-arrow-up"></i> 3.48%
-                      </span>
-                      <span class="whitespace-nowrap">
-                        Since last month
-                      </span> -->
+
                     </p>
                   </div>
                 </div>
@@ -78,7 +73,7 @@
                         Total Pemeriksaan Harian
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.pemeriksaan.harian}}
+                          {{pemeriksaanHarian}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -108,7 +103,7 @@
                         Total Pemeriksaan Bulanan
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.pemeriksaan.bulanan}}
+                          {{pemeriksaanBulanan}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -145,7 +140,7 @@
                         Total Pemeriksaan Tahunan
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.pemeriksaan.tahunan}}
+                          {{pemeriksaanTahunan}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -186,7 +181,7 @@
                         Bagian Administrasi
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.user['Administrasi']}}
+                          {{bagianAdministrasi}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -217,7 +212,7 @@
                         Bagian Poli
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.user['Poli']}}
+                          {{bagianPoli}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -247,7 +242,7 @@
                         Bagian Laborat
                         </h5>
                         <span class="font-semibold text-xl text-blueGray-700">
-                          {{dataDashboard.data.user['Laborat']}}
+                          {{bagianLaborat}}
                         </span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
@@ -580,7 +575,14 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
-      dataDashboard: [],
+      containerData: [],
+      totalPasien: null,
+      pemeriksaanHarian: null,
+      pemeriksaanBulanan: null,
+      pemeriksaanTahunan: null,
+      bagianAdministrasi: null,
+      bagianPoli: null,
+      bagianLaborat: null,
     };
   },
   created() {
@@ -588,7 +590,14 @@ export default {
       .get('http://127.0.0.1:3300/api/info/dashboard')
       .then((response) => {
         console.log(response.data);
-        this.dataDashboard = response.data;
+        this.containerData = response.data;
+        this.totalPasien = this.containerData.data.pasien;
+        this.pemeriksaanHarian = this.containerData.data.pemeriksaan.harian;
+        this.pemeriksaanBulanan = this.containerData.data.pemeriksaan.bulanan;
+        this.pemeriksaanTahunan = this.containerData.data.pemeriksaan.tahunan;
+        this.bagianAdministrasi = this.containerData.data.user['Administrasi'];
+        this.bagianPoli = this.containerData.data.user['Poli'];
+        this.bagianLaborat = this.containerData.data.user['Laborat'];
       })
       .catch((e) => {
         console.log(e);
