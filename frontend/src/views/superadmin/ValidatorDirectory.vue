@@ -132,7 +132,7 @@
   methods: {
     deleteSector(validatorId) {
       axios
-      .delete('http://127.0.0.1:3300/api/validator-pemeriksaan', {data:{id_bidang:validatorId}} )
+      .delete('http://127.0.0.1:3300/api/validator-pemeriksaan', {data:{id_validator:validatorId}} )
       .then((response) => {
         console.log(response.data);
         this.$router.push({ path: '/dashboard' });

@@ -4,7 +4,6 @@
   
       <div class="relative md:ml-64 bg-blueGray-100">
         <navbar-component></navbar-component>
-  
         <!-- Header -->
   
         <div class="relative bg-primary md:pt-24 pb-32 pt-12">

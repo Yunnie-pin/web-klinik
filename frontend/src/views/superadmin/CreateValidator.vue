@@ -32,7 +32,7 @@
               <div class="block w-full overflow-x-auto">
                 <!-- content -->
                 <div>
-                  <form v-on:submit="submitForm()" id="tambahbidang">
+                  <form v-on:submit="submitForm()" id="tambahvalidator">
                     <div class="flex flex-wrap">
                       <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
                         <div
@@ -42,7 +42,7 @@
                             <h5
                               class="text-black-700 uppercase font-bold text-sm"
                             >
-                              Data Bidang Baru
+                              Data Validator Baru
                             </h5>
 
                             <div class="py-3">
@@ -50,10 +50,10 @@
                                 <div
                                   class="text-black-700 font-bold text-xs py-1"
                                 >
-                                  Nama Bidang Baru
+                                  Nama Validator Baru
                                 </div>
                                 <input
-                                  v-model="form.bidang"
+                                  v-model="form.nama"
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                   placeholder="Nama Bidang"
@@ -61,6 +61,8 @@
                                 />
                               </div>
                             </div>
+
+
                           </div>
                         </div>
                       </div>
@@ -179,7 +181,8 @@ export default {
     return {
       date: new Date().getFullYear(),
       form: {
-        validator: "",
+        name: "",
+        status: true
       },
     };
   },
@@ -190,7 +193,7 @@ export default {
         .post("http://127.0.0.1:3300/api/validator-pemeriksaan", this.form)
         .then((res) => {
           console.log(res);
-          this.$router.push({ path: "/superadmin/sector-directory" });
+          this.$router.push({ path: "/superadmin/validator-directory" });
         });
     },
   },
