@@ -157,7 +157,7 @@ const routes = [
     component: ValidatorDirectory,
   },  
   {
-    path: "/superadmin/update-validator",
+    path: "/superadmin/update-validator/:id",
     name: 'Update Validator',
     component: UpdateValidator,
   },  

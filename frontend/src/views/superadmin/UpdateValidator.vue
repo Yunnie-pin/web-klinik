@@ -24,7 +24,7 @@
                       <h3
                         class="font-semibold text-base text-blueGray-700 uppercase"
                       >
-                        Perbaharui Data Petugas
+                        Perbaharui Data Petugas {{$route.params.id}}
                       </h3>
                     </div>
                   </div>
@@ -52,11 +52,10 @@
                                   >
                                     Id
                                   </div>
-                                  <input
+                                  <input disabled
                                     type="text"
                                     class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="Id"
-                                    aria-label="id"
+                                    :value="$route.params.id"
                                     id="id"
                                   />
                                 </div>
@@ -70,7 +69,7 @@
                                   <input
                                     type="text"
                                     class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                    placeholder="Nama"
+                                    :value="nama"
                                     aria-label="nama"
                                     id="nama"
                                   />
@@ -125,6 +124,7 @@
   <script>
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
+  import axios from "axios";
   
   export default {
     name: "update-validator",
@@ -135,9 +135,23 @@
     data() {
       return {
         date: new Date().getFullYear(),
+        methode : null,
+        nama : null,
       };
     },
   
+    created() {
+    axios
+      .get('http://127.0.0.1:3300/api/validator-pemeriksaan/'+ this.$route.params.id)
+      .then((response) => {
+        console.log(response.data);
+        this.methode = response.data;
+        this.nama = this.methode.data.nama
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
     
   };
   </script>
