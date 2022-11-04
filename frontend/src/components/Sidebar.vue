@@ -213,6 +213,16 @@
             ></router-link>
           </li>
           <li class="inline-flex">
+            <router-link :to="{ path: '/superadmin/create-validator' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Tambah Validator</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
             <router-link :to="{ path: '/superadmin/employee-directory' }">            <a
               class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
               href="#"
@@ -240,6 +250,16 @@
                 class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
               ></i
               >Data Parameter</a
+            ></router-link>
+          </li>
+          <li class="inline-flex">
+            <router-link :to="{ path: '/superadmin/validator-directory' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
+              ></i
+              >Data Validator</a
             ></router-link>
           </li>
         </ul>

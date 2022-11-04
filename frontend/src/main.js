@@ -25,6 +25,9 @@ import UpdateParameter from './views/superadmin/UpdateParameter.vue'
 import OrderingLab from './views/poli/OrderingLab.vue'
 import ReportCheckUp from './views/poli/ReportCheckUp.vue'
 import QueueLab from './views/laborat/QueueLab.vue'
+import CreateValidator from './views/superadmin/CreateValidator.vue'
+import ValidatorDirectory from './views/superadmin/ValidatorDirectory.vue'
+import UpdateValidator from './views/superadmin/UpdateValidator.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -124,6 +127,21 @@ const routes = [
     path: "/superadmin/update-parameter",
     name: 'Update Parameter',
     component: UpdateParameter,
+  },  
+  {
+    path: "/superadmin/create-validator",
+    name: 'Tambah Validator',
+    component: CreateValidator,
+  },  
+  {
+    path: "/superadmin/validator-directory",
+    name: 'Data Validator',
+    component: ValidatorDirectory,
+  },  
+  {
+    path: "/superadmin/update-validator",
+    name: 'Update Validator',
+    component: UpdateValidator,
   },  
   {
     path: "/poli/ordering-lab",
