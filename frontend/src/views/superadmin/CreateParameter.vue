@@ -66,7 +66,7 @@
                                   </option>
                                 </select>
 
-                                <span> Selected: {{ form.bidang_id }}</span>
+                         
                               </div>
                             </div>
                           </div>
@@ -111,7 +111,7 @@
                                   aria-label="Default select example"
                                   v-model="form.metode_id"
                                 >
-                                
+
                                   <option
                                     v-for="metode of metode.data"
                                     :key="metode.id" :value="metode.id"
@@ -120,7 +120,7 @@
                                   </option>
                                 </select>
 
-                                <span> Selected: {{ form.metode_id }}</span>
+                      
                               </div>
 
                               <div class="py-0.5">

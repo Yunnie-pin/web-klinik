@@ -28,6 +28,9 @@ import QueueLab from './views/laborat/QueueLab.vue'
 import CreateValidator from './views/superadmin/CreateValidator.vue'
 import ValidatorDirectory from './views/superadmin/ValidatorDirectory.vue'
 import UpdateValidator from './views/superadmin/UpdateValidator.vue'
+import CreateMethode from './views/superadmin/CreateMethode.vue'
+import MethodeDirectory from './views/superadmin/MethodeDirectory.vue'
+import UpdateMethode from './views/superadmin/UpdateMethode.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -127,7 +130,22 @@ const routes = [
     path: "/superadmin/update-parameter",
     name: 'Update Parameter',
     component: UpdateParameter,
+  },
+  {
+    path: "/superadmin/create-methode",
+    name: 'Tambah Metode',
+    component: CreateMethode,
   },  
+  {
+    path: "/superadmin/methode-directory",
+    name: 'Data Metode',
+    component: MethodeDirectory,
+  },  
+  {
+    path: "/superadmin/update-methode",
+    name: 'Update Metode',
+    component: UpdateMethode,
+  },    
   {
     path: "/superadmin/create-validator",
     name: 'Tambah Validator',
@@ -158,8 +176,6 @@ const routes = [
     name: 'Antrean Laboratorium',
     component: QueueLab,
   },  
-
-
 
   { path: "/:pathMatch(.*)*", redirect: "/login" },
 ];
