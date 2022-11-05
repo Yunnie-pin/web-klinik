@@ -160,6 +160,7 @@ const routes = [
     path: "/superadmin/update-validator/:id",
     name: 'Update Validator',
     component: UpdateValidator,
+    props: {name : "", status : null}
   },  
   {
     path: "/poli/ordering-lab",
