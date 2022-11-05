@@ -142,7 +142,7 @@ const routes = [
     component: MethodeDirectory,
   },  
   {
-    path: "/superadmin/update-methode",
+    path: "/superadmin/update-methode/:id",
     name: 'Update Metode',
     component: UpdateMethode,
   },    

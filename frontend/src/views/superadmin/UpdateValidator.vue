@@ -111,7 +111,6 @@
                           class="w-44 py-2 mt-4 self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
-                          v-on:click="checker()"
                           >
                           Simpan
                         </button>
@@ -138,7 +137,7 @@
                                 class="text-xl font-medium leading-normal text-gray-800"
                                 id="exampleModalLabel"
                               >
-                                Tambahkan metode
+                                Perbaharui Validator
                               </h5>
                               <button
                                 type="button"
@@ -148,7 +147,7 @@
                               ></button>
                             </div>
                             <div class="modal-body relative p-4">
-                              Apakah anda yakin ingin memperbaharui metode?
+                              Apakah anda yakin ingin memperbaharui Validator?
                             </div>
                             <div
                               class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
