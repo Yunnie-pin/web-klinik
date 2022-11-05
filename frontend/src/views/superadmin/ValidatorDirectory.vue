@@ -179,7 +179,7 @@
                         class="text-xl font-medium leading-normal text-gray-800"
                         id="exampleModalLabel"
                       >
-                        Tambahkan Bidang
+                        Hapus Validator
                       </h5>
                       <button
                         type="button"
@@ -202,7 +202,7 @@
                         Close
                       </button>
                       <button
-                        @click="deleteSector(targetIdModal)"
+                        @click="deleteValidator(targetIdModal)"
                         type="button"
                         class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
                         data-bs-dismiss="modal"
@@ -270,7 +270,7 @@ export default {
       });
   },
   methods: {
-    deleteSector(validatorId) {
+    deleteValidator(validatorId) {
       axios
         .delete("http://127.0.0.1:3300/api/validator-pemeriksaan", {
           data: { id_validator: validatorId },

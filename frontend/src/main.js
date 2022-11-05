@@ -112,12 +112,12 @@ const routes = [
     component: UpdateEmployee,
   },  
   {
-    path: "/superadmin/sector-directory",
+    path: "/superadmin/sector-directory/",
     name: 'Data Bidang',
     component: SectorDirectory,
   },  
   {
-    path: "/superadmin/update-sector",
+    path: "/superadmin/update-sector/:id",
     name: 'Update Bidang',
     component: UpdateSector,
   },  
