@@ -97,7 +97,7 @@
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
-                          @click=targetId(petugas.id)>
+                          @click=targetUsername(petugas.username)>
                             <i class="fas fa-edit text-orange-500 mr-4"></i>
                           </button>
                     
@@ -105,7 +105,7 @@
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target="#Modal2"
-                          @click=targetId(petugas.id)>
+                          @click=targetUsername(petugas.username)>
                             <i class="fas fa-trash text-red-500 mr-4"></i>
                           </button>
                         </td>
@@ -160,7 +160,7 @@
                       </button>
                       <router-link
                         :to="{
-                          path: '/superadmin/update-employee/' + targetIdModal,
+                          path: '/superadmin/update-employee/' + targetUsernameModal,
                         }"
                       >
                         <button
@@ -218,7 +218,7 @@
                         Close
                       </button>
                       <button
-                        @click="deletePetugas(targetIdModal)"
+                        @click="deletePetugas(targetUsernameModal)"
                         type="button"
                         class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
                         data-bs-dismiss="modal"
@@ -274,7 +274,7 @@
       return {
         date: new Date().getFullYear(),
         petugas: [],
-        targetIdModal: null
+        targetUsernameModal: null
       };
     },
 
@@ -303,8 +303,8 @@
           console.log(e);
         });
     },
-    targetId(id){
-      this.targetIdModal = id
+    targetUsername(username){
+      this.targetUsernameModal = username
     }
   },
 
