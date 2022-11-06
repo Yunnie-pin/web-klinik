@@ -107,7 +107,7 @@ const routes = [
     component: EmployeeDirectory,
   },  
   {
-    path: "/superadmin/update-employee",
+    path: "/superadmin/update-employee/:id",
     name: 'Update Petugas',
     component: UpdateEmployee,
   },  
