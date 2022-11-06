@@ -127,7 +127,7 @@ const routes = [
     component: ParameterDirectory,
   },  
   {
-    path: "/superadmin/update-parameter",
+    path: "/superadmin/update-parameter/:id",
     name: 'Update Parameter',
     component: UpdateParameter,
   },

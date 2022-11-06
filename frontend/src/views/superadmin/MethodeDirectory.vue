@@ -225,7 +225,7 @@
       </div>
     </div>
   </template>
-  <script>
+  <script >
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
