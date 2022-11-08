@@ -329,7 +329,7 @@ export default {
         .post("http://127.0.0.1:3300/api/pasien", this.form)
         .then((res) => {
           console.log(res);
-          this.$router.push({ path: "/superadmin/parameter-directory" });
+          this.$router.push({ path: "/superadmin/patient-directory" });
         });
     },
   },

@@ -80,7 +80,7 @@ const routes = [
     component: HistoryCheckUp,
   },  
   {
-    path: "/administrations/update-patient",
+    path: "/administrations/update-patient/:id",
     name: 'Perbaharui Data Pasien',
     component: UpdatePatient,
   },  

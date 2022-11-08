@@ -226,7 +226,7 @@
                               class="text-xl font-medium leading-normal text-gray-800"
                               id="exampleModalLabel"
                             >
-                              Tambahkan Bidang
+                              Perbaharui Parameter
                             </h5>
                             <button
                               type="button"
@@ -236,7 +236,7 @@
                             ></button>
                           </div>
                           <div class="modal-body relative p-4">
-                            Apakah anda yakin ingin menambahkan Parameter?
+                            Apakah anda yakin ingin memperbaharui Parameter?
                           </div>
                           <div
                             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"

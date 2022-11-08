@@ -32,7 +32,7 @@
               <div class="block w-full overflow-x-auto">
                 <!-- content -->
                 <div>
-                  <form v-on:submit="submitForm()" id="tambahparameter">
+                  <form id="tambahparameter">
                     <div class="flex flex-wrap">
                       <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
                         <div
