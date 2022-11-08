@@ -19,7 +19,7 @@ class StatusController extends Controller
             }
             return new PostResource(true, "data status ditemukan", $status);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data status tidak ada", $th->getMessage());
+            return new PostResource(false, "data status tidak ada");
         }
     }
     public function addStatus(Request $request)
@@ -42,7 +42,7 @@ class StatusController extends Controller
             }
             return new PostResource(true, "status berhasil ditambahkan", $status);
         } catch (\Throwable $th) {
-            return new PostResource(false, "status gagal ditambahkan", $th->getMessage());
+            return new PostResource(false, "status gagal ditambahkan");
         }
     }
     public function updateStatus(Request $request)
@@ -55,7 +55,7 @@ class StatusController extends Controller
             $status->update($data);
             return new PostResource(true, "status berhasil diubah", $status);
         } catch (\Throwable $th) {
-            return new PostResource(false, "status gagal diubah", $th->getMessage());
+            return new PostResource(false, "status gagal diubah");
         }
     }
     public function deleteStatus(Request $request)
@@ -65,7 +65,7 @@ class StatusController extends Controller
             $status->delete();
             return new PostResource(true, "Data status Pemeriksaan Berhasil dihapus", $status);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data status Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data status Pemeriksaan Gagal dihapus");
         }
     }
 }

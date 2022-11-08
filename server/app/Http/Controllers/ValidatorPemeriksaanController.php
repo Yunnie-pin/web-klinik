@@ -20,7 +20,7 @@ class ValidatorPemeriksaanController extends Controller
             }
             return new PostResource(true, "data petugas ditemukan", $validatorPemeriksaan);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data petugas tidak ada", $th->getMessage());
+            return new PostResource(false, "data petugas tidak ada");
         }
     }
     public function addValidatorPemeriksaan(Request $request)
@@ -44,7 +44,7 @@ class ValidatorPemeriksaanController extends Controller
             }
             return new PostResource(true, "petugas berhasil ditambahkan", $validatorPemeriksaan);
         } catch (\Throwable $th) {
-            return new PostResource(false, "petugas gagal ditambahkan", $th->getMessage());
+            return new PostResource(false, "petugas gagal ditambahkan");
         }
     }
     public function updateValidatorPemeriksaan(Request $request)
@@ -58,7 +58,7 @@ class ValidatorPemeriksaanController extends Controller
             $validatorPemeriksaan->update($data);
             return new PostResource(true, "petugas berhasil diubah", $validatorPemeriksaan);
         } catch (\Throwable $th) {
-            return new PostResource(false, "petugas gagal diubah", $th->getMessage());
+            return new PostResource(false, "petugas gagal diubah");
         }
     }
     public function deleteValidatorPemeriksaan(Request $request)
@@ -68,7 +68,7 @@ class ValidatorPemeriksaanController extends Controller
             $validatorPemeriksaan->delete();
             return new PostResource(true, "Data Petugas Pemeriksaan Berhasil dihapus", $validatorPemeriksaan);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Petugas Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Petugas Pemeriksaan Gagal dihapus");
         }
     }
 }

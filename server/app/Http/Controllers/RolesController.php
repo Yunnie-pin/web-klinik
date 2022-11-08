@@ -20,7 +20,7 @@ class RolesController extends Controller
             }
             return new PostResource(true, "data roles ditemukan", $roles);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data roles tidak ada", $th->getMessage());
+            return new PostResource(false, "data roles tidak ada");
         }
     }
     public function addRoles(Request $request)
@@ -43,7 +43,7 @@ class RolesController extends Controller
             }
             return new PostResource(true, "roles berhasil ditambahkan", $roles);
         } catch (\Throwable $th) {
-            return new PostResource(false, "roles gagal ditambahkan", $th->getMessage());
+            return new PostResource(false, "roles gagal ditambahkan");
         }
     }
     public function updateRoles(Request $request)
@@ -56,7 +56,7 @@ class RolesController extends Controller
             $roles->update($data);
             return new PostResource(true, "roles berhasil diubah", $roles);
         } catch (\Throwable $th) {
-            return new PostResource(false, "roles gagal diubah", $th->getMessage());
+            return new PostResource(false, "roles gagal diubah");
         }
     }
     public function deleteRoles(Request $request)
@@ -66,7 +66,7 @@ class RolesController extends Controller
             $roles->delete();
             return new PostResource(true, "Data roles Pemeriksaan Berhasil dihapus", $roles);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data roles Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data roles Pemeriksaan Gagal dihapus");
         }
     }
 }

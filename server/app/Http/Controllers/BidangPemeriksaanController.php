@@ -18,7 +18,7 @@ class BidangPemeriksaanController extends Controller
             }
             return new PostResource(true, "data bidang ditemukan", $bidang);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data bidang tidak ada", $th->getMessage());
+            return new PostResource(false, "data bidang tidak ada");
         }
     }
     public function addBidangPemeriksaan(Request $request)
@@ -37,7 +37,7 @@ class BidangPemeriksaanController extends Controller
             }
             return new PostResource(true, "Bidang berhasil ditambahkan", $bidang);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Bidang gagal ditambahkan", $th->getMessage());
+            return new PostResource(false, "Bidang gagal ditambahkan");
         }
     }
     public function updateBidangPemeriksaan(Request $request)
@@ -50,7 +50,7 @@ class BidangPemeriksaanController extends Controller
             $bidang->update($data);
             return new PostResource(true, "Bidang berhasil diubah", $bidang);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Bidang gagal diubah", $th->getMessage());
+            return new PostResource(false, "Bidang gagal diubah");
         }
     }
     public function deleteBidangPemeriksaan(Request $request)
@@ -60,7 +60,7 @@ class BidangPemeriksaanController extends Controller
             $bidang->delete();
             return new PostResource(true, "Data Bidang Pemeriksaan Berhasil dihapus", $bidang);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Bidang Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Bidang Pemeriksaan Gagal dihapus");
         }
     }
 }

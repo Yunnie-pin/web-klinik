@@ -46,16 +46,16 @@
                         No
                       </th>
                       <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        No Pasien
-                      </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                         Nama Pasien
                       </th>
                       <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                         Jenis Kelamin
                       </th>
                       <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Kontak
+                        Nomer Telepon
+                      </th>
+                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                        Alamat
                       </th>
                       <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                         Cetak
@@ -66,21 +66,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr v-for="pasien of pasien.data" :key="pasien.id">
                       <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        1
+                        {{pasien.id}}
                       </th>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801000
+                        {{pasien.nama}}
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Fatimah
+                        {{pasien.jenis_kelamin}}
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Perempuan
+                        {{pasien.no_telp}}
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
+                        {{pasien.alamat}}
                       </td>
                       <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <button>
@@ -102,303 +102,7 @@
                         </button>
                       </td>
                     </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        2
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801001
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Jubaidah
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Perempuan
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        3
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801002
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Slamet Riyadi
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Laki-Laki
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        4
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801000
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Fatimah
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
 
-                        Perempuan
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        5
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801001
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Jubaidah
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
-                        Perempuan
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        6
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801002
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Slamet Riyadi
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
-                        Laki-Laki
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        7
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801000
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Fatimah
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
-                        Perempuan
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        8
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801001
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Siti Jubaidah
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
-                        Perempuan
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        9
-                      </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        P20220801002
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        Slamet Riyadi
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-
-                        Laki-Laki
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        088423423235
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
-                        </button>
-                        
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <router-link :to="{ name: 'Perbaharui Data Pasien' }">                        
-                          <button>
-                          <i class="fas fa-edit text-orange-500 mr-4"></i>
-                        </button>
-                      </router-link>
-                        <button>
-                          <i class="fas fa-trash text-red-500 mr-4"></i>
-                        </button>
-                      </td>
-                    </tr>
                     
 
                   </tbody>
@@ -437,7 +141,7 @@
 <script>
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
-
+import axios from "axios";
 
 export default {
   name: "patient-directory-cuy",
@@ -448,7 +152,38 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
+      pasien: [],
+      targetIdModal: null,
     };
+  },
+  created() {
+    axios
+      .get("http://127.0.0.1:3300/api/pasien")
+      .then((response) => {
+        console.log(response.data);
+        this.pasien = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  methods: {
+    deleteParameter(parameterId) {
+      axios
+        .delete("http://127.0.0.1:3300/api/pasien", {
+          data: { id_parameter: parameterId },
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push({ path: "/dashboard" });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    targetId(id) {
+      this.targetIdModal = id;
+    },
   },
 };
 </script>

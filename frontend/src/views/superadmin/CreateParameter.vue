@@ -208,7 +208,7 @@
                               class="text-xl font-medium leading-normal text-gray-800"
                               id="exampleModalLabel"
                             >
-                              Tambahkan Bidang
+                              Tambahkan Parameter
                             </h5>
                             <button
                               type="button"

@@ -11,10 +11,11 @@ class Pemeriksaan extends Model
     protected $table = 'pemeriksaan';
     protected $fillable = [
         'pasien_id',
-        'parameter_id',
-        'bidang_id',
+        'parameter_pemeriksaan_id',
+        'bidang_pemeriksaan_id',
         'status_id',
-        'validator_id',
+        'validator_pemeriksaan_id',
+        'list',
         'hasil',
         'kesan',
         'catatan'

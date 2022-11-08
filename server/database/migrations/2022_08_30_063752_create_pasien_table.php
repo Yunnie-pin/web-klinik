@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->enum('jenis_identitas', ['KTP', 'SIM', 'PASSPORT']);
             $table->string('no_identitas', 24)->unique();
-            $table->string('bpjs', 24)->unique();
+            $table->string('bpjs', 24)->unique()->nullable();
             $table->string('no_telp', 13);
             $table->text('alamat');
             $table->timestamps();

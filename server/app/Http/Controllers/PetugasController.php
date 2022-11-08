@@ -28,7 +28,7 @@ class PetugasController extends Controller
             }
             return new PostResource(true, "data petugas ditemukan", $petugas);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data petugas tidak ada", $th->getMessage());
+            return new PostResource(false, "data petugas tidak ada");
         }
     }
     public function addPetugas(Request $request)
@@ -58,7 +58,7 @@ class PetugasController extends Controller
             $petugas->update($data);
             return new PostResource(true, "Data Petugas Berhasil diperbarui", $petugas);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Petugas Gagal diperbarui", $th->getMessage());
+            return new PostResource(false, "Data Petugas Gagal diperbarui");
         }
     }
     public function deletePetugas(Request $request)
@@ -68,7 +68,7 @@ class PetugasController extends Controller
             $petugas->delete();
             return new PostResource(true, "Data Petugas Berhasil dihapus", $petugas);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Petugas Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Petugas Gagal dihapus");
         }
     }
 }

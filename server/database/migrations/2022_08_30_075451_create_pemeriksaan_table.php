@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('hasil');
             $table->text('kesan');
             $table->text('catatan');
+            $table->string('list');
             $table->timestamps();
         });
     }

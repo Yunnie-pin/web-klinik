@@ -19,7 +19,7 @@ class PasienController extends Controller
                 return new PostResource(true, "data Pasien Berhasil ditemukan", Pasien::all());
             }
         } catch (\Throwable $th) {
-            return new PostResource(false, "data pasien tidak ada", $th->getMessage());
+            return new PostResource(false, "data pasien tidak ada");
         }
     }
     public function addPasien(Request $request)
@@ -32,7 +32,8 @@ class PasienController extends Controller
                     'nama' => 'required|min:2',
                     'tanggal_lahir' => 'required|date',
                     'jenis_identitas' => 'in:KTP,PASSPORT,SIM|required',
-                    'no_identitas' => 'required',
+                    'jenis_kelamin' => 'in:L,P|required',
+                    'no_identitas' => 'required|unique:pasien',
                     'alamat' => 'required',
                     'no_telp' => 'required|max:13'
                 ];
@@ -42,7 +43,10 @@ class PasienController extends Controller
                     'nama.min' => 'nama terlalu pendek',
                     'jenis_identitas.in' => 'jenis identitas tidak ada',
                     'jenis_identitas.required' => 'jenis identitas diperlukan',
+                    'jenis_kelamin.in' => 'jenis kelamin tidak ada',
+                    'jenis_kelamin.required' => 'jenis kelamin diperlukan',
                     'no_identitas.required' => 'no identitas tidak boleh kosong',
+                    'no_identitas.unique' => 'no identitas telah digunakan',
                     'alamat.required' => 'alamat tidak boleh kosong',
                     'no_telp.required' => 'no_telepon tidak boleh kosong'
                 ];
@@ -54,6 +58,7 @@ class PasienController extends Controller
                     'nama' => $request->nama,
                     'tanggal_lahir' => date('Y-m-d', strtotime($request->tanggal_lahir)),
                     'jenis_identitas' => $request->jenis_identitas,
+                    'jenis_kelamin' => $request->jenis_kelamin,
                     'no_identitas' => $request->no_identitas,
                     'bpjs' => $request->bpjs,
                     'alamat' => $request->alamat,
@@ -63,7 +68,7 @@ class PasienController extends Controller
                 return new PostResource(true, "Pasien Berhasil Ditambahkan", $pasien);
             }
         } catch (\Throwable $th) {
-            return new PostResource(false, "Pasien Gagal Ditambahkan", $th->getMessage());
+            return new PostResource(false, "Pasien Gagal Ditambahkan");
         }
     }
 
@@ -82,6 +87,9 @@ class PasienController extends Controller
         if (isset($request->no_identitas)) {
             $data['no_identitas'] = $request->no_identitas;
         }
+        if(isset($request->jenis_kelamin)){
+            $data['jenis_kelamin'] = $request->jenis_kelamin;
+        }
         if (isset($request->bpjs)) {
             $data['bpjs'] = $request->bpjs;
         }
@@ -96,7 +104,7 @@ class PasienController extends Controller
             $pasien->update($data);
             return new PostResource(true, "Data Pasien Berhasil diperbarui", $pasien);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Pasien Gagal diperbarui", $th->getMessage());
+            return new PostResource(false, "Data Pasien Gagal diperbarui");
         }
     }
 
@@ -107,7 +115,7 @@ class PasienController extends Controller
             $pasien->delete();
             return new PostResource(true, "Data Pasien Berhasil dihapus", $pasien);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Pasien Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Pasien Gagal dihapus");
         }
     }
 }

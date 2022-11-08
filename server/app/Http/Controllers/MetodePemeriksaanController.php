@@ -19,7 +19,7 @@ class MetodePemeriksaanController extends Controller
             }
             return new PostResource(true, "data metode ditemukan", $metode);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data metode tidak ada", $th->getMessage());
+            return new PostResource(false, "data metode tidak ada");
         }
     }
     public function addMetodePemeriksaan(Request $request)
@@ -42,7 +42,7 @@ class MetodePemeriksaanController extends Controller
             }
             return new PostResource(true, "metode berhasil ditambahkan", $metode);
         } catch (\Throwable $th) {
-            return new PostResource(false, "metode gagal ditambahkan", $th->getMessage());
+            return new PostResource(false, "metode gagal ditambahkan");
         }
     }
     public function updateMetodePemeriksaan(Request $request)
@@ -55,7 +55,7 @@ class MetodePemeriksaanController extends Controller
             $metode->update($data);
             return new PostResource(true, "metode berhasil diubah", $metode);
         } catch (\Throwable $th) {
-            return new PostResource(false, "metode gagal diubah", $th->getMessage());
+            return new PostResource(false, "metode gagal diubah");
         }
     }
     public function deleteMetodePemeriksaan(Request $request)
@@ -65,7 +65,7 @@ class MetodePemeriksaanController extends Controller
             $metode->delete();
             return new PostResource(true, "Data Metode Pemeriksaan Berhasil dihapus", $metode);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Metode Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Metode Pemeriksaan Gagal dihapus");
         }
     }
 }

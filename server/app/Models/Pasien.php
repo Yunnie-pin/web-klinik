@@ -13,14 +13,10 @@ class Pasien extends Model
         'nama',
         'tanggal_lahir',
         'jenis_identitas',
+        'jenis_kelamin',
         'no_identitas',
         'no_telp',
         'bpjs',
         'alamat'
-    ];
-
-    protected $hidden = [
-        'no_identitas',
-        'bpjs'
     ];
 }
