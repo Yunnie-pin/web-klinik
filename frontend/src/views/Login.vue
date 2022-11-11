@@ -28,7 +28,7 @@
             />
           </div>
 
-          <div class="text-light pb-2 font-bold text-white">Password</div>
+          <div class="text-light py-2 font-bold text-white">Password</div>
           <div
             class="border-2 border-white w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
           >
@@ -48,72 +48,76 @@
             ></i>
           </div>
 
+          <div class="pt-2">
+            <div class="font-bold  text-[#E02424] drop-shadow-lg" >{{messages}}</div>
+          </div>
+
           <div style="text-align: center !important">
             <button
-            type="button"
-            data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
               class="w-44 py-3 mt-4 self-center font-sans font-bold bg-[#374151] rounded-lg text-xs text-white text-center border-2 border-white"
             >
               Login
             </button>
           </div>
 
-                              <!-- Modal -->
-                              <div
-                      class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
-                      id="exampleModal"
-                      tabindex="-1"
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div
-                        class="modal-dialog relative w-auto pointer-events-none"
-                      >
-                        <div
-                          class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
-                        >
-                          <div
-                            class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
-                          >
-                            <h5
-                              class="text-xl font-medium leading-normal text-gray-800"
-                              id="exampleModalLabel"
-                            >
-                              Login
-                            </h5>
-                            <button
-                              type="button"
-                              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
-                          </div>
-                          <div class="modal-body relative p-4">
-                            Apa anda yakin ingin melanjutkan?
-                          </div>
-                          <div
-                            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
-                          >
-                            <button
-                              type="button"
-                              class="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button
-                              type="button"
-                              class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-                              data-bs-dismiss="modal"
-                              v-on:click="submitForm()"
-                              >
-                              Continue
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Modal -->
+          <div
+            class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog relative w-auto pointer-events-none">
+              <div
+                class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+              >
+                <div
+                  class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+                >
+                  <h5
+                    class="text-xl font-medium leading-normal text-gray-800"
+                    id="exampleModalLabel"
+                  >
+                    Login
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body relative p-4">
+                  Apa anda yakin ingin melanjutkan?
+                </div>
+                <div
+                  class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+                >
+                  <button
+                    type="button"
+                    class="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="button"
+                    class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                    data-bs-dismiss="modal"
+                    v-on:click="submitForm()"
+                  >
+                    Continue
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </form>
       </div>
     </div>
@@ -121,21 +125,12 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
 import axios from "axios";
+
 
 export default {
   name: "login-page",
-  setup() {
-    const router = useRouter();
 
-    const login = () => {
-      localStorage.setItem("authenticated", true);
-      router.push({ name: "dashboard" });
-    };
-
-    return { login };
-  },
 
   data() {
     return {
@@ -143,10 +138,12 @@ export default {
       passwordFieldType: "password",
       iconType: "fa-eye",
 
+      messages: "",
       form: {
         email: null,
-        password : null
+        password: null,
       },
+      
     };
   },
   methods: {
@@ -159,13 +156,29 @@ export default {
     submitForm() {
       console.log(this.form);
       axios.post("http://127.0.0.1:3300/api/login", this.form).then((res) => {
-        if(res.data.success == true){
+        if (res.data.success == true) {
           localStorage.setItem("authenticated", true);
+          localStorage.setItem("id", res.data.data.user.id);
           localStorage.setItem("username", res.data.data.user.username);
+          localStorage.setItem("email", res.data.data.user.email);
+          localStorage.setItem("nama_lengkap", res.data.data.user.nama_lengkap);
+          localStorage.setItem("no_telp", res.data.data.user.no_telp);
+          localStorage.setItem("roles_id", res.data.data.user.roles_id);
+          if(res.data.data.user.roles_id == 1){
+            localStorage.setItem("roles_name", "Super Admin");
+          } if(res.data.data.user.roles_id == 2){
+            localStorage.setItem("roles_name", "Administrasi");
+          }  if(res.data.data.user.roles_id == 3){
+            localStorage.setItem("roles_name", "Laborat");
+          }  if(res.data.data.user.roles_id == 4){
+            localStorage.setItem("roles_name", "Poli");
+          }  
           this.$router.push({ name: "dashboard" });
         }
+        if (res.data.success == false) {
+          this.messages = res.data.message;
+        }
         console.log(res);
-        //this.$router.push({ path: "/superadmin/employee-directory" });
       });
     },
   },

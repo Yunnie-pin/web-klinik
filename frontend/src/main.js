@@ -84,8 +84,6 @@ const routes = [
     name: 'Perbaharui Data Pasien',
     component: UpdatePatient,
   },  
-  
-  // super admin
   {
     path: "/superadmin/create-user",
     name: 'Tambah Petugas',

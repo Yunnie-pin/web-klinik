@@ -59,55 +59,104 @@
                     class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"
                   >
                     <div class="py-6 px-3 mt-32 sm:mt-0">
-                      <router-link :to="{ name: 'editprofile' }">                      <button
-                        class="bg-primary active:primary uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                        type="button"
-                        style="transition: all 0.15s ease 0s"
+                      <router-link :to="{ name: 'editprofile' }">
+                        <button
+                          class="bg-primary active:primary uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                          type="button"
+                          style="transition: all 0.15s ease 0s"
+                        >
+                          Edit Profile
+                        </button></router-link
                       >
-                      Edit Profile
-                      </button></router-link>
                     </div>
                   </div>
-                  <div class="w-full lg:w-4/12 px-4 lg:order-1">
-
-                  </div>
+                  <div class="w-full lg:w-4/12 px-4 lg:order-1"></div>
                 </div>
-                
+
                 <div class="text-center mt-12">
                   <h3
                     class="text-4xl font-semibold leading-normal mb-2 text-gray-800"
                   >
-                    Windah Basudara
+                    {{ nama_lengkap }}
                   </h3>
-                  <div
-                    class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
-                  >
-                    <i
-                      class="fas fa-id-card mr-2 text-lg text-gray-500"
-                    ></i>
-                    Petugas Laborat
+
+
+                  <div class="mx-auto block w-1/2 overflow-x-auto">
+                    <table
+                      class="items-center w-1/2 bg-transparent border-collapse mx-auto"
+                    >
+                      <tbody>
+                        <tr>
+                          <th
+                            class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap text-right"
+                          >
+                            <i
+                              class="fas fa-mail-bulk mr-2 text-lg text-gray-500"
+                            ></i>
+                          </th>
+                          <th
+                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                          >
+                            {{ email }}
+                          </th>
+                          
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap text-right"
+                          >
+                            <i
+                              class="fas fa-id-card mr-2 text-lg text-gray-500"
+                            ></i>
+                          </th>
+                          <th
+                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                          >
+                            {{ roles_name }}
+                          </th>
+                          
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap text-right"
+                          >
+                            <i
+                              class="fas fa-phone mr-2 text-lg text-gray-500"
+                            ></i>
+                          </th>
+                          <th
+                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                          >
+                            {{ no_telp }}
+                          </th>
+                          
+                        </tr>
+
+                        <tr>
+                          <th
+                            class="border-t-0 border-l-0 border-r-0 text-xs whitespace-nowrap text-right"
+                          >
+                            <i
+                              class="fas fa-id-card mr-2 text-lg text-gray-500"
+                            ></i>
+                          </th>
+                          <th
+                            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                          >
+                            {{ username }}
+                          </th>
+                          
+                        </tr>
+                        
+                      </tbody>
+                    </table>
                   </div>
 
-                  <div class="mb-2 text-gray-700 mt-10">
-                    <i class="fas fa-mail-bulk mr-2 text-lg text-gray-500"></i
-                    >Windah@mail.com
-                  </div>
-                  
-                  <div class="mb-2 text-gray-700">
-                    <i class="fas fa-phone mr-2 text-lg text-gray-500"></i
-                    >0812398123412
-                  </div>
-
-                  <div class="mb-2 text-gray-700">
-                    <i class="fas fa-id-card mr-2 text-lg text-gray-500"></i
-                    >ID012398092138902183
-                  </div>
-                  
                 </div>
-                
-                <div class="mt-10 border-gray-300 text-center">
 
-                </div>
+                <div class="mt-10 border-gray-300 text-center"></div>
               </div>
             </div>
           </div>
@@ -124,6 +173,17 @@ export default {
   components: {
     NavbarComponent,
     SidebarComponent,
+  },
+  data() {
+    return {
+      id: localStorage.getItem("id"),
+      username: localStorage.getItem("username"),
+      email: localStorage.getItem("email"),
+      nama_lengkap: localStorage.getItem("nama_lengkap"),
+      no_telp: localStorage.getItem("no_telp"),
+      roles_id: localStorage.getItem("roles_id"),
+      roles_name: localStorage.getItem("roles_name"),
+    };
   },
 };
 </script>

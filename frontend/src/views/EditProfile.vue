@@ -87,6 +87,7 @@
                             <div
                               class="relative w-full pr-4 max-w-full flex-grow flex-1"
                             >
+
                               <form id="editprofile" class="p-6 sm:px-12 px-2 md:px-20 lg:px-56">
 
 
@@ -185,6 +186,8 @@
 <script>
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
+import axios from "axios";
+
 export default {
   name: "edit-profile",
   components: {
@@ -199,11 +202,23 @@ export default {
     };
   },
   methods: {
-    switchVisibility() {
-      this.passwordFieldType =
-        this.passwordFieldType === "password" ? "text" : "password";
-      this.iconType = this.iconType === "fa-eye" ? "fa-eye-slash" : "fa-eye";
-    },
+    submitForm(
+      username, 
+      namaLengkap ,
+      nomerTelepon,
+      ) 
+      {
+        axios
+        .put("http://127.0.0.1:3300/api/parameter-pemeriksaan", {
+          username: username, 
+          nama_lengkap : namaLengkap,
+          nomer_telepon : nomerTelepon,
+        })
+          .then((res) => {
+            console.log(res);
+            this.$router.push({ path: "/superadmin/parameter-directory" });
+          });
+      },
   },
 };
 </script>
