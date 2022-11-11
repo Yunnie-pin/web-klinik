@@ -43,7 +43,7 @@
       <ul class="flex-col md:flex-row list-none items-center hidden md:flex">
         <div class="pr-4">
           <h5 class="text-white uppercase font-bold text-xs">
-            Hi! Windah Basudara
+            {{"HI ! " + username}}
           </h5>
         </div>
         <user-dropdown-component></user-dropdown-component>
@@ -55,9 +55,18 @@
 </template>
 <script>
 import UserDropdownComponent from "./UserDropdown.vue";
+
+
 export default {
   components: {
     UserDropdownComponent,
   },
+  data(){
+    return {
+      username : localStorage.getItem('username'),
+    }
+  },
+
+
 };
 </script>

@@ -63,6 +63,7 @@ export default {
 
       const logout = () => {
         localStorage.setItem("authenticated",false);
+        localStorage.removeItem("username");
         router.push({name : "login"});
       };
 
