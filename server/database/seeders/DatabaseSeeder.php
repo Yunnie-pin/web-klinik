@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ParameterPemeriksaanSeeder::class,
             ValidatorPemeriksaanSeeder::class,
             PemeriksaanSeeder::class,
+            KeteranganSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(UserController::class)->group(function () {
     Route::post('/register', 'register');
     Route::post('/login', 'login');
+    Route::post('/change-password','changePassword')->middleware('auth:sanctum');
     Route::prefix('/logout')->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
             Route::post('/', 'logout');
@@ -111,10 +112,14 @@ Route::controller(StatusController::class)->group(function () {
     });
 });
 
-Route::controller(PemeriksaanController::class)->group(function () {
-    Route::prefix('/pemeriksaan')->group(function () {
-        Route::get('/', 'getPemeriksaan');
-        Route::get('/{id}', 'getPemeriksaan');
+
+Route::group([
+    'controller'    => PemeriksaanController::class,
+    'prefix'        => '/pemeriksaan',
+],function(){
+    Route::get('/', 'getPemeriksaan');
+    Route::get('/{id}', 'getPemeriksaan');
+    Route::middleware('auth:sanctum')->group(function(){
         Route::post('/', 'addPemeriksaan');
         Route::put('/', 'updatePemeriksaan');
         Route::delete('/', 'deletePemeriksaan');

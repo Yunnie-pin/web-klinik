@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
-use App\Models\BidangPemeriksaan;
-use App\Models\ParameterPemeriksaan;
 use App\Models\Pasien;
 use App\Models\Pemeriksaan;
 use App\Models\Status;
 use App\Models\ValidatorPemeriksaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class PemeriksaanController extends Controller
@@ -19,30 +18,11 @@ class PemeriksaanController extends Controller
         try {
             if (isset($id)) {
                 $periksa = Pemeriksaan::where('id', $id)->first();
-                $pasien = Pasien::where('id', $periksa->pasien_id)->first();
-                unset($periksa->pasien_id);
-                $periksa->pasien = $pasien;
-
-                $parameter = ParameterPemeriksaan::where('id', $periksa->parameter_id)->first();
-                unset($periksa->parameter_id);
-                $periksa->parameterPemeriksaan = $parameter;
-
-                $bidang = BidangPemeriksaan::where('id', $periksa->bidang_id)->first();
-                unset($periksa->bidang_id);
-                $periksa->bidangPemeriksaan = $bidang;
-
-                $status = Status::where('id', $periksa->status_id)->first();
-                unset($periksa->status_id);
-                $periksa->statusPemeriksaan = $status;
-                
-                $validator = ValidatorPemeriksaan::where('id', $periksa->validator_id)->first();
-                unset($periksa->validator_id);
-                $periksa->validatorPemeriksaan = $validator;
-                $periksa->list = $this->convertStringToArrayObject($periksa->list);
+                $this->detailed($periksa);
             } else {
                 $periksa = Pemeriksaan::all();
-                foreach($periksa as $k => $p){
-                    $periksa[$k]->list = $this->convertStringToArrayObject($p->list);
+                foreach($periksa as $p){
+                    $this->detailed($p);
                 }
             }
             return new PostResource(true, "data pemeriksaan ditemukan", $periksa);
@@ -50,74 +30,73 @@ class PemeriksaanController extends Controller
             return new PostResource(false, "data pemeriksaan tidak ada", $th->getMessage());
         }
     }
+
     public function addPemeriksaan(Request $request)
     {
+        if(!Auth::check()){
+            return new PostResource(false,"unauthenticated");
+        }
         try {
             if (isset($request->id_pemeriksaan)) {
                 return $this->updatePemeriksaan($request);
-            } else {
-                $rules = [
-                    'pasien_id' => 'required',
-                    'parameter_id' => 'required',
-                    'bidang_id' => 'required',
-                    'status_id' => 'required',
-                    'validator_id' => 'required',
-                    'list' => 'required',
-                    'hasil' => 'required',
-                ];
-                $validator = Validator::make($request->all(), $rules);
-                if ($validator->fails()) {
-                    return new PostResource(false, $validator->errors()->all());
-                }
-                $pasien = Pasien::where('id', $request->pasien_id)->first();
-                if (!$pasien) {
-                    return new PostResource(false, "Pasien tidak ditemukan");
-                }
-                $parameter = ParameterPemeriksaan::where('id', $request->parameter_id)->first();
-                if (!$parameter) {
-                    return new PostResource(false, "Parameter Pemeriksaan tidak ditemukan");
-                }
-                $bidang = BidangPemeriksaan::where('id', $request->bidang_id)->first();
-                if (!$bidang) {
-                    return new PostResource(false, "Bidang Pemeriksaan tidak ditemukan");
-                }
-                $validator = ValidatorPemeriksaan::where('id', $request->validator_id)->first();
-                if (!$validator) {
-                    return new PostResource(false, "Validator Pemeriksaan tidak ditemukan");
-                }
-                if(!is_array($request->list)){
-                    return new PostResource(false,"List not an Array");
-                }
-                $list = $this->convertArrayToString($request->list);
-                $data = [
-                    'pasien_id' => $request->pasien_id,
-                    'parameter_pemeriksaan_id' => $request->parameter_id,
-                    'bidang_pemeriksaan_id' => $request->bidang_id,
-                    'status_id' => $request->status_id,
-                    'validator_pemeriksaan_id' => $request->validator_id,
-                    'list' => $list,
-                    'hasil' => $request->hasil,
-                    'kesan' => $request->kesan,
-                    'catatan' => $request->catatan
-                ];
-                $pemeriksaan = Pemeriksaan::create($data);
-                return new PostResource(true, "Pemeriksaan Berhasil Ditambahkan", $this->getPemeriksaan($pemeriksaan->id));
+            } 
+            $rules = [
+                'pasien_id'     => 'required',
+                'status_id'     => 'required',
+                'validator_id'  => 'required',
+                'list'          => 'required'
+            ];
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return new PostResource(false, $validator->errors()->all());
             }
+            $pasien = Pasien::where('id', $request->pasien_id)->first();
+            if (!$pasien) {
+                return new PostResource(false, "Pasien tidak ditemukan");
+            }
+            $status = Status::where('id',$request->status_id)->first();
+            if(!$status){
+                return new PostResource(false, "Status tidak ditemukan");
+            }
+            $validator = ValidatorPemeriksaan::where('id', $request->validator_id)->first();
+            if (!$validator) {
+                return new PostResource(false, "Validator Pemeriksaan tidak ditemukan");
+            }
+            if(!is_array($request->list)){
+                return new PostResource(false,"List not in a List");
+            }
+            $data = [
+                'user_id' => $request->user()->id,
+                'pasien_id' => $request->pasien_id,
+                'status_id' => $request->status_id,
+                'validator_pemeriksaan_id' => $request->validator_id,
+            ];
+            $pemeriksaan = Pemeriksaan::create($data);
+            try {
+                foreach($request->list as $list){
+                    KeteranganController::create($pemeriksaan->id,$list);
+                }
+            } catch (\Throwable $th) {
+                $pemeriksaan->delete();
+                return new PostResource(false,"Cek Kembali List Keterangan Pemeriksaan");
+            }
+            return new PostResource(true, "Pemeriksaan Berhasil Ditambahkan", $this->getPemeriksaan($pemeriksaan->id));
         } catch (\Throwable $th) {
             return new PostResource(false, "Pemeriksaan Gagal Ditambahkan", $th->getMessage());
         }
     }
     public function updatePemeriksaan(Request $request)
     {
+        $rules = [
+            'id_pemeriksaan'     => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return new PostResource(false, $validator->errors()->all());
+        }
         $data = [];
         if (isset($request->pasien_id)) {
             $data['pasien_id'] = $request->pasien_id;
-        }
-        if (isset($request->parameter_id)) {
-            $data['parameter_pemeriksaan_id'] = $request->parameter_id;
-        }
-        if (isset($request->bidang_id)) {
-            $data['bidang_pemeriksaan_id'] = $request->bidang_id;
         }
         if (isset($request->status_id)) {
             $data['status_id'] = $request->status_id;
@@ -125,20 +104,22 @@ class PemeriksaanController extends Controller
         if (isset($request->validator_id)) {
             $data['validator_pemeriksaan_id'] = $request->validator_id;
         }
-        if(isset($request->list)){
-            $data['list'] = $this->convertArrayToString($request->list);
-        }
-        if (isset($request->hasil)) {
-            $data['hasil'] = $request->hasil;
-        }
-        if (isset($request->kesan)) {
-            $data['kesan'] = $request->kesan;
-        }
-        if (isset($request->catatan)) {
-            $data['catatan'] = $request->catatan;
-        }
         try {
             $pemeriksaan = Pemeriksaan::where('id', $request->id_pemeriksaan)->first();
+            if(isset($request->list)){
+                if(!is_array($request->list)){
+                    return new PostResource(false,"List not in a List");
+                }
+                foreach($request->list as $list){
+                    if(isset($list['id'])){
+                        $id = $list['id'];
+                        unset($list['id']);
+                        KeteranganController::update($id,$data);
+                    }else{
+                        KeteranganController::create($pemeriksaan->id,$list);
+                    }
+                }
+            }
             $pemeriksaan->update($data);
             return new PostResource(true, "Data Pemeriksaan Berhasil diperbarui", $this->getPemeriksaan($pemeriksaan->id));
         } catch (\Throwable $th) {
@@ -149,11 +130,25 @@ class PemeriksaanController extends Controller
     {
         try {
             $pemeriksaan = Pemeriksaan::where('id', $request->id_pemeriksaan)->first();
+            $keterangan = KeteranganController::get($pemeriksaan->id);
+            if($keterangan){
+                foreach(json_decode($keterangan) as $k){
+                    KeteranganController::delete($k->id);
+                }
+            }
             $pemeriksaan->delete();
             return new PostResource(true, "Data Pemeriksaan Berhasil dihapus", $pemeriksaan);
         } catch (\Throwable $th) {
             return new PostResource(false, "Data Pemeriksaan Gagal dihapus", $th->getMessage());
         }
+    }
+
+    private function detailed($periksa){
+        $periksa->user = $periksa->user($periksa->user_id);
+        $periksa->pasien = $periksa->pasien($periksa->pasien_id);
+        $periksa->status = $periksa->status($periksa->status_id);
+        $periksa->validator = $periksa->validator($periksa->validator_pemeriksaan_id);
+        $periksa->keterangan = KeteranganController::get($periksa->id);
     }
 
     private function convertStringToArrayObject($list){    

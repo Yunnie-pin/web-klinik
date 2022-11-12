@@ -69,8 +69,10 @@ class UserController extends Controller
             'password'      => 'required',
         ];
         $messages = [
-            'email.required' => 'email wajib diisi',
-            'email.password' => 'password wajib diisi'
+            'email.required'        => 'Email wajib diisi',
+            'password.required'     => 'Password wajib diisi',
+            'password.min'          => 'Password minimal 6 karakter',
+            'password.confirmed'    => 'Password tidak sama dengan konfirmasi password',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
@@ -94,6 +96,36 @@ class UserController extends Controller
             'user' => $user
         ];
         return new PostResource(true, "login berhasil", $data);
+    }
+
+    public function changePassword(Request $request){
+        try {
+            if(Auth::check()){
+                $rules = [
+                    'password'      => 'required|min:6',
+                ];
+                $messages = [
+                    'password.required'     => 'Password wajib diisi',
+                    'password.min'          => 'Password minimal 6 karakter',
+                ];
+                $validator = Validator::make($request->all(), $rules, $messages);
+                if ($validator->fails()) {
+                    return new PostResource(false, $validator->errors()->first());
+                }
+                $user = $request->user();
+                $user = User::where('id',$user->id)->first();
+                try {
+                $user->update([
+                    'password' => Hash::make($request->password)
+                ]);
+                return new PostResource(true, "Password Berhasil diperbarui");
+                } catch (\Throwable $th) {
+                    return new PostResource(false, "Password Gagal diperbarui");
+                }
+            }
+        } catch (\Throwable $th) {
+            return new PostResource(false,"unauthenticated");
+        }
     }
 
     public function logout(Request $request)

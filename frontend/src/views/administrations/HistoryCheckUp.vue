@@ -71,16 +71,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr v-for="pemeriksaan of pemeriksaan.data" :key="pemeriksaan.id">
                       <th
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                       >
-                        1
+                        {{ pemeriksaan.id }}
                       </th>
                       <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        S20220801001
+                        {{ pemeriksaan.id }}
                       </td>
                       <td
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
@@ -320,6 +320,7 @@
 <script>
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
+import axios from "axios";
 
 export default {
   name: "history-check-up",
@@ -330,7 +331,21 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
+      pemeriksaan : {},
     };
   },
+  created() {
+    //read tabel pemeriksaan
+    axios
+      .get("http://127.0.0.1:3300/api/pemeriksaan")
+      .then((response) => {
+        console.log(response.data);
+        this.pemeriksaan = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  //read tabel pemeriksaan
 };
 </script>

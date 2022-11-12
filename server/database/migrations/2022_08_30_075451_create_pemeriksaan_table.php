@@ -15,20 +15,14 @@ return new class extends Migration
     {
         Schema::create('pemeriksaan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                ->constrained('users');
             $table->foreignId('pasien_id')
                 ->constrained('pasien');
-            $table->foreignId('bidang_pemeriksaan_id')
-                ->constrained('bidang_pemeriksaan');
-            $table->foreignId('parameter_pemeriksaan_id')
-                ->constrained('parameter_pemeriksaan');
             $table->foreignId('status_id')
                 ->constrained('status');
             $table->foreignId('validator_pemeriksaan_id')
                 ->constrained('validator_pemeriksaan');
-            $table->text('hasil');
-            $table->text('kesan');
-            $table->text('catatan');
-            $table->string('list');
             $table->timestamps();
         });
     }
