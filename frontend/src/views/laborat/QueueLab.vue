@@ -29,266 +29,124 @@
                 </div>
                 <div class="block w-full overflow-x-auto">
                   <table
-                    class="items-center w-full bg-transparent border-collapse"
-                  >
-                    <thead>
-                      <tr>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                  class="items-center w-full bg-transparent border-collapse"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        id Pemeriksaan
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Nama Pasien
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Dokter
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Validator
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Waktu
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Proses
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Aksi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="pemeriksaan of pemeriksaan.data" :key="pemeriksaan.id">
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.id }}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.pasien.nama}}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.user.username}}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.validator.nama}}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.updated_at}}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        <p
+                          class="text-center py-0.5 w-full rounded text-white" :class="styleStatus(pemeriksaan.status.id)"
                         >
-                          No
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          id Pemeriksaan
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          Nama Pasien
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          Dokter
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          Waktu
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          Proses
-                        </th>
-                        <th
-                          class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-                        >
-                          Aksi
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
-                        >
-                          1
-                        </th>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          S20220801001
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Siti Fatimah
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Windah Sentosa Sp.cpd
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          05/08/2022 08:30
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          <p
-                            class="text-center py-0.5 w-full bg-green-600 rounded text-white"
-                          >
-                            Selesai
-                          </p>
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          <div class="dropdown">
-                            <button
-                              class="dropdown-toggle text-center py-0.5 px-2 bg-blue-500 rounded text-white"
-                              id="dropdownMenuButton1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <p>
-                                Opsi
-                                <i class="fas fa-edit"></i>
-                              </p>
-                            </button>
-                            <ul
-                              class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
-                              aria-labelledby="dropdownMenuButton1"
-                            >
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Hasil</a
-                                >
-                              </li>
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Nota</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
-                        >
-                          2
-                        </th>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          S20220801001
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Siti Jubaidah
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Windah Sentosa Sp.cpd
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          06/08/2022 08:30
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          <p
-                            class="text-center py-0.5 w-full bg-green-600 rounded text-white"
-                          >
-                            Selesai
-                          </p>
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
+                          {{ pemeriksaan.status.name}}
+                        </p>
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 1"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
                         <div class="dropdown">
-                            <button
-                              class="dropdown-toggle text-center py-0.5 px-2 bg-blue-500 rounded text-white"
-                              id="dropdownMenuButton1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <p>
-                                Opsi
-                                <i class="fas fa-edit"></i>
-                              </p>
-                            </button>
-                            <ul
-                              class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
-                              aria-labelledby="dropdownMenuButton1"
-                            >
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Hasil</a
-                                >
-                              </li>
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Nota</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
-                        >
-                          3
-                        </th>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          S20220801003
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Slamet Riyadi
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          Windah Sentosa Sp.cpd
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          07/08/2022 08:30
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                          <p
-                            class="text-center py-0.5 w-full bg-green-600 rounded text-white"
+                          <button
+                            class="dropdown-toggle text-center py-0.5 px-2 bg-blue-500 rounded text-white"
+                            id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
                           >
-                            Selesai
-                          </p>
-                        </td>
-                        <td
-                          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
-                        >
-                        <div class="dropdown">
-                            <button
-                              class="dropdown-toggle text-center py-0.5 px-2 bg-blue-500 rounded text-white"
-                              id="dropdownMenuButton1"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            >
-                              <p>
-                                Opsi
-                                <i class="fas fa-edit"></i>
-                              </p>
-                            </button>
-                            <ul
-                              class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
-                              aria-labelledby="dropdownMenuButton1"
-                            >
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Hasil</a
-                                >
-                              </li>
-                              <li>
-                                <a
-                                  class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                  href="#"
-                                  >Cetak Nota</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                            <p>
+                              Opsi
+                              <i class="fas fa-edit"></i>
+                            </p>
+                          </button>
+                          <ul
+                            class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
+                            aria-labelledby="dropdownMenuButton1"
+                          >
+                            <li>
+                              <a
+                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                href="#"
+                                >Cetak Hasil</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                                href="#"
+                                >Cetak Nota</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    
+                    
+                  </tbody>
+                </table>
                 </div>
               </div>
             </div>
@@ -320,7 +178,8 @@
   <script>
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
-  
+  import axios from "axios";
+
   export default {
     name: "report-check-up",
     components: {
@@ -328,10 +187,32 @@
       SidebarComponent,
     },
     data() {
-      return {
-        date: new Date().getFullYear(),
-      };
+    return {
+      date: new Date().getFullYear(),
+      pemeriksaan : {},
+    };
+  },
+  created() {
+    //read tabel pemeriksaan
+    axios
+      .get("http://127.0.0.1:3300/api/pemeriksaan")
+      .then((response) => {
+        console.log(response.data);
+        this.pemeriksaan = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      }); 
+  },
+  methods: {
+    styleStatus(idStatus) {
+      if(idStatus == 1){
+        return "bg-red-600"
+      } else if(idStatus == 2){
+        return "bg-green-600"
+      }
     },
+  },
   };
   </script>
   

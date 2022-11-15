@@ -155,6 +155,38 @@
                             </div>
                           </div>
                         </div>
+                        <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
+                          <div
+                            class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
+                          >
+                            <div class="flex-auto p-4">
+  
+                              <h5
+                                class="text-black-700 uppercase font-bold text-sm"
+                              >
+                                Data Validator
+                              </h5>
+
+                              <div class="py-3">
+                                <div class="py-0.5">
+                                  <div
+                                    class="text-black-700 font-bold text-xs py-1"
+                                  >
+                                    Nama
+                                  </div>
+                                  <input
+                                    type="text"
+                                    class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                    placeholder="Nama"
+                                    aria-label="namaPengirim"
+                                    id="namaPengirim"
+                                  />
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
 
