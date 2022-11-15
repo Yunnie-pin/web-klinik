@@ -84,9 +84,9 @@ class PemeriksaanController extends Controller
                     return new PostResource(false, "Cek Kembali List Keterangan Pemeriksaan");
                 }
             }
-            return new PostResource(true, "Pemeriksaan Berhasil Ditambahkan", $this->getPemeriksaan($pemeriksaan->id));
+            return $this->getPemeriksaan($pemeriksaan->id);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Pemeriksaan Gagal Ditambahkan", $th->getMessage());
+            return new PostResource(false, "Pemeriksaan Gagal Ditambahkan");
         }
     }
 
@@ -123,7 +123,7 @@ class PemeriksaanController extends Controller
             $pemeriksaan->update($data);
             return new PostResource(true, "Data Pemeriksaan Berhasil diperbarui", $this->getPemeriksaan($pemeriksaan->id));
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Pemeriksaan Gagal diperbarui", $th->getMessage());
+            return new PostResource(false, "Data Pemeriksaan Gagal diperbarui");
         }
     }
 
@@ -136,7 +136,7 @@ class PemeriksaanController extends Controller
             Pemeriksaan::where('id', $request->id_pemeriksaan)->delete();
             return new PostResource(true, "Data Pemeriksaan Berhasil dihapus", $pemeriksaan);
         } catch (\Throwable $th) {
-            return new PostResource(false, "Data Pemeriksaan Gagal dihapus", $th->getMessage());
+            return new PostResource(false, "Data Pemeriksaan Gagal dihapus");
         }
     }
 
