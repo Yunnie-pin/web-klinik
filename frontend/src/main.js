@@ -11,8 +11,6 @@ import PatientDirectory from './views/administrations/PatientDirectory.vue'
 import PatientRegistration from './views/administrations/PatientRegistration.vue'
 import HistoryCheckUp from './views/administrations/HistoryCheckUp.vue'
 import UpdatePatient from './views/administrations/UpdatePatient.vue'
-
-
 import CreateUser from './views/superadmin/CreateUser.vue'
 import CreateSector from './views/superadmin/CreateSector.vue'
 import CreateParameter from './views/superadmin/CreateParameter.vue'
@@ -177,6 +175,7 @@ const routes = [
 
   { path: "/:pathMatch(.*)*", redirect: "/login" },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),

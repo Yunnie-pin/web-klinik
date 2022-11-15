@@ -178,6 +178,7 @@
 <script>
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
+import API_URL from "../../connection_api";
 import axios from "axios";
 
 export default {
@@ -195,7 +196,7 @@ export default {
   created() {
     //read tabel pemeriksaan
     axios
-      .get("http://127.0.0.1:3300/api/pemeriksaan")
+      .get(API_URL+"api/pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.pemeriksaan = response.data;

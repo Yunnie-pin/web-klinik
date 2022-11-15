@@ -126,7 +126,7 @@
 
 <script>
 import axios from "axios";
-
+import API_URL from "../connection_api";
 
 export default {
   name: "login-page",
@@ -155,7 +155,7 @@ export default {
 
     submitForm() {
       console.log(this.form);
-      axios.post("http://127.0.0.1:3300/api/login", this.form).then((res) => {
+      axios.post( API_URL + "api/login", this.form).then((res) => {
         if (res.data.success == true) {
           localStorage.setItem("authenticated", true);
           localStorage.setItem("access_token", res.data.data.access_token);

@@ -565,6 +565,7 @@
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../connection_api';
 
 export default {
   name: "dashboard-page",
@@ -587,7 +588,7 @@ export default {
   },
   created() {
     axios
-      .get('http://127.0.0.1:3300/api/info/dashboard')
+      .get(API_URL+'api/info/dashboard')
       .then((response) => {
         console.log(response.data);
         this.containerData = response.data;

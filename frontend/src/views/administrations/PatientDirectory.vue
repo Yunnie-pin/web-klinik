@@ -264,6 +264,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "patient-directory-cuy",
@@ -280,7 +281,7 @@ export default {
   },
   created() {
     axios
-      .get("http://127.0.0.1:3300/api/pasien")
+      .get(API_URL+"api/pasien")
       .then((response) => {
         console.log(response.data);
         this.pasien = response.data;
@@ -292,7 +293,7 @@ export default {
   methods: {
     deletePatient(patientId) {
       axios
-        .delete("http://127.0.0.1:3300/api/pasien", {
+        .delete(API_URL+"api/pasien", {
           data: { id_pasien: patientId },
         })
         .then((response) => {

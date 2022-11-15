@@ -335,6 +335,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "update-patient",
@@ -352,7 +353,7 @@ export default {
 
   created() {
     axios
-      .get("http://127.0.0.1:3300/api/pasien/" + this.$route.params.id)
+      .get(API_URL+"api/pasien/" + this.$route.params.id)
       .then((response) => {
         console.log(response.data);
         this.form = response.data;
@@ -387,7 +388,7 @@ export default {
       bpjsPatient
     ) {
       axios
-        .put("http://127.0.0.1:3300/api/pasien", {
+        .put(API_URL+"api/pasien", {
           id_pasien: idPatient,
           nama: namaPatient,
           tanggal_lahir: tanggalLahirPatient,

@@ -228,6 +228,7 @@
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../connection_api';
 
 export default {
   name: "edit-profile",
@@ -251,7 +252,7 @@ export default {
       ) 
       {
         axios
-        .put("http://127.0.0.1:3300/api/petugas", {
+        .put(API_URL + "api/petugas", {
           username: username, 
           nama_lengkap : namaLengkap,
           nomer_telepon : nomerTelepon,
