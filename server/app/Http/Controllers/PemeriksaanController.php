@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
+use App\Models\Keterangan;
 use App\Models\Pasien;
 use App\Models\Pemeriksaan;
 use App\Models\Status;
@@ -27,7 +28,7 @@ class PemeriksaanController extends Controller
             }
             return new PostResource(true, "data pemeriksaan ditemukan", $periksa);
         } catch (\Throwable $th) {
-            return new PostResource(false, "data pemeriksaan tidak ada", $th->getMessage());
+            return new PostResource(false, "data pemeriksaan tidak ada");
         }
     }
 
@@ -44,7 +45,7 @@ class PemeriksaanController extends Controller
                 'pasien_id'     => 'required',
                 'status_id'     => 'required',
                 'validator_id'  => 'required',
-                'list'          => 'required'
+                'keterangan'    => 'required'
             ];
             $validator = Validator::make($request->all(), $rules);
             if ($validator->fails()) {
@@ -62,8 +63,8 @@ class PemeriksaanController extends Controller
             if (!$validator) {
                 return new PostResource(false, "Validator Pemeriksaan tidak ditemukan");
             }
-            if(!is_array($request->list)){
-                return new PostResource(false,"List not in a List");
+            if(!is_array($request->keterangan) && $request->keterangan != null){
+                return new PostResource(false,"Keterangan not in a List");
             }
             $data = [
                 'user_id' => $request->user()->id,
@@ -72,19 +73,23 @@ class PemeriksaanController extends Controller
                 'validator_pemeriksaan_id' => $request->validator_id,
             ];
             $pemeriksaan = Pemeriksaan::create($data);
-            try {
-                foreach($request->list as $list){
-                    KeteranganController::create($pemeriksaan->id,$list);
+            if($request->keterangan){
+                try {
+                    foreach($request->keterangan as $keterangan){
+                        $keterangan['pemeriksaan_id'] = $pemeriksaan->id;
+                        Keterangan::create($keterangan);
+                    }
+                } catch (\Throwable $th) {
+                    $pemeriksaan->delete();
+                    return new PostResource(false,"Cek Kembali List Keterangan Pemeriksaan");
                 }
-            } catch (\Throwable $th) {
-                $pemeriksaan->delete();
-                return new PostResource(false,"Cek Kembali List Keterangan Pemeriksaan");
             }
             return new PostResource(true, "Pemeriksaan Berhasil Ditambahkan", $this->getPemeriksaan($pemeriksaan->id));
         } catch (\Throwable $th) {
             return new PostResource(false, "Pemeriksaan Gagal Ditambahkan", $th->getMessage());
         }
     }
+
     public function updatePemeriksaan(Request $request)
     {
         $rules = [
@@ -126,6 +131,7 @@ class PemeriksaanController extends Controller
             return new PostResource(false, "Data Pemeriksaan Gagal diperbarui", $th->getMessage());
         }
     }
+    
     public function deletePemeriksaan(Request $request)
     {
         try {
@@ -144,11 +150,12 @@ class PemeriksaanController extends Controller
     }
 
     private function detailed($periksa){
-        $periksa->user = $periksa->user($periksa->user_id);
-        $periksa->pasien = $periksa->pasien($periksa->pasien_id);
-        $periksa->status = $periksa->status($periksa->status_id);
-        $periksa->validator = $periksa->validator($periksa->validator_pemeriksaan_id);
-        $periksa->keterangan = KeteranganController::get($periksa->id);
+        $data = Pemeriksaan::findOrFail($periksa->id);
+        $periksa->user = $data->user()->first();
+        $periksa->pasien = $data->pasien()->first();
+        $periksa->status = $data->status()->first();
+        $periksa->validator = $data->validator()->first();
+        $periksa->keterangan = $data->keterangan()->get();
     }
 
     private function convertStringToArrayObject($list){    

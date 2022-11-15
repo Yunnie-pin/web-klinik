@@ -16,19 +16,23 @@ class Pemeriksaan extends Model
         'validator_pemeriksaan_id',
     ];
 
-    public function user($id){
-        return User::where('id',$id)->first();
+    public function user(){
+        return $this->hasOne(User::class,'id','user_id');
     }
 
-    public function pasien($id){
-        return Pasien::where('id',$id)->first();
+    public function pasien(){
+        return $this->hasOne(Pasien::class,'id','pasien_id');
     }
 
-    public function status($id){
-        return Status::where('id',$id)->first();
+    public function keterangan(){
+        return $this->hasMany(Keterangan::class,'pemeriksaan_id','id'); 
     }
 
-    public function validator($id){
-        return ValidatorPemeriksaan::where('id',$id)->first();
+    public function status(){
+        return $this->hasOne(Status::class,'id','status_id');
+    }
+
+    public function validator(){
+        return $this->hasOne(ValidatorPemeriksaan::class,'id','validator_pemeriksaan_id');
     }
 }

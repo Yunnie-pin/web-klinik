@@ -24,15 +24,15 @@ class PemeriksaanSeeder extends Seeder
                 'validator_pemeriksaan_id' => 1,
             ],
             [ // 2
-                'user_id' => 1,
+                'user_id' => 2,
                 'pasien_id' => 1,
-                'status_id' => 2,
+                'status_id' => 1,
                 'validator_pemeriksaan_id' => 1,
             ],
             [ // 3
-                'user_id' => 1,
+                'user_id' => 2,
                 'pasien_id' => 1,
-                'status_id' => 3,
+                'status_id' => 2,
                 'validator_pemeriksaan_id' => 1,
             ],
             [ // 4
@@ -48,9 +48,9 @@ class PemeriksaanSeeder extends Seeder
                 'validator_pemeriksaan_id' => 1,
             ],
             [ // 6
-                'user_id' => 1,
+                'user_id' => 2,
                 'pasien_id' => 1,
-                'status_id' => 3,
+                'status_id' => 2,
                 'validator_pemeriksaan_id' => 1,
             ],
             [ // 7

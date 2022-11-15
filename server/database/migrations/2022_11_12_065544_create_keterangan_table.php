@@ -21,9 +21,9 @@ return new class extends Migration
                 ->constrained('bidang_pemeriksaan');
             $table->foreignId('parameter_id')
                 ->constrained('parameter_pemeriksaan');
-            $table->text('hasil');
-            $table->text('kesan');
-            $table->text('catatan');
+            $table->text('hasil')->nullable();
+            $table->text('kesan')->nullable();
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }
