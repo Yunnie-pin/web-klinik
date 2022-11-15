@@ -51,6 +51,11 @@
                       <th
                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                       >
+                        Validator
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Waktu
                       </th>
                       <th
@@ -67,27 +72,32 @@
                   </thead>
                   <tbody>
                     <tr v-for="pemeriksaan of pemeriksaan.data" :key="pemeriksaan.id">
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         {{ pemeriksaan.id }}
                       </td>
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         {{ pemeriksaan.pasien.nama}}
                       </td>
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         {{ pemeriksaan.user.username}}
                       </td>
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pemeriksaan.validator.nama}}
+                      </td>
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         {{ pemeriksaan.updated_at}}
                       </td>
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         <p
@@ -96,7 +106,7 @@
                           {{ pemeriksaan.status.name}}
                         </p>
                       </td>
-                      <td
+                      <td v-if="pemeriksaan.status.id == 2"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         <div class="dropdown">
@@ -199,8 +209,6 @@ export default {
       if(idStatus == 1){
         return "bg-red-600"
       } else if(idStatus == 2){
-        return "bg-yellow-600"
-      } else if(idStatus == 3){
         return "bg-green-600"
       }
     },
