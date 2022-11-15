@@ -158,6 +158,7 @@ export default {
       axios.post("http://127.0.0.1:3300/api/login", this.form).then((res) => {
         if (res.data.success == true) {
           localStorage.setItem("authenticated", true);
+          localStorage.setItem("access_token", res.data.data.access_token);
           localStorage.setItem("id", res.data.data.user.id);
           localStorage.setItem("username", res.data.data.user.username);
           localStorage.setItem("email", res.data.data.user.email);
