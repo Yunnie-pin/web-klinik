@@ -170,6 +170,12 @@
                                   v-model="form.password_confirmation"
                                 />
                               </div>
+
+                              <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
+                                >
+                                  {{messages}}
+                                </div>
                             </div>
                           </div>
                         </div>
@@ -278,6 +284,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "create-user",
@@ -297,16 +304,20 @@ export default {
         password_confirmation: "",
         roles_id: null
       },
+      messages : "",
     };
   },
   methods: {
     submitForm() {
       console.log(this.form);
       axios
-        .post("http://127.0.0.1:3300/api/petugas", this.form)
+        .post(API_URL+"api/petugas", this.form)
         .then((res) => {
-          console.log(res);
-          this.$router.push({ path: "/superadmin/employee-directory" });
+          if(res.data.success == true){
+            this.$router.push({ path: "/superadmin/employee-directory" });
+          } else if (res.data.success == false){
+            this.messages = res.data.message;
+          }
         });
     },
   },

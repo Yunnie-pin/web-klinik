@@ -79,7 +79,7 @@
                                 <input
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  placeholder="dd/mm/yyyy"
+                                  placeholder="dd-mm-yyyy"
                                   aria-label="birthday"
                                   id="birthday"
                                   v-model="form.tanggal_lahir"
@@ -197,6 +197,12 @@
                                   class="text-black-700 font-bold text-xs py-1"
                                 >
                                   *Kosongi jika tidak ada
+                                </div>
+
+                                <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
+                                >
+                                  {{messages}}
                                 </div>
                               </div>
                             </div>
@@ -319,7 +325,8 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
-      form: {}
+      form: {},
+      messages: "",
     };
   },
 
@@ -329,8 +336,12 @@ export default {
       axios
         .post(API_URL+"api/pasien", this.form)
         .then((res) => {
-          console.log(res);
-          this.$router.push({ path: "/superadmin/patient-directory" });
+          if(res.data.success == true){
+
+           this.$router.push({ path: "/administrations/patient-registration" });
+          }else{
+            this.messages = res.data.message;
+          }
         });
     },
   },

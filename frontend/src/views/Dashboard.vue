@@ -590,7 +590,6 @@ export default {
     axios
       .get(API_URL+'api/info/dashboard')
       .then((response) => {
-        console.log(response.data);
         this.containerData = response.data;
         this.totalPasien = this.containerData.data.pasien;
         this.pemeriksaanHarian = this.containerData.data.pemeriksaan.harian;

@@ -46,20 +46,6 @@
                             </h5>
 
                             <div class="py-3">
-                              <div class="py-0.5">
-                                <div
-                                  class="text-black-700 font-bold text-xs py-1"
-                                >
-                                  Id
-                                </div>
-                                <input
-                                  type="text"
-                                  class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  aria-label="Id"
-                                  id="Id"
-                                  v-model="employee.id"
-                                />
-                              </div>
 
                               <div class="py-0.5">
                                 <div
@@ -67,7 +53,8 @@
                                 >
                                   Username
                                 </div>
-                                <input
+                                <input 
+                                  disabled
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                   aria-label="username"
@@ -125,7 +112,7 @@
                                 </div>
                                 <select
                                   class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  aria-label="Default select example"
+                                  aria-label="Default select example" v-model="employee.roles_id"
                                 >
                                   <option :value="1">Super Admin</option>
                                   <option :value="2">Administrasi</option>
@@ -148,35 +135,13 @@
                                 />
                               </div>
 
-                              <div class="py-0.5">
-                                <div
-                                  class="text-black-700 font-bold text-xs py-1"
-                                >
-                                  Password
-                                </div>
-                                <input
-                                  type="password"
-                                  class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  placeholder="Password"
-                                  aria-label="password"
-                                  id="password"
-                                />
-                              </div>
 
-                              <div class="py-0.5">
-                                <div
-                                  class="text-black-700 font-bold text-xs py-1"
+                              <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
                                 >
-                                  Konfirmasi Password
+                                  {{messages}}
                                 </div>
-                                <input
-                                  type="password"
-                                  class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  placeholder="Password"
-                                  aria-label="password"
-                                  id="password"
-                                />
-                              </div>
+
                             </div>
                           </div>
                         </div>
@@ -284,6 +249,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "update-employee",
@@ -296,14 +262,14 @@ export default {
       date: new Date().getFullYear(),
       form :{},
       employee: {},
+      messages: ""
     };
   },
 
   created() {
     axios
-      .get("http://127.0.0.1:3300/api/petugas/" + this.$route.params.username)
+      .get(API_URL + "api/petugas/" + this.$route.params.username)
       .then((response) => {
-        console.log(response.data);
         this.form = response.data;
         this.employee = {
           id: this.form.data.id,
@@ -313,11 +279,23 @@ export default {
           email: this.form.data.email,
           roles_id: this.form.data.roles.id,
         }
-        console.log(this.employee);
       })
       .catch((e) => {
         console.log(e);
       });
+  },
+  methods: {
+    submitForm() {
+      axios
+        .put(API_URL+"api/petugas", this.employee)
+        .then((res) => {  
+          if(res.data.success == true){
+           this.$router.push({ path: "/superadmin/employee-directory" });
+          }else{
+            this.messages = res.data.message;
+          }
+        });
+    },
   },
 };
 </script>

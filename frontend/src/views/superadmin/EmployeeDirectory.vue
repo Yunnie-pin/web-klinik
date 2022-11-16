@@ -110,13 +110,13 @@
                           </button>
                         </td>
                       </tr>
-                      
-                      
+                    
   
                     </tbody>
                   </table>
                 </div>
 
+                
               <!-- Modal 1-->
               <div
                 class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
@@ -230,10 +230,18 @@
                 </div>
               </div>
               </div>
+
+              <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
+                                >
+                                  {{messages}}
+                                </div>
+
             </div>
           
   
   
+            
           </div>
           <footer class="block py-4">
             <div class="container mx-auto px-4">
@@ -263,6 +271,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+  import API_URL from '../../connection_api';
   
   export default {
     name: "employee-directory",
@@ -274,30 +283,33 @@
       return {
         date: new Date().getFullYear(),
         petugas: [],
-        targetUsernameModal: null
+        targetUsernameModal: null,
+        messages: null,
       };
     },
 
     created() {
     axios
-      .get('http://127.0.0.1:3300/api/petugas')
+      .get(API_URL+'api/petugas')
       .then((response) => {
-        console.log(response.data);
         this.petugas = response.data;
       })
       .catch((e) => {
         console.log(e);
       });
   },
+
+
   methods: {
-    deletePetugas(petugasId) {
+    deletePetugas(usernamePetugas) {
       axios
-        .delete("http://127.0.0.1:3300/api/parameter-pemeriksaan", {
-          data: { id_parameter: petugasId },
-        })
+        .delete(API_URL + "api/petugas", {data: { username: usernamePetugas }})
         .then((response) => {
-          console.log(response.data);
-          this.$router.push({ path: "/dashboard" });
+          if(response.data.success == true ){
+            this.$router.push({ path: "/dashboard" });
+          }else if(response.data.success == false){
+            this.messages = response.data.message;
+          }
         })
         .catch((e) => {
           console.log(e);

@@ -215,6 +215,13 @@
                                 >
                                   *Kosongi jika tidak ada
                                 </div>
+
+                                
+                                <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
+                                >
+                                  {{messages}}
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -348,6 +355,7 @@ export default {
       date: new Date().getFullYear(),
       form: {},
       patient: {},
+      messages: "",
     };
   },
 
@@ -355,7 +363,6 @@ export default {
     axios
       .get(API_URL+"api/pasien/" + this.$route.params.id)
       .then((response) => {
-        console.log(response.data);
         this.form = response.data;
         this.patient = {
           id: this.form.data.id,
@@ -368,7 +375,6 @@ export default {
           no_identitas: this.form.data.no_identitas,
           bpjs: this.form.data.bpjs,
         };
-        console.log(this.form);
       })
       .catch((e) => {
         console.log(e);
@@ -400,8 +406,12 @@ export default {
           bpjs: bpjsPatient,
         })
         .then((res) => {
-          console.log(res);
-          this.$router.push({ path: "/administrations/patient-directory" });
+          if(res.data.success == true ){
+            this.$router.push({ path: "/administrations/patient-directory" });
+          }else if (res.data.success !== true ){
+            this.messages = "Data tidak sesuai format";
+          }
+
         });
     },
   },
