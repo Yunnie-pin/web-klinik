@@ -12,14 +12,14 @@
         </h1>
 
         <form id="login" class="p-6 md:px-24">
-          <div class="text-light pb-2 font-bold text-white">Username</div>
+          <div class="text-light pb-2 font-bold text-white">Email</div>
           <div>
             <input
               type="text"
               class="border-2 border-white w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-              placeholder="Username"
+              placeholder="Email"
               aria-label="Email"
-              id="username"
+              id="Email"
               v-model="form.email"
             />
           </div>

@@ -279,6 +279,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "create-parameter",
@@ -303,7 +304,7 @@ export default {
   },
   created() {
     axios
-      .get("http://127.0.0.1:3300/api/bidang-pemeriksaan")
+      .get(API_URL+"api/bidang-pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.bidang = response.data;
@@ -312,7 +313,7 @@ export default {
         console.log(e);
       });
     axios
-      .get("http://127.0.0.1:3300/api/metode-pemeriksaan")
+      .get(API_URL +"api/metode-pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.metode = response.data;
@@ -326,7 +327,7 @@ export default {
     submitForm() {
       console.log(this.form);
       axios
-        .post("http://127.0.0.1:3300/api/parameter-pemeriksaan", this.form)
+        .post(API_URL + "api/parameter-pemeriksaan", this.form)
         .then((res) => {
           console.log(res);
           this.$router.push({ path: "/superadmin/parameter-directory" });

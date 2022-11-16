@@ -338,7 +338,7 @@ export default {
         .then((res) => {
           if(res.data.success == true){
 
-           this.$router.push({ path: "/administrations/patient-registration" });
+           this.$router.push({ path: "/administrations/patient-directory" });
           }else{
             this.messages = res.data.message;
           }
