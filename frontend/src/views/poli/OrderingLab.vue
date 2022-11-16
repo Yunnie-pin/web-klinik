@@ -256,6 +256,7 @@
                               <select
                                 class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                 aria-label="Default select example"
+                                v-on:click="targetParameterId()"
                               >
                                 <option
                                   v-for="parameter of parameter.data"
@@ -340,7 +341,7 @@
                     </div>
 
 
-                    <div class="block w-full overflow-x-auto">
+                    <div class="block w-full overflow-x-auto" v-if="keterangan.length !== 0">
                       <table
                         class="items-center w-full bg-transparent border-collapse"
                       >
@@ -384,7 +385,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <tr v-for="keterangan of keterangan" :key="keterangan">
                             <th
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                             >
