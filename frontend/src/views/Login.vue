@@ -1,13 +1,9 @@
 <template class="bg-primary">
   <div class="bg-primary">
-    <div class="grid md:grid-cols-2 md:h-screen">
-      <img
-        src="../assets/img/hero.png"
-        alt="heropict"
-        class="w-screen h-fit maxmd:hidden"
-      />
+    <div class=" md:h-screen">
 
-      <div class="w-full m-auto">
+
+      <div class="sm:w-full md:w-9/12 lg:w-6/12 m-auto lg:pt-16 md:p-10">
         <img src="../assets/img/Logo.png" alt="logo" class="mx-auto py-4" />
         <h1
           class="font-semibold font-sans text-2xl text-white text-center py-2"
@@ -35,7 +31,7 @@
             <input
               :type="passwordFieldType"
               v-model="form.password"
-              class="bg-[#DBDBDB] w-11/12 border-0"
+              class="bg-[#DBDBDB] lg:w-10/12 md:w-10/12 border-0"
               placeholder="Password"
               aria-label="Password"
               id="password"
