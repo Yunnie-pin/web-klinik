@@ -75,7 +75,7 @@
                                   Nama
                                 </div>
                                 <input
-                                disabled
+                                  disabled
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                   placeholder="Nama"
@@ -92,7 +92,7 @@
                                   Jenis Kelamin
                                 </div>
                                 <input
-                                disabled
+                                  disabled
                                   type="text"
                                   class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                   placeholder="Jenis Kelamin"
@@ -149,8 +149,6 @@
                                   v-model="sender.no_telp"
                                 />
                               </div>
-
-
                             </div>
                           </div>
                         </div>
@@ -205,10 +203,7 @@
                                   v-model="selectValidator.nama"
                                 />
                               </div>
-
                             </div>
-
-                            
                           </div>
                         </div>
                       </div>
@@ -271,8 +266,6 @@
                                 </option>
                               </select>
                             </div>
-
-                            
                           </div>
                         </div>
                       </div>
@@ -310,14 +303,14 @@
                               <div
                                 class="text-black-700 font-bold text-xs py-1"
                               >
-                                Diagnosa
+                                Harga
                               </div>
                               <input
                                 type="text"
                                 class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                placeholder="Diagnosa"
-                                aria-label="diagnosa"
-                                id="diagnosa"
+                                placeholder="Harga"
+                                aria-label="Harga"
+                                id="Harga"
                               />
                             </div>
                           </div>
@@ -334,15 +327,120 @@
                                 button
                               </div>
                               <button
-                                type="submit"
+                                type="button"
                                 class="py-2 w-full self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
-                              >
+                                v-on:click="incrementTable()"
+                                >
                                 +
                               </button>
                             </div>
                           </div>
                         </div>
                       </div>
+                    </div>
+
+
+                    <div class="block w-full overflow-x-auto">
+                      <table
+                        class="items-center w-full bg-transparent border-collapse"
+                      >
+                        <thead>
+                          <tr >
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              No
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Nama Pasien
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Jenis Kelamin
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Nomer Telepon
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Alamat
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Cetak
+                            </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Opsi
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                            >
+                              pasien.id
+                            </th>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              pasien.nama
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              pasien.jenis_kelamin
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              pasien.no_telp
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              pasien.alamat
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              <button>
+                                <i class="fas fa-file-alt mr-4"></i>
+                              </button>
+                              <button>
+                                <i class="fas fa-print mr-4"></i>
+                              </button>
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                            >
+                              <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                              >
+                                <i class="fas fa-edit text-orange-500 mr-4"></i>
+                              </button>
+                              <button
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#Modal2"
+                              >
+                                <i class="fas fa-trash text-red-500 mr-4"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
 
                     <div class="p-6">
@@ -408,15 +506,15 @@ export default {
         nama: null,
         jenisKelamin: null,
       },
-      sender : {
+      sender: {
         id: localStorage.getItem("id"),
         nama_lengkap: localStorage.getItem("nama_lengkap"),
         no_telp: localStorage.getItem("no_telp"),
       },
       selectValidator: {
-        nama:null,
-      }
-
+        nama: null,
+      },
+      keterangan: []
     };
   },
   created() {
@@ -456,7 +554,6 @@ export default {
       .catch((e) => {
         console.log(e);
       });
-
   },
   methods: {
     submitForm() {
@@ -469,14 +566,27 @@ export default {
         });
     },
     targetPasienId() {
-      this.index = this.pasien.data.findIndex(idx => idx.id === this.pemeriksaan.pasien_id);
+      this.index = this.pasien.data.findIndex(
+        (idx) => idx.id === this.pemeriksaan.pasien_id
+      );
       this.selectPasien.nama = this.pasien.data[this.index].nama;
-      this.selectPasien.jenisKelamin = this.pasien.data[this.index].jenis_kelamin;
+      this.selectPasien.jenisKelamin =
+        this.pasien.data[this.index].jenis_kelamin;
     },
     targetValidatorId() {
-      this.index2 = this.validator.data.findIndex(idx => idx.id === this.pemeriksaan.validator_id);
+      this.index2 = this.validator.data.findIndex(
+        (idx) => idx.id === this.pemeriksaan.validator_id
+      );
       this.selectValidator.nama = this.validator.data[this.index2].nama;
     },
+    incrementTable(){
+      this.keterangan.push(
+        {
+          coba : "hai"
+        }
+      )
+      console.log(this.keterangan)
+    }
   },
 };
 </script>
