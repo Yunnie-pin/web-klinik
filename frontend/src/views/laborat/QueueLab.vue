@@ -222,7 +222,7 @@
                       <router-link
                         :to="{
                           path:
-                            '/superadmin/update-employee/' +
+                            '/laborat/update-lab/' +
                             targetIdModal,
                         }"
                       >

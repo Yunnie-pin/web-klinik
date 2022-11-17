@@ -29,6 +29,7 @@ import UpdateValidator from './views/superadmin/UpdateValidator.vue'
 import CreateMethode from './views/superadmin/CreateMethode.vue'
 import MethodeDirectory from './views/superadmin/MethodeDirectory.vue'
 import UpdateMethode from './views/superadmin/UpdateMethode.vue'
+import UpdateLab from './views/laborat/UpdateLab.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -171,6 +172,11 @@ const routes = [
     path: "/laborat/queue-lab",
     name: 'Antrean Laboratorium',
     component: QueueLab,
+  },  
+  {
+    path: "/laborat/update-lab/:id",
+    name: 'Proses Pemeriksaan',
+    component: UpdateLab,
   },  
 
   { path: "/:pathMatch(.*)*", redirect: "/login" },
