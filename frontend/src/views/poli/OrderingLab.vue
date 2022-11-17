@@ -228,6 +228,7 @@
                               <select
                                 class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                 aria-label="Default select example"
+                                v-model="pemeriksaan.bidang_id"
                               >
                                 <option
                                   v-for="bidang of bidang.data"
@@ -256,6 +257,7 @@
                               <select
                                 class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                 aria-label="Default select example"
+                                v-model="pemeriksaan.parameter_id"
                                 v-on:click="targetParameterId()"
                               >
                                 <option
@@ -289,6 +291,7 @@
                                 placeholder="Metode"
                                 aria-label="metode"
                                 id="metode"
+                                v-model="selectParameter.metode"
                               />
                             </div>
                           </div>
@@ -312,6 +315,7 @@
                                 placeholder="Harga"
                                 aria-label="Harga"
                                 id="Harga"
+                                v-model="selectParameter.harga"
                               />
                             </div>
                           </div>
@@ -331,7 +335,7 @@
                                 type="button"
                                 class="py-2 w-full self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
                                 v-on:click="incrementTable()"
-                                >
+                              >
                                 +
                               </button>
                             </div>
@@ -340,117 +344,181 @@
                       </div>
                     </div>
 
-
-                    <div class="block w-full overflow-x-auto" v-if="keterangan.length !== 0">
+                    <div
+                      class="block w-full overflow-x-auto"
+                      v-if="keterangan.length !== 0"
+                    >
                       <table
                         class="items-center w-full bg-transparent border-collapse"
                       >
                         <thead>
-                          <tr >
+                          <tr>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              No
+                              Parameter
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Nama Pasien
+                              Hasil
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Jenis Kelamin
+                              Satuan
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Nomer Telepon
+                              Nilai Rujukan
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Alamat
+                              Metode
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Cetak
+                              Kesan
                             </th>
                             <th
                               class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
                             >
-                              Opsi
+                              Catatan
                             </th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="keterangan of keterangan" :key="keterangan">
+                          <tr
+                            v-for="keterangan of keterangan"
+                            :key="keterangan"
+                          >
                             <th
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                             >
-                              pasien.id
+                              {{
+                                parameter.data[keterangan.parameter_id - 1]
+                                  .parameter
+                              }}
                             </th>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              pasien.nama
+                              {{ keterangan.hasil }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              pasien.jenis_kelamin
+                              {{
+                                parameter.data[keterangan.parameter_id - 1]
+                                  .satuan
+                              }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              pasien.no_telp
+                              {{
+                                parameter.data[keterangan.parameter_id - 1]
+                                  .nilai_rujukan
+                              }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              pasien.alamat
+                              {{ metode.data[keterangan.metode_id - 1].nama }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              <button>
-                                <i class="fas fa-file-alt mr-4"></i>
-                              </button>
-                              <button>
-                                <i class="fas fa-print mr-4"></i>
-                              </button>
+                            {{ keterangan.kesan }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                              <button
-                                type="button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                              >
-                                <i class="fas fa-edit text-orange-500 mr-4"></i>
-                              </button>
-                              <button
-                                type="button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#Modal2"
-                              >
-                                <i class="fas fa-trash text-red-500 mr-4"></i>
-                              </button>
+                            {{ keterangan.catatan }}
                             </td>
                           </tr>
                         </tbody>
                       </table>
+                      
                     </div>
 
+
+                    
                     <div class="p-6">
+
+                      <div
+                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
+                                >
+                                  {{messages}}
+                                </div>
+
                       <button
-                        type="submit"
+                        type="button"
                         class="w-44 py-2 mt-4 self-center font-sans font-bold bg-green-700 rounded-full text-xs text-white text-center border-2 border-gray-500"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
                       >
                         Simpan
                       </button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div
+                      class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+                      id="exampleModal"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div
+                        class="modal-dialog relative w-auto pointer-events-none"
+                      >
+                        <div
+                          class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+                        >
+                          <div
+                            class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+                          >
+                            <h5
+                              class="text-xl font-medium leading-normal text-gray-800"
+                              id="exampleModalLabel"
+                            >
+                              Tambahkan Pemeriksaan
+                            </h5>
+                            <button
+                              type="button"
+                              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body relative p-4">
+                            Apakah anda yakin ingin menambahkan Pemeriksaan?
+                          </div>
+                          <div
+                            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+                          >
+                            <button
+                              type="button"
+                              class="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              type="button"
+                              class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+                              data-bs-dismiss="modal"
+                              v-on:click="submitForm()"
+                            >
+                              Save changes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -501,6 +569,7 @@ export default {
       pemeriksaan: [],
       bidang: [],
       parameter: [],
+      metode: [],
       pasien: [],
       validator: [],
       selectPasien: {
@@ -515,7 +584,13 @@ export default {
       selectValidator: {
         nama: null,
       },
-      keterangan: []
+      selectParameter: {
+        parameter: null,
+        metode: null,
+        metodeId: null,
+      },
+      keterangan: [],
+      messages : "",
     };
   },
   created() {
@@ -533,6 +608,15 @@ export default {
       .get(API_URL + "api/parameter-pemeriksaan")
       .then((response) => {
         this.parameter = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    //Get parameter
+    axios
+      .get(API_URL + "api/metode-pemeriksaan")
+      .then((response) => {
+        this.metode = response.data;
       })
       .catch((e) => {
         console.log(e);
@@ -558,12 +642,25 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log(this.form);
       axios
-        .post(API_URL + "api/parameter-pemeriksaan", this.form)
+        .post(API_URL + "api/pemeriksaan", 
+        {
+            pasien_id: this.pemeriksaan.pasien_id,
+            status_id: 1,
+            validator_id: this.pemeriksaan.validator_id,
+            keterangan: this.keterangan,
+          },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        })
         .then((res) => {
-          console.log(res);
-          this.$router.push({ path: "/superadmin/parameter-directory" });
+          if(res.data.success == true){
+            this.$router.push({ path: "/laborat/queue-lab" });
+          }else if(res.data.success == false){
+            this.messages = res.data.message;
+          }
         });
     },
     targetPasienId() {
@@ -580,14 +677,29 @@ export default {
       );
       this.selectValidator.nama = this.validator.data[this.index2].nama;
     },
-    incrementTable(){
-      this.keterangan.push(
-        {
-          coba : "hai"
-        }
-      )
-      console.log(this.keterangan)
-    }
+    targetParameterId() {
+      this.index3 = this.parameter.data.findIndex(
+        (idx) => idx.id === this.pemeriksaan.parameter_id
+      );
+      this.selectParameter.id = this.parameter.data[this.index3].id;
+      this.selectParameter.nama = this.parameter.data[this.index3].parameter;
+      this.selectParameter.metodeId =
+        this.parameter.data[this.index3].metode.id;
+      this.selectParameter.metode =
+        this.parameter.data[this.index3].metode.nama;
+      this.selectParameter.harga = this.parameter.data[this.index3].harga;
+      console.log(this.selectParameter);
+    },
+    incrementTable() {
+      this.keterangan.push({
+        bidang_id: this.pemeriksaan.bidang_id,
+        parameter_id: this.selectParameter.id,
+        metode_id: this.selectParameter.metodeId,
+        hasil: "-",
+        kesan: "-",
+        catatan: "-",
+      });
+    },
   },
 };
 </script>

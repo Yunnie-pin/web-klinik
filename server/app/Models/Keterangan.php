@@ -13,6 +13,7 @@ class Keterangan extends Model
         'pemeriksaan_id',
         'bidang_id',
         'parameter_id',
+        'metode_id',
         'hasil',
         'kesan',
         'catatan'

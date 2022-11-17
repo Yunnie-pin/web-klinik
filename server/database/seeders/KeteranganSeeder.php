@@ -21,6 +21,7 @@ class KeteranganSeeder extends Seeder
                 'pemeriksaan_id' => 1,
                 'bidang_id' => 1,
                 'parameter_id' => 1,
+                'metode_id' => 1,
                 'hasil' => 'pantek',
                 'kesan' => 'mbuh',
                 'catatan' => 'elek'
@@ -29,6 +30,7 @@ class KeteranganSeeder extends Seeder
                 'pemeriksaan_id' => 2,
                 'bidang_id' => 1,
                 'parameter_id' => 1,
+                'metode_id' => 1,
                 'hasil' => 'pantek',
                 'kesan' => 'mbuh',
                 'catatan' => 'elek'
@@ -37,6 +39,7 @@ class KeteranganSeeder extends Seeder
                 'pemeriksaan_id' => 2,
                 'bidang_id' => 1,
                 'parameter_id' => 1,
+                'metode_id' => 1,
                 'hasil' => 'pantek',
                 'kesan' => 'mbuh',
                 'catatan' => 'elek'
