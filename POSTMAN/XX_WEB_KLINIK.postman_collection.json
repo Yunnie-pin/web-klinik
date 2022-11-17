@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a88c6e17-ba46-4922-9ee3-cef1c0ff3dd9",
+		"_postman_id": "f39241a8-ab8c-40b3-a7b6-67a60439743e",
 		"name": "XX_WEB_KLINIK",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23643267"
 	},
 	"item": [
 		{
@@ -603,11 +604,21 @@
 				{
 					"name": "Add Pemeriksaan",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|Nt66o7unTQBh0nRu0gQ5vr7RZ24JXQsQnJis7nZk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pasien_id\": 1,\r\n    \"parameter_id\": 1,\r\n    \"bidang_id\" : 1,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"hasil\":\"memuaskan\",\r\n    \"kesan\":\"mbuh\",\r\n    \"catatan\":\"ra ono\"\r\n}",
+							"raw": "{\r\n    \"pasien_id\": 2,\r\n    \"status_id\" : 1,\r\n    \"validator_id\": 1,\r\n    \"keterangan\":[\r\n        {\r\n            \"bidang_id\":1,\r\n            \"parameter_id\":1,\r\n            \"hasil\":\"marai mumet\",\r\n            \"kesan\":\"malas\",\r\n            \"catatan\":\"konsol\"\r\n        }\r\n        {\r\n            \"bidang_id\":1,\r\n            \"parameter_id\":1,\r\n            \"hasil\":\"marai mumet\",\r\n            \"kesan\":\"malas\",\r\n            \"catatan\":\"konsol\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1162,7 +1173,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_metode\":1\r\n}",
+							"raw": "{\r\n    \"id_validator\":1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1170,7 +1181,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3300/api/metode-pemeriksaan",
+							"raw": "http://127.0.0.1:3300/api/validator-pemeriksaan",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1181,7 +1192,7 @@
 							"port": "3300",
 							"path": [
 								"api",
-								"metode-pemeriksaan"
+								"validator-pemeriksaan"
 							]
 						}
 					},
@@ -1455,8 +1466,8 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"success\": true,\r\n    \"message\": \"login berhasil\",\r\n    \"data\": {\r\n        \"access_token\": \"4|JC7WI44Sx5AQhkgCWEHH8DQERoy0yHgDIABkAEh5\",\r\n        \"token_type\": \"Bearer\",\r\n        \"user\": {\r\n            \"id\": 1,\r\n            \"username\": \"kurniawan\",\r\n            \"email\": \"kurniawanronaldi@gmail.com\",\r\n            \"nama_lengkap\": \"KURNIAWAN RONALDI PURNAMA\",\r\n            \"no_telp\": \"085333260558\",\r\n            \"roles_id\": 1,\r\n            \"email_verified_at\": null,\r\n            \"created_at\": \"2022-10-02T10:44:00.000000Z\",\r\n            \"updated_at\": \"2022-10-02T10:44:00.000000Z\"\r\n        }\r\n    }\r\n}"
 				}
@@ -1539,8 +1550,8 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"success\": true,\r\n    \"message\": \"logout berhasil\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"username\": \"kurniawan\",\r\n        \"email\": \"kurniawanronaldi@gmail.com\",\r\n        \"nama_lengkap\": \"KURNIAWAN RONALDI PURNAMA\",\r\n        \"no_telp\": \"085333260558\",\r\n        \"roles_id\": 1,\r\n        \"email_verified_at\": null,\r\n        \"created_at\": \"2022-10-02T10:44:00.000000Z\",\r\n        \"updated_at\": \"2022-10-02T10:44:00.000000Z\"\r\n    }\r\n}"
 				}
@@ -1565,6 +1576,48 @@
 						"api",
 						"info",
 						"dashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"passwordBaru\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3300/api/change-password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"change-password"
 					]
 				}
 			},
