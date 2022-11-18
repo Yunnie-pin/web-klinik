@@ -112,12 +112,15 @@ class PemeriksaanController extends Controller
         try {
             $pemeriksaan = Pemeriksaan::where('id', $request->id_pemeriksaan)->first();
             if (isset($request->keterangan)) {
-                Keterangan::where('pemeriksaan_id', $request->id_pemeriksaan)->delete();
                 foreach ($request->keterangan as $ket) {
-                    if ($ket->pemeriksaan_id == null) {
+                    if (isset($ket['id'])) {
+                        Keterangan::where('id', $ket['id'])->update($ket);
+                    } else if (isset($ket['_id'])) {
+                        Keterangan::where('id', $ket['_id'])->delete();
+                    } else {
                         $ket['pemeriksaan_id'] = $request->id_pemeriksaan;
+                        Keterangan::create($ket);
                     }
-                    Keterangan::create($ket);
                 }
             }
             $pemeriksaan->update($data);
