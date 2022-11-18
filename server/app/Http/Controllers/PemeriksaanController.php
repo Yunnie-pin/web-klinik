@@ -150,7 +150,19 @@ class PemeriksaanController extends Controller
         $periksa->pasien = $data->pasien()->first();
         $periksa->status = $data->status()->first();
         $periksa->validator = $data->validator()->first();
-        $periksa->keterangan = $data->keterangan()->get();
+        $periksa->keterangan = $this->getKeterangan($periksa->id);
+    }
+
+    private function getKeterangan($id)
+    {
+        $keterangan = Keterangan::where('pemeriksaan_id', $id)->get();
+        foreach ($keterangan as $ket) {
+            $data = Keterangan::findOrFail($ket->id);
+            $ket->bidang = $data->bidang()->get();
+            $ket->parameter = $data->parameter()->get();
+            $ket->metode = $data->metode()->get();
+        }
+        return $keterangan;
     }
 
     private function convertStringToArrayObject($list)
