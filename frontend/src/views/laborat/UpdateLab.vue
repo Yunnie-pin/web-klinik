@@ -171,15 +171,13 @@
                       </div>
                     </div>
 
-                    <h5 class="text-black-700 uppercase font-bold text-sm px-8 py-5">
+                    <h5
+                      class="text-black-700 uppercase font-bold text-sm px-8 py-5"
+                    >
                       Data Pemeriksaan
                     </h5>
 
-
-                    <div
-                      class="block w-full overflow-x-auto"
-                      
-                    >
+                    <div class="block w-full overflow-x-auto">
                       <table
                         class="items-center w-full bg-transparent border-collapse"
                       >
@@ -232,12 +230,10 @@
                             v-for="keterangan of keterangan"
                             :key="keterangan"
                           >
-                          <th
+                            <th
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
                             >
-                              {{
-                                keterangan.id
-                              }}
+                              {{ keterangan.id }}
                             </th>
                             <th
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
@@ -250,12 +246,12 @@
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                            <input
-                                  type="text"
-                                  class="border-1 border-gray-400 px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  placeholder="hasil"
-                                  v-model="keterangan.hasil"
-                                />
+                              <input
+                                type="text"
+                                class="border-1 border-gray-400 px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                placeholder="hasil"
+                                v-model="keterangan.hasil"
+                              />
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
@@ -417,7 +413,7 @@ export default {
       metode: [],
       pasien: [],
       validator: [],
-      pengirim:[],
+      pengirim: [],
       keterangan: [],
       messages: "",
     };
@@ -433,13 +429,18 @@ export default {
         this.validator = this.pemeriksaan.validator;
         this.keterangan = this.pemeriksaan.keterangan;
 
+        for (let index = 0; index < this.keterangan.length; ++index) {
+          delete this.keterangan[index].created_at;
+          delete this.keterangan[index].updated_at;
+        }
+
       })
       .catch((e) => {
         console.log(e);
       });
     // Get Bidang
     axios
-      .get(API_URL+"api/bidang-pemeriksaan")
+      .get(API_URL + "api/bidang-pemeriksaan")
       .then((response) => {
         this.bidang = response.data;
       })
@@ -473,11 +474,7 @@ export default {
           {
             id_pemeriksaan: this.$route.params.id,
             status_id: 2,
-            keterangan: [
-              {
-                
-            }
-          ]
+            keterangan: this.keterangan,
           },
           {
             headers: {
