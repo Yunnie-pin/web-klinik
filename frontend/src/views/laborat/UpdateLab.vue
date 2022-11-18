@@ -53,7 +53,7 @@
                                   Id Pasien
                                 </div>
                                 <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  class="border-2 border-white w-full x  py-2 self-center"
                                 >
                                   {{ pemeriksaan.pasien_id }}
                                 </div>
@@ -66,7 +66,7 @@
                                   Nama
                                 </div>
                                 <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  class="border-2 border-white w-full x  py-2 self-center"
                                 >
                                   {{ pasien.nama }}
                                 </div>
@@ -79,7 +79,7 @@
                                   Jenis Kelamin
                                 </div>
                                 <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  class="border-2 border-white w-full x  py-2 self-center"
                                 >
                                   {{ pasien.jenis_kelamin }}
                                 </div>
@@ -107,7 +107,7 @@
                                   Nama
                                 </div>
                                 <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  class="border-2 border-white w-full x  py-2 self-center"
                                 >
                                   {{ pengirim.nama_lengkap }}
                                 </div>
@@ -119,7 +119,7 @@
                                   Nomer Telepon
                                 </div>
                                 <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  class="border-2 border-white w-full x  py-2 self-center"
                                 >
                                   {{ pengirim.no_telp }}
                                 </div>
@@ -138,7 +138,6 @@
                             >
                               Data Validator
                             </h5>
-
                             <div class="py-3">
                               <div class="py-0.5">
                                 <div
@@ -146,11 +145,20 @@
                                 >
                                   Id
                                 </div>
-                                <div
-                                  class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                <select
+                                  class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                                  aria-label="Default select example"
+                                  v-model="validator_id"
+                                  v-on:click="targetValidatorId()"
                                 >
-                                  {{ validator.id }}
-                                </div>
+                                  <option
+                                    v-for="validator of allValidator.data"
+                                    :key="validator.id"
+                                    :value="validator.id"
+                                  >
+                                    {{ validator.id }}
+                                  </option>
+                                </select>
                               </div>
 
                               <div class="py-0.5">
@@ -162,7 +170,7 @@
                                 <div
                                   class="border-2 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
                                 >
-                                  {{ validator.nama }}
+                                  {{ selectValidator.nama }}
                                 </div>
                               </div>
                             </div>
@@ -413,8 +421,13 @@ export default {
       metode: [],
       pasien: [],
       validator: [],
+      validator_id: null,
+      allValidator: [],
       pengirim: [],
       keterangan: [],
+      selectValidator: {
+        nama: null,
+      },
       messages: "",
     };
   },
@@ -465,14 +478,30 @@ export default {
       .catch((e) => {
         console.log(e);
       });
+    //Get Validator
+    axios
+      .get(API_URL + "api/validator-pemeriksaan")
+      .then((response) => {
+        this.allValidator = response.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
   methods: {
+    targetValidatorId() {
+      this.index2 = this.allValidator.data.findIndex(
+        (idx) => idx.id === this.validator_id
+      );
+      this.selectValidator.nama = this.allValidator.data[this.index2].nama;
+    },
     submitForm() {
       axios
         .put(
           API_URL + "api/pemeriksaan",
           {
             id_pemeriksaan: this.$route.params.id,
+            validator_id: this.validator_id,
             status_id: 2,
             keterangan: this.keterangan,
           },

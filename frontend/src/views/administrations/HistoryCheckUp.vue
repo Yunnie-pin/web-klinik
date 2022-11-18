@@ -25,6 +25,20 @@
                       Riwayat Pemeriksaan
                     </h3>
                   </div>
+                  <div
+                    class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                  >
+                    <select
+                      class="form-select appearance-none border-1 border-gray-400 w-1/3 px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                      aria-label="Default select example"
+                      v-model="formStatus"
+                    >
+                      <option value="1">Belum diproses</option>
+                      <option value="2">Menunggu Direview</option>
+                      <option value="3">Selesai</option>
+                      <option value="4">Dibatalkan</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <div class="block w-full overflow-x-auto">
@@ -71,42 +85,53 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="pemeriksaan of pemeriksaan.data" :key="pemeriksaan.id">
-                      <td v-if="pemeriksaan.status.id == 2"
+                    <tr
+                      v-for="pemeriksaan of pemeriksaan.data"
+                      :key="pemeriksaan.id"
+                    >
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         {{ pemeriksaan.id }}
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        {{ pemeriksaan.pasien.nama}}
+                        {{ pemeriksaan.pasien.nama }}
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        {{ pemeriksaan.user.nama_lengkap}}
+                        {{ pemeriksaan.user.nama_lengkap }}
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        {{ pemeriksaan.validator.nama}}
+                        {{ pemeriksaan.validator.nama }}
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        {{ pemeriksaan.updated_at}}
+                        {{ pemeriksaan.updated_at }}
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         <p
-                          class="text-center py-0.5 w-full rounded text-white" :class="styleStatus(pemeriksaan.status.id)"
+                          class="text-center py-0.5 w-full rounded text-white"
+                          :class="styleStatus(pemeriksaan.status.id)"
                         >
-                          {{ pemeriksaan.status.name}}
+                          {{ pemeriksaan.status.name }}
                         </p>
                       </td>
-                      <td v-if="pemeriksaan.status.id == 2"
+                      <td
+                        v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
                         <div class="dropdown">
@@ -143,8 +168,6 @@
                         </div>
                       </td>
                     </tr>
-                    
-                    
                   </tbody>
                 </table>
               </div>
@@ -190,32 +213,33 @@ export default {
   data() {
     return {
       date: new Date().getFullYear(),
-      pemeriksaan : {},
+      pemeriksaan: {},
+      formStatus: 3,
     };
   },
   created() {
     //read tabel pemeriksaan
     axios
-      .get(API_URL+"api/pemeriksaan")
+      .get(API_URL + "api/pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.pemeriksaan = response.data;
       })
       .catch((e) => {
         console.log(e);
-      }); 
+      });
   },
   methods: {
     styleStatus(idStatus) {
-      if(idStatus == 1){
-        return "bg-red-600"
-      } else if(idStatus == 2){
-        return "bg-green-600"
+      if (idStatus == 1) {
+        return "bg-red-600";
+      } else if (idStatus == 2) {
+        return "bg-green-600";
       }
     },
+    selectedStatus(status){
+      return this.selectedStatus == status;
+    }
   },
-
 };
-
-  
 </script>
