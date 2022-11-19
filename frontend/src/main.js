@@ -30,6 +30,7 @@ import CreateMethode from './views/superadmin/CreateMethode.vue'
 import MethodeDirectory from './views/superadmin/MethodeDirectory.vue'
 import UpdateMethode from './views/superadmin/UpdateMethode.vue'
 import UpdateLab from './views/laborat/UpdateLab.vue'
+import ReviewCheckUp from './views/poli/ReviewCheckUp.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -177,6 +178,11 @@ const routes = [
     path: "/laborat/update-lab/:id",
     name: 'Proses Pemeriksaan',
     component: UpdateLab,
+  },  
+  {
+    path: "/poli/review-check-up/:id",
+    name: 'Review Pemeriksaan',
+    component: ReviewCheckUp,
   },  
 
   { path: "/:pathMatch(.*)*", redirect: "/login" },

@@ -223,7 +223,7 @@
                     <router-link
                       :to="{
                         path:
-                          '/laborat/update-lab/' +
+                          '/poli/review-check-up/' +
                           targetIdModal,
                       }"
                     >
