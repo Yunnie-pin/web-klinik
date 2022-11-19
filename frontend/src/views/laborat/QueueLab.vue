@@ -327,7 +327,7 @@
 import API_URL from '../../connection_api';
 
   export default {
-    name: "report-check-up",
+    name: "queue-lab",
     components: {
       NavbarComponent,
       SidebarComponent,
