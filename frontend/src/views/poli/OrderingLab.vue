@@ -153,60 +153,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="w-full lg:w-4/12 xl:w-3/12 px-4">
-                        <div
-                          class="relative flex flex-col min-w-0 break-words bg-white mb-6 xl:mb-0"
-                        >
-                          <div class="flex-auto p-4">
-                            <h5
-                              class="text-black-700 uppercase font-bold text-sm"
-                            >
-                              Data Validator
-                            </h5>
 
-                            <div class="py-3">
-                              <div class="py-0.5">
-                                <div
-                                  class="text-black-700 font-bold text-xs py-1"
-                                >
-                                  Id
-                                </div>
-                                <select
-                                  class="form-select appearance-none border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  aria-label="Default select example"
-                                  v-model="pemeriksaan.validator_id"
-                                  v-on:click="targetValidatorId()"
-                                >
-                                  <option
-                                    v-for="validator of validator.data"
-                                    :key="validator.id"
-                                    :value="validator.id"
-                                  >
-                                    {{ validator.id }}
-                                  </option>
-                                </select>
-                              </div>
-
-                              <div class="py-0.5">
-                                <div
-                                  class="text-black-700 font-bold text-xs py-1"
-                                >
-                                  Nama
-                                </div>
-                                <input
-                                  disabled
-                                  type="text"
-                                  class="border-1 border-gray-400 w-full px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
-                                  placeholder="Nama Validator"
-                                  aria-label="nama"
-                                  id="namaValidator"
-                                  v-model="selectValidator.nama"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
 
                     <h5 class="text-black-700 uppercase font-bold text-sm px-8">
@@ -647,7 +594,7 @@ export default {
         {
             pasien_id: this.pemeriksaan.pasien_id,
             status_id: 1,
-            validator_id: this.pemeriksaan.validator_id,
+   
             keterangan: this.keterangan,
           },
         {
@@ -671,12 +618,7 @@ export default {
       this.selectPasien.jenisKelamin =
         this.pasien.data[this.index].jenis_kelamin;
     },
-    targetValidatorId() {
-      this.index2 = this.validator.data.findIndex(
-        (idx) => idx.id === this.pemeriksaan.validator_id
-      );
-      this.selectValidator.nama = this.validator.data[this.index2].nama;
-    },
+
     targetParameterId() {
       this.index3 = this.parameter.data.findIndex(
         (idx) => idx.id === this.pemeriksaan.parameter_id

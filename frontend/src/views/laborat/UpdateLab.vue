@@ -439,14 +439,17 @@ export default {
         this.pemeriksaan = response.data.data;
         this.pasien = this.pemeriksaan.pasien;
         this.pengirim = this.pemeriksaan.user;
-        this.validator = this.pemeriksaan.validator;
         this.keterangan = this.pemeriksaan.keterangan;
 
         for (let index = 0; index < this.keterangan.length; ++index) {
+          delete this.keterangan[index].pemeriksaan_id;
           delete this.keterangan[index].created_at;
           delete this.keterangan[index].updated_at;
+          delete this.keterangan[index].parameter;
+          delete this.keterangan[index].metode;
+          delete this.keterangan[index].bidang;
         }
-
+        console.log(this.keterangan)
       })
       .catch((e) => {
         console.log(e);
@@ -512,6 +515,7 @@ export default {
           }
         )
         .then((res) => {
+          console.log(res)
           if (res.data.success == true) {
             this.$router.push({ path: "/Dashboard" });
           } else if (res.data.success == false) {

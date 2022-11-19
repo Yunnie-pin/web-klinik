@@ -44,7 +44,6 @@ class PemeriksaanController extends Controller
             $rules = [
                 'pasien_id'     => 'required',
                 'status_id'     => 'required',
-                'validator_id'  => 'required',
                 'keterangan'    => 'required'
             ];
             $validator = Validator::make($request->all(), $rules);
@@ -58,10 +57,6 @@ class PemeriksaanController extends Controller
             $status = Status::where('id', $request->status_id)->first();
             if (!$status) {
                 return new PostResource(false, "Status tidak ditemukan");
-            }
-            $validator = ValidatorPemeriksaan::where('id', $request->validator_id)->first();
-            if (!$validator) {
-                return new PostResource(false, "Validator Pemeriksaan tidak ditemukan");
             }
             if (!is_array($request->keterangan) && $request->keterangan != null) {
                 return new PostResource(false, "Keterangan not in a List");
