@@ -44,7 +44,6 @@ class PemeriksaanController extends Controller
             $rules = [
                 'pasien_id'     => 'required',
                 'status_id'     => 'required',
-                'validator_id'  => 'required',
                 'keterangan'    => 'required'
             ];
             $validator = Validator::make($request->all(), $rules);
