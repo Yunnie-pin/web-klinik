@@ -21,7 +21,7 @@ return new class extends Migration
                 ->constrained('pasien');
             $table->foreignId('status_id')
                 ->constrained('status');
-            $table->foreignId('validator_pemeriksaan_id')
+            $table->foreignId('validator_pemeriksaan_id')->nullable() 
                 ->constrained('validator_pemeriksaan');
             $table->timestamps();
         });

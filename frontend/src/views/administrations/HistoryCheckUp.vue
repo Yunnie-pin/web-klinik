@@ -234,12 +234,13 @@ export default {
       if (idStatus == 1) {
         return "bg-red-600";
       } else if (idStatus == 2) {
+        return "bg-orange-600";
+      } else if (idStatus == 3) {
         return "bg-green-600";
+      } else if (idStatus == 4) {
+        return "bg-black";
       }
     },
-    selectedStatus(status){
-      return this.selectedStatus == status;
-    }
   },
 };
 </script>
