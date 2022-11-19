@@ -65,8 +65,14 @@ class PemeriksaanController extends Controller
                 'user_id' => $request->user()->id,
                 'pasien_id' => $request->pasien_id,
                 'status_id' => $request->status_id,
-                'validator_pemeriksaan_id' => $request->validator_id,
             ];
+            if (isset($request->validator_id)) {
+                $validator = ValidatorPemeriksaan::where('id', $request->validator_id)->first();
+                if (!$validator) {
+                    return new PostResource(false, "Validator Pemeriksaan tidak ditemukan");
+                }
+                $data['validator_pemeriksaan_id'] = $request->validator_id;
+            }
             $pemeriksaan = Pemeriksaan::create($data);
             if ($request->keterangan) {
                 try {

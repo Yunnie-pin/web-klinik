@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pemeriksaan_id')
                 ->constrained('pemeriksaan');
-            $table->foreignId('bidang_id')->nullable()
+            $table->foreignId('bidang_id')
+                ->nullable()
                 ->constrained('bidang_pemeriksaan');
-            $table->foreignId('parameter_id')->nullable()
+            $table->foreignId('parameter_id')
+                ->nullable()
                 ->constrained('parameter_pemeriksaan');
-            $table->foreignId('metode_id')->nullable()
+            $table->foreignId('metode_id')
+                ->nullable()
                 ->constrained('metode_pemeriksaan');
             $table->text('hasil')->nullable();
             $table->text('kesan')->nullable();
