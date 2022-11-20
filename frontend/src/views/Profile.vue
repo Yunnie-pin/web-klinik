@@ -176,13 +176,13 @@ export default {
   },
   data() {
     return {
-      id: localStorage.getItem("id"),
-      username: localStorage.getItem("username"),
-      email: localStorage.getItem("email"),
-      nama_lengkap: localStorage.getItem("nama_lengkap"),
-      no_telp: localStorage.getItem("no_telp"),
-      roles_id: localStorage.getItem("roles_id"),
-      roles_name: localStorage.getItem("roles_name"),
+      id: sessionStorage.getItem("id"),
+      username: sessionStorage.getItem("username"),
+      email: sessionStorage.getItem("email"),
+      nama_lengkap: sessionStorage.getItem("nama_lengkap"),
+      no_telp: sessionStorage.getItem("no_telp"),
+      roles_id: sessionStorage.getItem("roles_id"),
+      roles_name: sessionStorage.getItem("roles_name"),
     };
   },
 };

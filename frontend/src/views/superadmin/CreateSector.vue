@@ -168,6 +168,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "create-sector",
@@ -187,7 +188,7 @@ export default {
     submitForm() {
       console.log(this.form);
       axios
-        .post("http://127.0.0.1:3300/api/bidang-pemeriksaan", this.form)
+        .post(API_URL + "api/bidang-pemeriksaan", this.form)
         .then((res) => {
           console.log(res);
           this.$router.push({ path: "/superadmin/sector-directory" });

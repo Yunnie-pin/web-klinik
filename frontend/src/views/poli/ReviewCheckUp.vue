@@ -437,7 +437,7 @@
             delete this.keterangan[index].metode;
             delete this.keterangan[index].bidang;
           }
-          console.log(this.keterangan)
+
         })
         .catch((e) => {
           console.log(e);
@@ -491,7 +491,7 @@
             },
             {
               headers: {
-                Authorization: "Bearer " + localStorage.getItem("access_token"),
+                Authorization: "Bearer " + sessionStorage.getItem("access_token"),
               },
             }
           )

@@ -238,9 +238,9 @@ export default {
   },
   data() {
     return {
-      username : localStorage.getItem('username'),
-      nama_lengkap : localStorage.getItem('nama_lengkap'),
-      no_telp : localStorage.getItem('no_telp'),
+      username : sessionStorage.getItem('username'),
+      nama_lengkap : sessionStorage.getItem('nama_lengkap'),
+      no_telp : sessionStorage.getItem('no_telp'),
       message : null,
     };
   },
@@ -260,9 +260,9 @@ export default {
           .then((res) => {
             if(res.data.success == true){
               this.$router.push({ path: "/profile" });
-            localStorage.setItem("username", username);
-            localStorage.setItem("nama_lengkap", namaLengkap);
-            localStorage.setItem("no_telp", nomerTelepon);
+              sessionStorage.setItem("username", username);
+              sessionStorage.setItem("nama_lengkap", namaLengkap);
+              sessionStorage.setItem("no_telp", nomerTelepon);
             } else{
               this.messages = res.data.message;
             }

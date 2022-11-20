@@ -284,6 +284,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 export default {
   name: "parameter-directory",
@@ -301,7 +302,7 @@ export default {
 
   created() {
     axios
-      .get("http://127.0.0.1:3300/api/parameter-pemeriksaan")
+      .get(API_URL + "api/parameter-pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.parameter = response.data;
@@ -313,7 +314,7 @@ export default {
   methods: {
     deleteParameter(parameterId) {
       axios
-        .delete("http://127.0.0.1:3300/api/parameter-pemeriksaan", {
+        .delete(API_URL + "api/parameter-pemeriksaan", {
           data: { id_parameter: parameterId },
         })
         .then((response) => {

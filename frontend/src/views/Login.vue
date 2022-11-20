@@ -153,22 +153,22 @@ export default {
       console.log(this.form);
       axios.post( API_URL + "api/login", this.form).then((res) => {
         if (res.data.success == true) {
-          localStorage.setItem("authenticated", true);
-          localStorage.setItem("access_token", res.data.data.access_token);
-          localStorage.setItem("id", res.data.data.user.id);
-          localStorage.setItem("username", res.data.data.user.username);
-          localStorage.setItem("email", res.data.data.user.email);
-          localStorage.setItem("nama_lengkap", res.data.data.user.nama_lengkap);
-          localStorage.setItem("no_telp", res.data.data.user.no_telp);
-          localStorage.setItem("roles_id", res.data.data.user.roles_id);
+          sessionStorage.setItem("authenticated", true);
+          sessionStorage.setItem("access_token", res.data.data.access_token);
+          sessionStorage.setItem("id", res.data.data.user.id);
+          sessionStorage.setItem("username", res.data.data.user.username);
+          sessionStorage.setItem("email", res.data.data.user.email);
+          sessionStorage.setItem("nama_lengkap", res.data.data.user.nama_lengkap);
+          sessionStorage.setItem("no_telp", res.data.data.user.no_telp);
+          sessionStorage.setItem("roles_id", res.data.data.user.roles_id);
           if(res.data.data.user.roles_id == 1){
-            localStorage.setItem("roles_name", "Super Admin");
+            sessionStorage.setItem("roles_name", "Super Admin");
           } if(res.data.data.user.roles_id == 2){
-            localStorage.setItem("roles_name", "Administrasi");
+            sessionStorage.setItem("roles_name", "Administrasi");
           }  if(res.data.data.user.roles_id == 3){
-            localStorage.setItem("roles_name", "Laborat");
+            sessionStorage.setItem("roles_name", "Laborat");
           }  if(res.data.data.user.roles_id == 4){
-            localStorage.setItem("roles_name", "Poli");
+            sessionStorage.setItem("roles_name", "Poli");
           }  
           this.$router.push({ name: "dashboard" });
         }

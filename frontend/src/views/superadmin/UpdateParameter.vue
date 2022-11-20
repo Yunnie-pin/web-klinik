@@ -304,6 +304,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+import API_URL from '../../connection_api';
 
   export default {
     name: "update-parameter",
@@ -322,7 +323,7 @@
     },
     created() {
     axios
-      .get("http://127.0.0.1:3300/api/bidang-pemeriksaan")
+      .get(API_URL + "api/bidang-pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.bidang = response.data;
@@ -331,7 +332,7 @@
         console.log(e);
       });
     axios
-      .get("http://127.0.0.1:3300/api/metode-pemeriksaan")
+      .get(API_URL +"api/metode-pemeriksaan")
       .then((response) => {
         console.log(response.data);
         this.metode = response.data;
@@ -341,7 +342,7 @@
       });
 
       axios
-      .get('http://127.0.0.1:3300/api/parameter-pemeriksaan/'+ this.$route.params.id)
+      .get(API_URL + 'api/parameter-pemeriksaan/'+ this.$route.params.id)
       .then((response) => {
         console.log(response.data);
         this.form = response.data;
@@ -364,7 +365,7 @@
   methods: {
       submitForm(parameterId, bidangId ,parameterName,nilai_rujukan,metodeId,satuanParameter,hargaParameter) {
         axios
-        .put("http://127.0.0.1:3300/api/parameter-pemeriksaan", {
+        .put(API_URL + "api/parameter-pemeriksaan", {
           id_parameter: parameterId, 
           bidang_id: bidangId,
           parameter : parameterName,

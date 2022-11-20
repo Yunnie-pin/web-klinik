@@ -229,6 +229,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+import API_URL from '../../connection_api';
   
   export default {
     name: "methode-directory",
@@ -246,7 +247,7 @@
 
     created() {
     axios
-      .get('http://127.0.0.1:3300/api/metode-pemeriksaan')
+      .get(API_URL + 'api/metode-pemeriksaan')
       .then((response) => {
         console.log(response.data);
         this.methode = response.data;
@@ -259,7 +260,7 @@
   methods: {
     deleteMethode(methodeId) {
       axios
-      .delete('http://127.0.0.1:3300/api/metode-pemeriksaan', {data:{id_metode:methodeId}} )
+      .delete(API_URL + 'api/metode-pemeriksaan', {data:{id_metode:methodeId}} )
       .then((response) => {
         console.log(response.data);
         this.$router.push({ path: '/dashboard' });

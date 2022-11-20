@@ -62,8 +62,8 @@ export default {
       const router = useRouter();
 
       const logout = () => {
-        localStorage.setItem("authenticated",false);
-        localStorage.removeItem("username");
+        sessionStorage.setItem("authenticated",false);
+        sessionStorage.removeItem("username");
         router.push({name : "login"});
       };
 

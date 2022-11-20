@@ -196,7 +196,7 @@ const router = createRouter({
 
 
 router.beforeEach((to,from, next) => {
-  const isAuthenticated = JSON.parse(localStorage.getItem('authenticated'));
+  const isAuthenticated = JSON.parse(sessionStorage.getItem('authenticated'));
   if(to.name !== 'Login' && !isAuthenticated ) next({ name: "Login"});
   if(to.name === 'Login' && isAuthenticated ) next({ name: "dashboard"});
   else next();

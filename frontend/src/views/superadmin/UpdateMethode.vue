@@ -185,6 +185,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+import API_URL from '../../connection_api';
 
   export default {
     name: "update-methode",
@@ -203,7 +204,7 @@
 
     created() {
     axios
-      .get('http://127.0.0.1:3300/api/metode-pemeriksaan/'+ this.$route.params.id)
+      .get(API_URL + 'api/metode-pemeriksaan/'+ this.$route.params.id)
       .then((response) => {
         console.log(response.data);
         this.form = response.data;
@@ -221,7 +222,7 @@
     methods: {
       submitForm(metodeId,metodeName) {
         axios
-        .put("http://127.0.0.1:3300/api/metode-pemeriksaan", {id_metode: metodeId, nama: metodeName})
+        .put(API_URL + "api/metode-pemeriksaan", {id_metode: metodeId, nama: metodeName})
           .then((res) => {
             console.log(res);
             this.$router.push({ path: "/superadmin/methode-directory" });

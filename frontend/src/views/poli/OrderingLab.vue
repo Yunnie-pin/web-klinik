@@ -524,9 +524,9 @@ export default {
         jenisKelamin: null,
       },
       sender: {
-        id: localStorage.getItem("id"),
-        nama_lengkap: localStorage.getItem("nama_lengkap"),
-        no_telp: localStorage.getItem("no_telp"),
+        id: sessionStorage.getItem("id"),
+        nama_lengkap: sessionStorage.getItem("nama_lengkap"),
+        no_telp: sessionStorage.getItem("no_telp"),
       },
       selectValidator: {
         nama: null,
@@ -543,7 +543,7 @@ export default {
   created() {
     // Get Bidang
     axios
-      .get("http://127.0.0.1:3300/api/bidang-pemeriksaan")
+      .get(API_URL + "api/bidang-pemeriksaan")
       .then((response) => {
         this.bidang = response.data;
       })
@@ -599,7 +599,7 @@ export default {
           },
         {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Authorization: "Bearer " + sessionStorage.getItem("access_token"),
           },
         })
         .then((res) => {

@@ -346,7 +346,7 @@ export default {
     date: new Date().getFullYear(),
     pemeriksaan : {},
     targetIdModal: null,
-    namaLengkapUser : localStorage.getItem('nama_lengkap'),
+    namaLengkapUser : sessionStorage.getItem('nama_lengkap'),
     messages: null,
   };
 },
@@ -387,7 +387,7 @@ methods: {
       },
       {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Authorization: "Bearer " + sessionStorage.getItem("access_token"),
         },
       }
       )

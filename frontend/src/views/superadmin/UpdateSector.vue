@@ -184,6 +184,7 @@
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import axios from "axios";
+import API_URL from '../../connection_api';
 
 
 export default {
@@ -203,7 +204,7 @@ export default {
 
   created() {
     axios
-      .get('http://127.0.0.1:3300/api/bidang-pemeriksaan/'+ this.$route.params.id)
+      .get(API_URL + 'api/bidang-pemeriksaan/'+ this.$route.params.id)
       .then((response) => {
         console.log(response.data);
         this.form = response.data;
@@ -223,7 +224,7 @@ export default {
   methods: {
       submitForm(sectorId,sectorName) {
         axios
-        .put("http://127.0.0.1:3300/api/bidang-pemeriksaan", {id_bidang: sectorId, bidang: sectorName})
+        .put(API_URL + "api/bidang-pemeriksaan", {id_bidang: sectorId, bidang: sectorName})
           .then((res) => {
             console.log(res);
             this.$router.push({ path: "/superadmin/sector-directory" });

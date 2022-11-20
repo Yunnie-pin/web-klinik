@@ -207,6 +207,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+import API_URL from '../../connection_api';
   
   export default {
     name: "update-validator",
@@ -226,7 +227,7 @@
   
     created() {
     axios
-      .get('http://127.0.0.1:3300/api/validator-pemeriksaan/'+ this.$route.params.id)
+      .get(API_URL + 'api/validator-pemeriksaan/'+ this.$route.params.id)
       .then((response) => {
         console.log(response.data);
         this.form = response.data;
@@ -245,7 +246,7 @@
   methods: {
       submitForm(validatorId,validatorName,validatorStatus) {
         axios
-        .put("http://127.0.0.1:3300/api/validator-pemeriksaan", {id_validator: validatorId, nama: validatorName, status : validatorStatus})
+        .put(API_URL + "api/validator-pemeriksaan", {id_validator: validatorId, nama: validatorName, status : validatorStatus})
           .then((res) => {
             console.log({validatorId,validatorName,validatorStatus});
             console.log(res);

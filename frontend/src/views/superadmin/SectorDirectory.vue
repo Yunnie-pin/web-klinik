@@ -226,6 +226,7 @@
   import NavbarComponent from "../../components/Navbar.vue";
   import SidebarComponent from "../../components/Sidebar.vue";
   import axios from "axios";
+import API_URL from '../../connection_api';
   
   
   export default {
@@ -243,7 +244,7 @@
     },
     created() {
     axios
-      .get('http://127.0.0.1:3300/api/bidang-pemeriksaan')
+      .get(API_URL + 'api/bidang-pemeriksaan')
       .then((response) => {
         console.log(response.data);
         this.bidang = response.data;
@@ -255,7 +256,7 @@
   methods: {
     deleteSector(sectorId) {
       axios
-      .delete('http://127.0.0.1:3300/api/bidang-pemeriksaan', {data:{id_bidang:sectorId}} )
+      .delete(API_URL + 'api/bidang-pemeriksaan', {data:{id_bidang:sectorId}} )
       .then((response) => {
         console.log(response.data);
         this.$router.push({ path: '/dashboard' });
