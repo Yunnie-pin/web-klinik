@@ -64,6 +64,13 @@ export default {
       const logout = () => {
         sessionStorage.setItem("authenticated",false);
         sessionStorage.removeItem("username");
+        sessionStorage.removeItem("nama_lengkap");
+        sessionStorage.removeItem("roles_name");
+        sessionStorage.removeItem("id");
+        sessionStorage.removeItem("email");
+        sessionStorage.removeItem("no_telp");
+        sessionStorage.removeItem("access_token");
+        sessionStorage.removeItem("roles_id");
         router.push({name : "login"});
       };
 
