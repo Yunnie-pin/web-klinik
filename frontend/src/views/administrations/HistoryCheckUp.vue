@@ -111,7 +111,12 @@
                         v-if="pemeriksaan.status.id == formStatus"
                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                       >
-                        {{ pemeriksaan.validator.nama }}
+                        <div v-if="pemeriksaan.status.id == 1">
+                          -
+                        </div> 
+                        <div v-else>
+                          {{ pemeriksaan.validator.nama }}
+                        </div>
                       </td>
                       <td
                         v-if="pemeriksaan.status.id == formStatus"
