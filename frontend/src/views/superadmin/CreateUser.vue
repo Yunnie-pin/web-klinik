@@ -255,26 +255,7 @@
             </div>
           </div>
         </div>
-        <footer class="block py-4">
-          <div class="container mx-auto px-4">
-            <hr class="mb-4 border-b-1 border-blueGray-200" />
-            <div
-              class="flex flex-wrap items-center md:justify-between justify-center"
-            >
-              <div class="w-full md:w-4/12 px-4">
-                <div class="text-sm text-blueGray-500 font-semibold py-1">
-                  Copyright © {{ date }}
-                  <a
-                    href="#"
-                    class="text-blueGray-500 hover:text-blueGray-700 text-sm font-semibold py-1"
-                  >
-                    Tobong Tim
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <footer-component></footer-component>
       </div>
     </div>
   </div>
@@ -283,6 +264,7 @@
 <script>
 import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
+import FooterComponent from "../../components/Footer.vue";
 import axios from "axios";
 import API_URL from '../../connection_api';
 
@@ -291,6 +273,7 @@ export default {
   components: {
     NavbarComponent,
     SidebarComponent,
+    FooterComponent,
   },
   data() {
     return {
