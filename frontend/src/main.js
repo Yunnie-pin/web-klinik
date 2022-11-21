@@ -31,6 +31,7 @@ import MethodeDirectory from './views/superadmin/MethodeDirectory.vue'
 import UpdateMethode from './views/superadmin/UpdateMethode.vue'
 import UpdateLab from './views/laborat/UpdateLab.vue'
 import ReviewCheckUp from './views/poli/ReviewCheckUp.vue'
+import ChangePassword from './views/ChangePassword.vue'
 // styles
 
 import 'vue3-easy-data-table/dist/style.css';
@@ -183,6 +184,11 @@ const routes = [
     path: "/poli/review-check-up/:id",
     name: 'Review Pemeriksaan',
     component: ReviewCheckUp,
+  },  
+  {
+    path: "/change-password",
+    name: 'Ganti Password',
+    component: ChangePassword,
   },  
 
   { path: "/:pathMatch(.*)*", redirect: "/login" },
