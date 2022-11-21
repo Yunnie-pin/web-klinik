@@ -2,7 +2,7 @@
   <div>
     <sidebar-component></sidebar-component>
 
-    <div class="relative md:ml-64 bg-blueGray-100">
+    <div class="relative md:ml-64">
       <navbar-component></navbar-component>
 
       <!-- Header -->

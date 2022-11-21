@@ -2,7 +2,7 @@
   <div>
     <sidebar-component></sidebar-component>
 
-    <div class="relative md:ml-64 bg-blueGray-100">
+    <div class="relative md:ml-64">
       <navbar-component></navbar-component>
 
       <!-- Header -->
@@ -29,7 +29,7 @@
                     class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
                   >
                     <select
-                      class="form-select appearance-none border-1 border-gray-400 w-1/3 px-2 py-2 self-center rounded-lg bg-[#DBDBDB] drop-shadow-sm"
+                      class="form-select appearance-none border-1 border-gray-400 w-1/3 px-2 py-2 self-center rounded-lg drop-shadow-sm"
                       aria-label="Default select example"
                       v-model="formStatus"
                     >
@@ -179,7 +179,7 @@
             </div>
           </div>
         </div>
-        <footer class="block py-4">
+        <footer class="block py-4 " >
           <div class="container mx-auto px-4">
             <hr class="mb-4 border-b-1 border-blueGray-200" />
             <div
