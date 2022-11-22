@@ -23,29 +23,29 @@
       class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1"
       v-bind:class="{
         hidden: !dropdownPopoverShow,
-        block: dropdownPopoverShow
+        block: dropdownPopoverShow,
       }"
       style="min-width: 12rem"
     >
-    
       <a
-      
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >      <router-link :to="{ name: 'profile' }">Profile</router-link>
-       
+      >
+        <router-link :to="{ name: 'profile' }">Profile</router-link>
       </a>
 
-      <a
-      
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-      >      <router-link :to="{ name: 'Ganti Password' }">Ganti Password</router-link>
-       
-      </a>
+      <div class="h-0 my-2 border border-solid border-blueGray-100" />
 
+      <a
+        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+      >
+        <router-link :to="{ name: 'Ganti Password' }"
+          >Ganti Password</router-link
+        >
+      </a>
 
       <div class="h-0 my-2 border border-solid border-blueGray-100" />
       <a
-      @click="logout"
+        @click="logout"
         href="#pablo"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
       >
@@ -56,46 +56,44 @@
 </template>
 <script>
 import { createPopper } from "@popperjs/core";
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 
 export default {
   data() {
     return {
-      dropdownPopoverShow: false
+      dropdownPopoverShow: false,
     };
-    
   },
-  setup(){
-      const router = useRouter();
+  setup() {
+    const router = useRouter();
 
-      const logout = () => {
-        sessionStorage.setItem("authenticated",false);
-        sessionStorage.removeItem("username");
-        sessionStorage.removeItem("nama_lengkap");
-        sessionStorage.removeItem("roles_name");
-        sessionStorage.removeItem("id");
-        sessionStorage.removeItem("email");
-        sessionStorage.removeItem("no_telp");
-        sessionStorage.removeItem("access_token");
-        sessionStorage.removeItem("roles_id");
-        router.push({name : "login"});
-      };
+    const logout = () => {
+      sessionStorage.setItem("authenticated", false);
+      sessionStorage.removeItem("username");
+      sessionStorage.removeItem("nama_lengkap");
+      sessionStorage.removeItem("roles_name");
+      sessionStorage.removeItem("id");
+      sessionStorage.removeItem("email");
+      sessionStorage.removeItem("no_telp");
+      sessionStorage.removeItem("access_token");
+      sessionStorage.removeItem("roles_id");
+      router.push({ name: "login" });
+    };
 
-      return {logout}
-
-    },
+    return { logout };
+  },
   methods: {
-    toggleDropdown: function(event) {
+    toggleDropdown: function (event) {
       event.preventDefault();
       if (this.dropdownPopoverShow) {
         this.dropdownPopoverShow = false;
       } else {
         this.dropdownPopoverShow = true;
         createPopper(this.$refs.btnDropdownRef, this.$refs.popoverDropdownRef, {
-          placement: "bottom-end"
+          placement: "bottom-end",
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

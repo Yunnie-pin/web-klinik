@@ -13,7 +13,7 @@
           >
             <span
               id="blackOverlay"
-              class="w-full h-full absolute opacity-50 bg-black"
+              class="w-full h-full absolute opacity-50 bg-primary"
             ></span>
           </div>
           <div

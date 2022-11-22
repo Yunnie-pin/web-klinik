@@ -13,7 +13,7 @@
           >
             <span
               id="blackOverlay"
-              class="w-full h-full absolute opacity-50 bg-black"
+              class="w-full h-full absolute opacity-50 bg-primary"
             ></span>
           </div>
           <div
@@ -80,7 +80,6 @@
                     {{ nama_lengkap }}
                   </h3>
 
-
                   <div class="mx-auto block w-1/2 overflow-x-auto">
                     <table
                       class="items-center w-1/2 bg-transparent border-collapse mx-auto"
@@ -99,7 +98,6 @@
                           >
                             {{ email }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -115,7 +113,6 @@
                           >
                             {{ roles_name }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -131,7 +128,6 @@
                           >
                             {{ no_telp }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -147,13 +143,45 @@
                           >
                             {{ username }}
                           </th>
-                          
                         </tr>
-                        
                       </tbody>
                     </table>
                   </div>
 
+                  <div class="mx-auto block w-1/2 overflow-x-auto py-6 ">
+
+
+                    <table
+                      class="items-center w-1/2 bg-transparent border-collapse mx-auto"
+                    >
+                      <tbody>
+                        <tr class="text-xl  leading-normal mb-2 text-white ">
+                          Ganti Warna
+                        </tr>
+                        <tr>
+                          <th>
+                            <button class="bg-primary p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+                          <th>
+                            <button class="bg-color2 p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+                          <th>
+                            <button class="bg-color3 p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+                          <th>
+                            <button class="bg-color4 p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+                          <th>
+                            <button class="bg-color5 p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+
+                          <th>
+                            <button class="bg-color6 p-3 rounded-md border-2 border-gray-600"></button>
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="mt-10 border-gray-300 text-center"></div>
@@ -165,7 +193,7 @@
     </div>
   </div>
 </template>
-<script >
+<script>
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
 export default {
