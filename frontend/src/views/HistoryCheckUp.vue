@@ -186,11 +186,11 @@
   </div>
 </template>
 <script>
-import NavbarComponent from "../../components/Navbar.vue";
-import SidebarComponent from "../../components/Sidebar.vue";
-import API_URL from "../../connection_api";
+import NavbarComponent from "../components/Navbar.vue";
+import SidebarComponent from "../components/Sidebar.vue";
+import API_URL from "../connection_api";
 import axios from "axios";
-import FooterVue from "../../components/Footer.vue";
+import FooterVue from "../components/Footer.vue";
 
 export default {
   name: "history-check-up",

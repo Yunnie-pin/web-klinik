@@ -69,14 +69,25 @@
         </form>
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
-          <li class="items-center">
+          <li class="items-center pb-2">
             <router-link :to="{ path: '/Dashboard' }"> <a
               class="text-primary hover:text-pink-600 text-xs uppercase py-3 font-bold block"
               ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i> Dashboard</a
             ></router-link>
            
           </li>
+          <li class="inline-flex">
+            <router-link :to="{ path: '/history-checkup' }">            <a
+              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
+              href="#"
+              ><i
+                class="fas fa-table mr-2 text-blueGray-400 text-base"
+              ></i
+              >Riwayat Pemeriksaan</a
+            ></router-link>
+          </li>
         </ul>
+        
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
@@ -107,16 +118,7 @@
               >Registrasi Pasien</a
             ></router-link>
           </li>
-          <li class="inline-flex">
-            <router-link :to="{ path: '/administrations/history-checkup' }">            <a
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-              href="#"
-              ><i
-                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
-              ></i
-              >Riwayat Pemeriksaan</a
-            ></router-link>
-          </li>
+
         </ul>
 
         <h6
@@ -162,16 +164,6 @@
                 class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
               ></i
               >Antrean Pemeriksaan</a
-            ></router-link>
-          </li>
-          <li class="inline-flex">
-            <router-link :to="{ path: '/administrations/history-checkup' }">            <a
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-              href="#"
-              ><i
-                class="fas fa-paint-brush mr-2 text-blueGray-400 text-base"
-              ></i
-              >Riwayat Pemeriksaan</a
             ></router-link>
           </li>
         </ul>

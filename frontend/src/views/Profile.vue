@@ -178,12 +178,6 @@
                           </th>
                           <th>
                             <button
-                              class="bg-color3 p-3 rounded-md border-2 border-gray-600"
-                              v-on:click="changeColor('bg-color3')"
-                            ></button>
-                          </th>
-                          <th>
-                            <button
                               class="bg-color4 p-3 rounded-md border-2 border-gray-600"
                               v-on:click="changeColor('bg-color4')"
                             ></button>

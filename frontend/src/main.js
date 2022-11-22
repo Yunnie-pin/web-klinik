@@ -9,7 +9,7 @@ import Profile from './views/Profile.vue'
 import EditProfile from './views/EditProfile.vue'
 import PatientDirectory from './views/administrations/PatientDirectory.vue'
 import PatientRegistration from './views/administrations/PatientRegistration.vue'
-import HistoryCheckUp from './views/administrations/HistoryCheckUp.vue'
+import HistoryCheckUp from './views/HistoryCheckUp.vue'
 import UpdatePatient from './views/administrations/UpdatePatient.vue'
 import CreateUser from './views/superadmin/CreateUser.vue'
 import CreateSector from './views/superadmin/CreateSector.vue'
@@ -76,7 +76,7 @@ const routes = [
     component: PatientRegistration,
   },  
   {
-    path: "/administrations/history-checkup",
+    path: "/history-checkup",
     name: 'Riwayat Pemeriksaan',
     component: HistoryCheckUp,
   },  
