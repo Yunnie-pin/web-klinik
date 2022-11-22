@@ -133,6 +133,7 @@ export default {
       passwordFieldType: "password",
       iconType: "fa-eye",
 
+      colorBgCustom: localStorage.getItem("colorBg"),
       messages: "",
       form: {
         email: null,

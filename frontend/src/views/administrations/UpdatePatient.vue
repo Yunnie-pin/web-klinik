@@ -7,7 +7,7 @@
 
       <!-- Header -->
 
-      <div class="relative bg-primary md:pt-24 pb-32 pt-12">
+      <div class="relative md:pt-24 pb-32 pt-12" :class="colorBgCustom">
         <div class="px-4 md:px-10 mx-auto w-full"></div>
       </div>
 
@@ -339,6 +339,7 @@ export default {
       form: {},
       patient: {},
       messages: "",
+      colorBgCustom: localStorage.getItem("colorBg"),
     };
   },
 

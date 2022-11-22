@@ -7,7 +7,7 @@
   
         <!-- Header -->
   
-        <div class="relative bg-primary md:pt-24 pb-32 pt-12">
+        <div class="relative md:pt-24 pb-32 pt-12" :class="colorBgCustom">
           <div class="px-4 md:px-10 mx-auto w-full"></div>
         </div>
   
@@ -301,7 +301,8 @@ import API_URL from '../../connection_api';
         form: {},
         bidang: {},
         metode: {},
-        parameter:{}
+        parameter:{},
+        colorBgCustom: localStorage.getItem("colorBg"),
       };
     },
     created() {
