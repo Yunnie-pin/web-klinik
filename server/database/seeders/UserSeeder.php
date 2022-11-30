@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
                 'username' => 'admin',
                 'email' => 'admin@mail.com',
-                'password' => Hash::make('admin123'),
+                'password' => Hash::make('password'),
                 'nama_lengkap' => 'Super Admin',
                 'no_telp' => '08123xxxxxx',
                 'roles_id' => 1,
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             [
                 'username' => 'administrasi',
                 'email' => 'administrasi@mail.com',
-                'password' => Hash::make('admin123'),
+                'password' => Hash::make('password'),
                 'nama_lengkap' => 'Administrasi',
                 'no_telp' => '08123xxxxxx',
                 'roles_id' => 2,
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             [
                 'username' => 'Laborat',
                 'email' => 'laborat@mail.com',
-                'password' => Hash::make('laborat123'),
+                'password' => Hash::make('password'),
                 'nama_lengkap' => 'Laborat',
                 'no_telp' => '08123xxxxxx',
                 'roles_id' => 3,
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             [
                 'username' => 'Poli',
                 'email' => 'poli@mail.com',
-                'password' => Hash::make('poli123'),
+                'password' => Hash::make('password'),
                 'nama_lengkap' => 'Poli',
                 'no_telp' => '08123xxxxxx',
                 'roles_id' => 4,

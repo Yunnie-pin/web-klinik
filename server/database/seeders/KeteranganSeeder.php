@@ -16,40 +16,24 @@ class KeteranganSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            [
-                'pemeriksaan_id' => 1,
-                'bidang_id' => 1,
-                'parameter_id' => 1,
-                'metode_id' => 1,
-                'hasil' => 'pantek',
-                'kesan' => 'mbuh',
-                'catatan' => 'elek'
-            ],
-            [
-                'pemeriksaan_id' => 2,
-                'bidang_id' => 1,
-                'parameter_id' => 1,
-                'metode_id' => 1,
-                'hasil' => 'pantek',
-                'kesan' => 'mbuh',
-                'catatan' => 'elek'
-            ],
-            [
-                'pemeriksaan_id' => 2,
-                'bidang_id' => 1,
-                'parameter_id' => 1,
-                'metode_id' => 1,
-                'hasil' => 'pantek',
-                'kesan' => 'mbuh',
-                'catatan' => 'elek'
-            ]
-        ];
+        $faker = \Faker\Factory::create('id_ID');
         $date = Carbon::createFromFormat('Y-m-d H:i:s', '2022-10-18 00:00:00');
-        foreach ($data as $i => $d) {
+        $this->command->info("Seeding Keterangan");
+        $this->command->getOutput()->progressStart(20);
+        for ($i = 0; $i < 20; $i++) {
             $d['created_at'] = $date->format('Y-m-d H:i:s');
             $d['updated_at'] = $date->format('Y-m-d H:i:s');
-            DB::table('keterangan_pemeriksaan')->insert($d);
+            DB::table('keterangan_pemeriksaan')->insert([
+                'pemeriksaan_id' => rand(1, 20),
+                'bidang_id' => rand(1, 8),
+                'parameter_id' => rand(1, 5),
+                'metode_id' => rand(1, 17),
+                'hasil' => $faker->sentence(),
+                'kesan' => $faker->sentence(),
+                'catatan' => $faker->sentence()
+            ]);
+            $this->command->getOutput()->progressAdvance();
         }
+        $this->command->getOutput()->progressFinish();
     }
 }

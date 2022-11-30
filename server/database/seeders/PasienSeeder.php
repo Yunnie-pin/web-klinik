@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 
 class PasienSeeder extends Seeder
 {
@@ -16,27 +17,24 @@ class PasienSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pasien')->insert([
-            'nama' => 'curut 1',
-            'tanggal_lahir' => date('Y-m-d', strtotime('01/02/1999')),
-            'jenis_identitas' => 'KTP',
-            'no_identitas' => '012344567889123',
-            'bpjs' => "0123921904",
-            'alamat' => "Curutisme, jawa",
-            'no_telp' => "091230948301",
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
-        DB::table('pasien')->insert([
-            'nama' => 'curut 2',
-            'tanggal_lahir' => date('Y-m-d', strtotime('01/02/1999')),
-            'jenis_identitas' => 'KTP',
-            'no_identitas' => '012344567889124',
-            'bpjs' => "0123921905",
-            'alamat' => "Curutisme, jawa",
-            'no_telp' => "091230948301",
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+        $faker = Faker::create('id_ID');
+        $jenis_identitas = ['KTP', 'SIM', 'PASSPORT'];
+        $this->command->info("Seeding Pasien");
+        $this->command->getOutput()->progressStart(30);
+        for ($i = 0; $i < 30; $i++) {
+            DB::table('pasien')->insert([
+                'nama' => $faker->name(),
+                'tanggal_lahir' => $faker->date(),
+                'jenis_identitas' => $jenis_identitas[rand(0, 2)],
+                'no_identitas' => $faker->unique()->nik(),
+                'bpjs' => $faker->unique()->nik(),
+                'alamat' => $faker->address(),
+                'no_telp' => $faker->unixTime(),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }
