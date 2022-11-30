@@ -2,7 +2,6 @@
   <div class="bg-primary">
     <div class=" md:h-screen">
 
-
       <div class="sm:w-full md:w-9/12 lg:w-6/12 m-auto lg:pt-16 md:p-10">
         <img src="../assets/img/Logo.png" alt="logo" class="mx-auto py-4" />
         <h1
@@ -134,6 +133,7 @@ export default {
       passwordFieldType: "password",
       iconType: "fa-eye",
 
+      colorBgCustom: localStorage.getItem("colorBg"),
       messages: "",
       form: {
         email: null,
@@ -161,6 +161,7 @@ export default {
           sessionStorage.setItem("nama_lengkap", res.data.data.user.nama_lengkap);
           sessionStorage.setItem("no_telp", res.data.data.user.no_telp);
           sessionStorage.setItem("roles_id", res.data.data.user.roles_id);
+          localStorage.setItem("colorBg", "bg-primary");
           if(res.data.data.user.roles_id == 1){
             sessionStorage.setItem("roles_name", "Super Admin");
           } if(res.data.data.user.roles_id == 2){

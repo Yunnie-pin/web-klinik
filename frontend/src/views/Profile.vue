@@ -13,7 +13,8 @@
           >
             <span
               id="blackOverlay"
-              class="w-full h-full absolute opacity-50 bg-black"
+              class="w-full h-full absolute opacity-50"
+              :class="colorBgCustom"
             ></span>
           </div>
           <div
@@ -61,7 +62,8 @@
                     <div class="py-6 px-3 mt-32 sm:mt-0">
                       <router-link :to="{ name: 'editprofile' }">
                         <button
-                          class="bg-primary active:primary uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                          class="active:primary uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                          :class="colorBgCustom"
                           type="button"
                           style="transition: all 0.15s ease 0s"
                         >
@@ -80,8 +82,7 @@
                     {{ nama_lengkap }}
                   </h3>
 
-
-                  <div class="mx-auto block w-1/2 overflow-x-auto">
+                  <div class="mx-auto block w-1/2 overflow-x-auto pb-3">
                     <table
                       class="items-center w-1/2 bg-transparent border-collapse mx-auto"
                     >
@@ -99,7 +100,6 @@
                           >
                             {{ email }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -115,7 +115,6 @@
                           >
                             {{ roles_name }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -131,7 +130,6 @@
                           >
                             {{ no_telp }}
                           </th>
-                          
                         </tr>
 
                         <tr>
@@ -147,14 +145,62 @@
                           >
                             {{ username }}
                           </th>
-                          
                         </tr>
-                        
                       </tbody>
                     </table>
                   </div>
 
+                 <div class="bg-gray-300 p-3 rounded-b-xl shadow-md">
+                  <div
+                    class="text-xl font-semibold leading-normal mb-2 text-gray-800 "
+                  >
+                    Ubah Warna
                 </div>
+                  
+
+                  <div class="mx-auto block w-1/2 overflow-x-auto py-2">
+                    <table
+                      class="items-center w-1/2 bg-transparent border-collapse mx-auto"
+                    >
+                      <tbody>
+                        <tr>
+                          <th>
+                            <button
+                              class="bg-primary p-3 rounded-md border-2 border-gray-600"
+                              v-on:click="changeColor('bg-color1')"
+                            ></button>
+                          </th>
+                          <th>
+                            <button
+                              class="bg-color2 p-3 rounded-md border-2 border-gray-600"
+                              v-on:click="changeColor('bg-color2')"
+                            ></button>
+                          </th>
+                          <th>
+                            <button
+                              class="bg-color4 p-3 rounded-md border-2 border-gray-600"
+                              v-on:click="changeColor('bg-color4')"
+                            ></button>
+                          </th>
+                          <th>
+                            <button
+                              class="bg-color5 p-3 rounded-md border-2 border-gray-600"
+                              v-on:click="changeColor('bg-color5')"
+                            ></button>
+                          </th>
+
+                          <th>
+                            <button
+                              class="bg-color6 p-3 rounded-md border-2 border-gray-600"
+                              v-on:click="changeColor('bg-color6')"
+                            ></button>
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                 </div>
 
                 <div class="mt-10 border-gray-300 text-center"></div>
               </div>
@@ -165,7 +211,7 @@
     </div>
   </div>
 </template>
-<script >
+<script>
 import NavbarComponent from "../components/Navbar.vue";
 import SidebarComponent from "../components/Sidebar.vue";
 export default {
@@ -183,7 +229,17 @@ export default {
       no_telp: sessionStorage.getItem("no_telp"),
       roles_id: sessionStorage.getItem("roles_id"),
       roles_name: sessionStorage.getItem("roles_name"),
+
+      //view
+      colorBgCustom: localStorage.getItem("colorBg"),
     };
+  },
+
+  methods: {
+    changeColor(color){
+      this.colorBgCustom = color;
+      localStorage.setItem("colorBg", this.colorBgCustom)
+    }
   },
 };
 </script>

@@ -1,122 +1,154 @@
 <template>
-    <div>
-      <sidebar-component></sidebar-component>
-  
-      <div class="relative md:ml-64">
-        <navbar-component></navbar-component>
-  
-        <!-- Header -->
-  
-        <div class="relative bg-primary md:pt-24 pb-32 pt-12">
-          <div class="px-4 md:px-10 mx-auto w-full">
-          </div>
-        </div>
-  
-        <div class="px-4 md:px-10 mx-auto w-full -m-24">
-          <div class="flex flex-wrap"></div>
-          <div class="flex flex-wrap mt-4">
-            <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
-              >
-                <div class="rounded-t mb-0 px-4 py-3 border-0">
-                  <div class="flex flex-wrap items-center">
-                    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-                      <h3 class="font-semibold text-base text-blueGray-700">
-                        DAFTAR PETUGAS
-                      </h3>
-                    </div>
-                    <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-                      <button
-                        class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        style="transition:all .15s ease"
-                      >
-                        See all
-                      </button>
-                    </div>
+  <div>
+    <sidebar-component></sidebar-component>
+
+    <div class="relative md:ml-64">
+      <navbar-component></navbar-component>
+
+      <!-- Header -->
+
+      <div class="relative md:pt-24 pb-32 pt-12" :class="colorBgCustom">
+        <div class="px-4 md:px-10 mx-auto w-full"></div>
+      </div>
+
+      <div class="px-4 md:px-10 mx-auto w-full -m-24">
+        <div class="flex flex-wrap"></div>
+        <div class="flex flex-wrap mt-4">
+          <div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+            >
+              <div class="rounded-t mb-0 px-4 py-3 border-0">
+                <div class="flex flex-wrap items-center">
+                  <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                    <h3 class="font-semibold text-base text-blueGray-700">
+                      DAFTAR PETUGAS
+                    </h3>
+                  </div>
+                  <div
+                    class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                  >
+                    <button
+                      class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
+                      type="button"
+                      style="transition: all 0.15s ease"
+                    >
+                      See all
+                    </button>
                   </div>
                 </div>
-                <div class="block w-full overflow-x-auto">
-  
-                  <table class="items-center w-full bg-transparent border-collapse">
-                    <thead>
-                      <tr>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          id
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Username
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Email
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Nama
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          No Telepon
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Roles
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Tanggal Pembuatan
-                        </th>
-                        <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                          Opsi
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="petugas of petugas.data" :key="petugas.id">
-                        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                          {{petugas.id}}
-                        </th>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {{petugas.username}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {{petugas.email}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {{petugas.nama_lengkap}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {{petugas.no_telp}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            {{petugas.roles.name}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            {{petugas.created_at}}
-                        </td>
-                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                          
-                            <button   
+              </div>
+              <div class="block w-full overflow-x-auto">
+                <table
+                  class="items-center w-full bg-transparent border-collapse"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        id
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Username
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Email
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Nama
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        No Telepon
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Roles
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Tanggal Pembuatan
+                      </th>
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
+                        Opsi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="petugas of petugas.data" :key="petugas.id">
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                      >
+                        {{ petugas.id }}
+                      </th>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.username }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.email }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.nama_lengkap }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.no_telp }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.roles.name }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ petugas.created_at }}
+                      </td>
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        <button
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
-                          @click=targetUsername(petugas.username)>
-                            <i class="fas fa-edit text-orange-500 mr-4"></i>
-                          </button>
-                    
-                          <button 
+                          @click="targetUsername(petugas.username)"
+                        >
+                          <i class="fas fa-edit text-orange-500 mr-4"></i>
+                        </button>
+
+                        <button
                           type="button"
                           data-bs-toggle="modal"
                           data-bs-target="#Modal2"
-                          @click=targetUsername(petugas.username)>
-                            <i class="fas fa-trash text-red-500 mr-4"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    
-  
-                    </tbody>
-                  </table>
-                </div>
+                          @click="targetUsername(petugas.username)"
+                        >
+                          <i class="fas fa-trash text-red-500 mr-4"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-                
               <!-- Modal 1-->
               <div
                 class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
@@ -160,7 +192,9 @@
                       </button>
                       <router-link
                         :to="{
-                          path: '/superadmin/update-employee/' + targetUsernameModal,
+                          path:
+                            '/superadmin/update-employee/' +
+                            targetUsernameModal,
                         }"
                       >
                         <button
@@ -229,51 +263,45 @@
                   </div>
                 </div>
               </div>
-              </div>
-
-              <div
-                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
-                                >
-                                  {{messages}}
-                                </div>
-
             </div>
-          
-  
-  
-            
+
+            <div class="text-black-700 font-bold text-xs py-1 text-[#E02424]">
+              {{ messages }}
+            </div>
           </div>
-          <footer-component></footer-component>
         </div>
+        <footer-component></footer-component>
       </div>
     </div>
-  </template>
-  <script>
-  import NavbarComponent from "../../components/Navbar.vue";
-  import SidebarComponent from "../../components/Sidebar.vue";
-  import FooterComponent from "../../components/Footer.vue";
-  import axios from "axios";
-  import API_URL from '../../connection_api';
-  
-  export default {
-    name: "employee-directory",
-    components: {
-      NavbarComponent,
-      SidebarComponent,
-      FooterComponent,
-  },
-    data() {
-      return {
-        date: new Date().getFullYear(),
-        petugas: [],
-        targetUsernameModal: null,
-        messages: null,
-      };
-    },
+  </div>
+</template>
+<script>
+import NavbarComponent from "../../components/Navbar.vue";
+import SidebarComponent from "../../components/Sidebar.vue";
+import FooterComponent from "../../components/Footer.vue";
+import axios from "axios";
+import API_URL from "../../connection_api";
 
-    created() {
+export default {
+  name: "employee-directory",
+  components: {
+    NavbarComponent,
+    SidebarComponent,
+    FooterComponent,
+  },
+  data() {
+    return {
+      date: new Date().getFullYear(),
+      petugas: [],
+      targetUsernameModal: null,
+      messages: null,
+      colorBgCustom: localStorage.getItem("colorBg"),
+    };
+  },
+
+  created() {
     axios
-      .get(API_URL+'api/petugas')
+      .get(API_URL + "api/petugas")
       .then((response) => {
         this.petugas = response.data;
       })
@@ -282,15 +310,16 @@
       });
   },
 
-
   methods: {
     deletePetugas(usernamePetugas) {
       axios
-        .delete(API_URL + "api/petugas", {data: { username: usernamePetugas }})
+        .delete(API_URL + "api/petugas", {
+          data: { username: usernamePetugas },
+        })
         .then((response) => {
-          if(response.data.success == true ){
+          if (response.data.success == true) {
             this.$router.push({ path: "/dashboard" });
-          }else if(response.data.success == false){
+          } else if (response.data.success == false) {
             this.messages = response.data.message;
           }
         })
@@ -298,12 +327,9 @@
           console.log(e);
         });
     },
-    targetUsername(username){
-      this.targetUsernameModal = username
-    }
+    targetUsername(username) {
+      this.targetUsernameModal = username;
+    },
   },
-
-
-  };
-  </script>
-  
+};
+</script>
