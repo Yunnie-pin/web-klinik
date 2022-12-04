@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" http-equiv="Content-Type" content="text/html" />
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 70%;
+                margin: auto;
+                border: 1px solid;
+            }
+
+            table table {
+                width: 100%;
+                margin: 0;
+                margin-top: 0.5rem;
+            }
+            .dokter-validator {
+                vertical-align: baseline;
+            }
+            .dokter-validator div:last-of-type {
+                padding-top:2rem;
+            }
+            td {
+                text-align: left;
+                width: 25%;
+                border: 1px solid;
+            }
+
+            .detail td {
+                border: 1px solid;
+                width: 45%;
+            }
+            .detail td:first-of-type {
+                width: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3 style="text-align: center">
+            Cetak Nota <br />
+            Web Klinik
+        </h3>
+        <div style="width: 70%;margin:auto">
+            <h3>Tanggal :</h3>  
+        </div>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <b>Pasien</b>
+                </td>
+                <td colspan="2">
+                    <b>Dokter</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td></td>
+                <td>Nama Dokter</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Id Pasien</td>
+                <td></td>
+                <td>No. Telp</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>No. Telp.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td></td>
+                <td colspan="2"><b>Validator Laborat</b></td>
+            </tr>
+            <tr>
+                <td>Jenis Identitas</td>
+                <td></td>
+                <td>Nama Laborat</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>No. Identitas</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>BPJS</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <div style="width: 70%;margin:auto">
+            <h3>Detail Pemeriksaan :</h3>  
+        </div>
+        <table class="detail">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Pemeriksaan</th>
+                    <th>Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">Total Harga</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

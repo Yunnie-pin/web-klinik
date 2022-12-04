@@ -29,7 +29,7 @@ class PasienSeeder extends Seeder
                 'no_identitas' => $faker->unique()->nik(),
                 'bpjs' => $faker->unique()->nik(),
                 'alamat' => $faker->address(),
-                'no_telp' => $faker->unixTime(),
+                'no_telp' => '08' . $faker->unique()->randomNumber(5, true) . $faker->unique()->randomNumber(5, true),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]);
