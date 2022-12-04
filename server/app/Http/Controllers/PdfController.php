@@ -8,6 +8,7 @@ use App\Models\Pasien;
 use App\Models\Pemeriksaan;
 use App\Models\User;
 use App\Models\ValidatorPemeriksaan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
 
@@ -75,7 +76,7 @@ class PdfController extends Controller
                     Web Klinik
                 </h3>
                 <div style="width: 70%;margin:auto">
-                    <h3>Tanggal :</h3>  
+                    <h3>Tanggal : ' . $data->created_at->translatedFormat('l, d / F / Y') . '</h3>  
                 </div>
                 <table>
                     <tr>
