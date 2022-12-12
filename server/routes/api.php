@@ -148,4 +148,6 @@ Route::group([
     'controller' => PdfController::class
 ], function () {
     Route::post('/nota', 'nota');
+    Route::post('/hasil', 'hasil');
+    Route::get('/kartu-pasien/{id}', 'kartu_pasien');
 });
