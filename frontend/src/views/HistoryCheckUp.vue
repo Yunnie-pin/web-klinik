@@ -158,14 +158,14 @@
                             <li>
                               <a
                                 class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                :href="API_URL + 'api/cetak/hasil/'+pemeriksaan.status.id" target="_blank"
+                                :href="API_URL + 'api/cetak/hasil/'+pemeriksaan.id" target="_blank"
                                 >Cetak Hasil</a
                               >
                             </li>
                             <li>
                               <a
                                 class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                                :href="API_URL + 'api/cetak/nota/'+pemeriksaan.status.id" target="_blank"
+                                :href="API_URL + 'api/cetak/nota/'+pemeriksaan.id" target="_blank"
                                 >Cetak Nota</a
                               >
                             </li>
