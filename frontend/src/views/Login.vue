@@ -10,7 +10,7 @@
           Laborat Klinik Sistem
         </h1>
 
-        <form id="login" class="p-6 md:px-24">
+        <form id="login" class="p-6 md:px-24" @submit.prevent="submitForm()">
           <div class="text-light pb-2 font-bold text-white">Email</div>
           <div>
             <input
@@ -20,6 +20,7 @@
               aria-label="Email"
               id="Email"
               v-model="form.email"
+              
             />
           </div>
 
@@ -49,9 +50,7 @@
 
           <div style="text-align: center !important">
             <button
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              type="submit"
               class="w-44 py-3 mt-4 self-center font-sans font-bold bg-[#374151] rounded-lg text-xs text-white text-center border-2 border-white"
             >
               Login
@@ -59,7 +58,7 @@
           </div>
 
           <!-- Modal -->
-          <div
+          <!-- <div
             class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
             id="exampleModal"
             tabindex="-1"
@@ -110,7 +109,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
         </form>
