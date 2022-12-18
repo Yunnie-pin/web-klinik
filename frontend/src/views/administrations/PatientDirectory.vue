@@ -8,8 +8,7 @@
       <!-- Header -->
 
       <div class="relative md:pt-24 pb-32 pt-12" :class="colorBgCustom">
-        <div class="px-4 md:px-10 mx-auto w-full">
-        </div>
+        <div class="px-4 md:px-10 mx-auto w-full"></div>
       </div>
 
       <div class="px-4 md:px-10 mx-auto w-full -m-24">
@@ -26,11 +25,13 @@
                       DAFTAR PASIEN
                     </h3>
                   </div>
-                  <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                  <div
+                    class="relative w-full px-4 max-w-full flex-grow flex-1 text-right"
+                  >
                     <button
                       class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                       type="button"
-                      style="transition:all .15s ease"
+                      style="transition: all 0.15s ease"
                     >
                       See all
                     </button>
@@ -38,60 +39,79 @@
                 </div>
               </div>
               <div class="block w-full overflow-x-auto">
-
-                <table class="items-center w-full bg-transparent border-collapse">
+                <table
+                  class="items-center w-full bg-transparent border-collapse"
+                >
                   <thead>
                     <tr>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         No
                       </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Nama Pasien
                       </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Jenis Kelamin
                       </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Nomer Telepon
                       </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                        Alamat
-                      </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Cetak
                       </th>
-                      <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                      <th
+                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                      >
                         Opsi
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="pasien of pasien.data" :key="pasien.id">
-                      <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                        {{pasien.id}}
+                      <th
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+                      >
+                        {{ pasien.id }}
                       </th>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {{pasien.nama}}
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pasien.nama }}
                       </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {{pasien.jenis_kelamin}}
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pasien.jenis_kelamin }}
                       </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {{pasien.no_telp}}
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+                        {{ pasien.no_telp }}
                       </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        {{pasien.alamat}}
-                      </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
+
                         <button>
-                          <i class="fas fa-file-alt mr-4"></i>
-                        </button>
-                        <button>
-                          <i class="fas fa-print mr-4"></i>
+                          <a :href="API_URL + 'api/cetak/kartu-pasien/'+pasien.id" target="_blank">
+                          ><i class="fas fa-print mr-4"> Cetak Nota</i></a>
                         </button>
                         
                       </td>
-                      <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <td
+                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                      >
                         <button
                           type="button"
                           data-bs-toggle="modal"
@@ -110,9 +130,6 @@
                         </button>
                       </td>
                     </tr>
-
-                    
-
                   </tbody>
                 </table>
               </div>
@@ -160,7 +177,8 @@
                       </button>
                       <router-link
                         :to="{
-                          path: '/administrations/update-patient/' + targetIdModal,
+                          path:
+                            '/administrations/update-patient/' + targetIdModal,
                         }"
                       >
                         <button
@@ -229,12 +247,8 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-        
-
-
         </div>
         <footer-vue></footer-vue>
       </div>
@@ -246,26 +260,27 @@ import NavbarComponent from "../../components/Navbar.vue";
 import SidebarComponent from "../../components/Sidebar.vue";
 import FooterVue from "../../components/Footer.vue";
 import axios from "axios";
-import API_URL from '../../connection_api';
+import API_URL from "../../connection_api";
 
 export default {
   name: "patient-directory-cuy",
   components: {
     NavbarComponent,
     SidebarComponent,
-    FooterVue
-},
+    FooterVue,
+  },
   data() {
     return {
       date: new Date().getFullYear(),
       pasien: [],
       targetIdModal: null,
       colorBgCustom: localStorage.getItem("colorBg"),
+      API_URL: API_URL,
     };
   },
   created() {
     axios
-      .get(API_URL+"api/pasien")
+      .get(API_URL + "api/pasien")
       .then((response) => {
         console.log(response.data);
         this.pasien = response.data;
@@ -277,7 +292,7 @@ export default {
   methods: {
     deletePatient(patientId) {
       axios
-        .delete(API_URL+"api/pasien", {
+        .delete(API_URL + "api/pasien", {
           data: { id_pasien: patientId },
         })
         .then((response) => {

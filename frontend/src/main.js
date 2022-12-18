@@ -191,6 +191,7 @@ const routes = [
     component: ChangePassword,
   },
 
+
   { path: "/:pathMatch(.*)*", redirect: "/login" },
 ];
 
