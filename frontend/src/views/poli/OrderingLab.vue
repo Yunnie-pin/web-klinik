@@ -153,7 +153,6 @@
                           </div>
                         </div>
                       </div>
-
                     </div>
 
                     <h5 class="text-black-700 uppercase font-bold text-sm px-8">
@@ -335,11 +334,16 @@
                             >
                               Catatan
                             </th>
+                            <th
+                              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+                            >
+                              Opsi
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr
-                            v-for="keterangan of keterangan"
+                            v-for="(keterangan,index) in keterangan"
                             :key="keterangan"
                           >
                             <th
@@ -379,28 +383,30 @@
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                            {{ keterangan.kesan }}
+                              {{ keterangan.kesan }}
                             </td>
                             <td
                               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
                             >
-                            {{ keterangan.catatan }}
+                              {{ keterangan.catatan }}
+                            </td>
+                            <td
+                              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                              v-on:click="deletePemeriksaan(index)"
+                            >
+                              <i class="fas fa-trash text-red-500 mr-4"></i>
                             </td>
                           </tr>
                         </tbody>
                       </table>
-                      
                     </div>
 
-
-                    
                     <div class="p-6">
-
                       <div
-                                  class="text-black-700 font-bold text-xs py-1 text-[#E02424] "
-                                >
-                                  {{messages}}
-                                </div>
+                        class="text-black-700 font-bold text-xs py-1 text-[#E02424]"
+                      >
+                        {{ messages }}
+                      </div>
 
                       <button
                         type="button"
@@ -491,7 +497,7 @@ export default {
   components: {
     NavbarComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
   },
   data() {
     return {
@@ -521,7 +527,7 @@ export default {
         metodeId: null,
       },
       keterangan: [],
-      messages : "",
+      messages: "",
     };
   },
   created() {
@@ -574,22 +580,24 @@ export default {
   methods: {
     submitForm() {
       axios
-        .post(API_URL + "api/pemeriksaan", 
-        {
+        .post(
+          API_URL + "api/pemeriksaan",
+          {
             pasien_id: this.pemeriksaan.pasien_id,
             status_id: 1,
-   
+
             keterangan: this.keterangan,
           },
-        {
-          headers: {
-            Authorization: "Bearer " + sessionStorage.getItem("access_token"),
-          },
-        })
+          {
+            headers: {
+              Authorization: "Bearer " + sessionStorage.getItem("access_token"),
+            },
+          }
+        )
         .then((res) => {
-          if(res.data.success == true){
+          if (res.data.success == true) {
             this.$router.push({ path: "/laborat/queue-lab" });
-          }else if(res.data.success == false){
+          } else if (res.data.success == false) {
             this.messages = res.data.message;
           }
         });
@@ -626,6 +634,10 @@ export default {
         catatan: "-",
       });
     },
+    deletePemeriksaan(index){
+      this.keterangan.splice(index,1);
+      
+    }
   },
 };
 </script>
